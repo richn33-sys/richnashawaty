@@ -101,7 +101,11 @@
   .footer-nav { display: flex; gap: 2rem; }
   .footer-nav a { font-size: 0.875rem; color: var(--text3); text-decoration: none; transition: color 0.2s; }
   .footer-nav a:hover { color: var(--text2); }
-  .footer-copy { font-size: 0.8125rem; color: var(--text3); padding-top: 1.5rem; }
+  .footer-copy { font-size: 0.8125rem; color: var(--text3); }
+  .footer-bottom { padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-legal { display: flex; gap: 1.5rem; }
+  .footer-legal a { font-size: 0.8125rem; color: var(--text3); text-decoration: none; transition: color 0.2s; }
+  .footer-legal a:hover { color: var(--text2); }
 
   @media (max-width: 900px) { .ps-grid, .audience-grid { grid-template-columns: 1fr; } .offering { grid-template-columns: 1fr; } }
   @media (max-width: 640px) { nav { padding: 1rem 1.25rem; } .nav-links { display: none; } section { padding: 4rem 1.25rem; } .cta-box { padding: 2.5rem 1.5rem; } }
@@ -267,7 +271,13 @@
       <div class="footer-logo">Rich Nashawaty<span>.</span></div>
       <nav class="footer-nav"><a href="seo-web.html">SEO & Web</a><a href="ai-consulting.html">AI Consulting</a><a href="custom-tools.html">Custom Tools</a><a href="index.html#contact">Contact</a></nav>
     </div>
-    <p class="footer-copy">© 2026 Rich Nashawaty · richnashawaty.com</p>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Rich Nashawaty · richnashawaty.com</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
   </div>
 </footer>
 </body>
