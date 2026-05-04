@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Consulting — Rich Nashawaty</title>
+<meta name="description" content="Practical AI consulting for small businesses. AI audits, automation strategy, and hands-on implementation by someone who has actually built AI systems from scratch.">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #181816; --bg2: #201f1c; --bg3: #272521;
+    --border: rgba(255,255,255,0.10); --border-h: rgba(255,255,255,0.18);
+    --text: #f4f1ea; --text2: #b8b4ac; --text3: #7a7672;
+    --accent: #c8f060; --accent2: #a8d040; --adim: rgba(200,240,96,0.08);
+    --serif: 'Instrument Serif', serif; --sans: 'DM Sans', sans-serif; --mono: 'DM Mono', monospace;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 2.5rem; display: flex; align-items: center; justify-content: space-between; background: rgba(24,24,22,0.90); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+  .logo { font-family: var(--serif); font-size: 1.15rem; color: var(--text); text-decoration: none; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+  .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.875rem; font-weight: 500; padding: 0.4rem 0.85rem; border-radius: 6px; transition: all 0.18s; }
+  .nav-links a:hover { color: var(--text); background: var(--bg3); }
+  .nav-links a.active { color: var(--accent); }
+  .nav-cta { background: var(--accent); color: #0e0e0c; padding: 0.55rem 1.3rem; border-radius: 6px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.18s; }
+  .nav-cta:hover { background: var(--accent2); }
+  section { padding: 6rem 2.5rem; }
+  .container { max-width: 1080px; margin: 0 auto; }
+  .label { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; display: block; }
+  h1, h2 { font-family: var(--serif); letter-spacing: -0.02em; line-height: 1.1; }
+  h1 { font-size: clamp(3rem, 5.5vw, 4.5rem); }
+  h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+  .sub { font-size: 1.0625rem; color: var(--text2); line-height: 1.75; }
+  .btn { display: inline-block; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 0.9375rem; transition: all 0.2s; }
+  .btn-p { background: var(--accent); color: #0e0e0c; padding: 0.9rem 2rem; }
+  .btn-p:hover { background: var(--accent2); transform: translateY(-2px); }
+  .btn-s { border: 1px solid var(--border-h); color: var(--text2); padding: 0.9rem 2rem; }
+  .btn-s:hover { border-color: var(--text3); color: var(--text); }
+
+  .page-hero { padding-top: 9rem; padding-bottom: 5rem; border-bottom: 1px solid var(--border); }
+  .breadcrumb { font-family: var(--mono); font-size: 0.72rem; color: var(--text3); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumb a { color: var(--text3); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--text2); }
+  .page-hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
+
+  .honest-box { background: var(--bg3); border: 1px solid var(--border-h); border-left: 3px solid var(--accent); border-radius: 12px; padding: 2rem 2.25rem; margin-top: 3.5rem; }
+  .honest-box p { font-size: 1rem; color: var(--text2); line-height: 1.8; }
+  .honest-box p strong { color: var(--text); font-weight: 600; }
+
+  .ps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3.5rem; }
+  .ps-card { border-radius: 14px; padding: 2rem 1.75rem; }
+  .ps-card.problem { background: rgba(255,255,255,0.02); border: 1px solid var(--border); }
+  .ps-card.solution { background: var(--adim); border: 1px solid rgba(200,240,96,0.15); }
+  .ps-label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem; }
+  .ps-card.problem .ps-label { color: var(--text3); }
+  .ps-card.solution .ps-label { color: var(--accent); }
+  .ps-list { list-style: none; }
+  .ps-list li { font-size: 0.9375rem; color: var(--text2); padding: 0.5rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 0.6rem; align-items: flex-start; }
+  .ps-list li:last-child { border-bottom: none; }
+  .ps-card.problem .ps-list li::before { content: '×'; color: var(--text3); font-size: 1rem; flex-shrink: 0; line-height: 1.5; }
+  .ps-card.solution .ps-list li::before { content: '✓'; color: var(--accent); font-size: 0.875rem; flex-shrink: 0; margin-top: 3px; }
+
+  .offerings { display: grid; gap: 1px; background: var(--border); border-radius: 16px; overflow: hidden; margin-top: 3.5rem; }
+  .offering { background: var(--bg2); padding: 2.25rem 2rem; display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: start; transition: background 0.2s; }
+  .offering:hover { background: var(--bg3); }
+  .offering-num { font-family: var(--mono); font-size: 0.7rem; color: var(--text3); margin-bottom: 0.75rem; }
+  .offering h3 { font-family: var(--serif); font-size: 1.35rem; margin-bottom: 0.6rem; }
+  .offering p { font-size: 0.9rem; color: var(--text2); line-height: 1.65; max-width: 560px; }
+  .offering-includes { margin-top: 1.25rem; display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .inc-pill { font-family: var(--mono); font-size: 0.67rem; padding: 0.22rem 0.6rem; border: 1px solid var(--border); border-radius: 20px; color: var(--text3); }
+  .offering-tag { background: var(--adim); border: 1px solid rgba(200,240,96,0.2); border-radius: 8px; padding: 0.4rem 0.9rem; font-family: var(--mono); font-size: 0.7rem; color: var(--accent); white-space: nowrap; align-self: flex-start; margin-top: 4px; }
+
+  .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .aud-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; }
+  .aud-card h3 { font-family: var(--serif); font-size: 1.2rem; margin-bottom: 0.6rem; }
+  .aud-card p { font-size: 0.875rem; color: var(--text2); line-height: 1.65; }
+
+  .steps { margin-top: 3.5rem; display: grid; gap: 0; max-width: 680px; }
+  .step { display: grid; grid-template-columns: 56px 1fr; gap: 0 1.25rem; padding-bottom: 2.5rem; position: relative; }
+  .step:last-child { padding-bottom: 0; }
+  .step::after { content: ''; position: absolute; left: 27px; top: 48px; bottom: 0; width: 1px; background: var(--border); }
+  .step:last-child::after { display: none; }
+  .step-num { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border-h); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.8rem; color: var(--accent); flex-shrink: 0; background: var(--bg2); position: relative; z-index: 1; }
+  .step-body h3 { font-size: 1.0625rem; font-weight: 600; margin-bottom: 0.4rem; padding-top: 0.55rem; }
+  .step-body p { font-size: 0.9rem; color: var(--text2); line-height: 1.65; }
+
+  .cta-box { background: var(--bg3); border: 1px solid var(--border-h); border-radius: 20px; padding: 4rem; text-align: center; position: relative; overflow: hidden; }
+  .cta-box::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(200,240,96,0.05) 0%, transparent 70%); pointer-events: none; }
+  .cta-box h2 { margin-bottom: 1rem; }
+  .cta-box .sub { max-width: 460px; margin: 0 auto 2.5rem; }
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .cta-note { font-family: var(--mono); font-size: 0.72rem; color: var(--text3); margin-top: 1.75rem; }
+
+  .footer-wrap { max-width: 1080px; margin: 0 auto; padding: 3rem 2.5rem; }
+  .footer-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .footer-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); }
+  .footer-logo span { color: var(--accent); }
+  .footer-nav { display: flex; gap: 2rem; }
+  .footer-nav a { font-size: 0.875rem; color: var(--text3); text-decoration: none; transition: color 0.2s; }
+  .footer-nav a:hover { color: var(--text2); }
+  .footer-copy { font-size: 0.8125rem; color: var(--text3); padding-top: 1.5rem; }
+
+  @media (max-width: 900px) { .ps-grid, .audience-grid { grid-template-columns: 1fr; } .offering { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { nav { padding: 1rem 1.25rem; } .nav-links { display: none; } section { padding: 4rem 1.25rem; } .cta-box { padding: 2.5rem 1.5rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Rich Nashawaty<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="seo-web.html">SEO & Web</a></li>
+    <li><a href="ai-consulting.html" class="active">AI Consulting</a></li>
+    <li><a href="custom-tools.html">Custom Tools</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Let's Talk</a>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> AI Consulting</div>
+    <span class="label">AI Consulting</span>
+    <h1>Find where AI gives<br>your business <em>real leverage</em></h1>
+    <p class="sub" style="max-width:580px;margin-top:1.25rem;">Practical AI consulting for small businesses — no hype, no jargon, no vendor agendas. I find the genuine automation opportunities in your business and tell you exactly what to build, why, and in what order. This comes from someone who has actually built it.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-p">Book an AI Audit</a>
+      <a href="#offerings" class="btn btn-s">See What's Included</a>
+    </div>
+
+    <div class="honest-box">
+      <p><strong>An honest note:</strong> Most AI consulting sits at one of two extremes — strategy decks with no implementation path, or developers who build things without understanding your business. I sit in the middle. I have 20 years of business and marketing experience across industries, and I've personally built autonomous trading bots, automated content pipelines, and passive income sites from scratch. When I tell you what AI can realistically do for your business, I'm drawing on real builds — not certifications or courses.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg2);">
+  <div class="container">
+    <span class="label">The Problem</span>
+    <h2>Most businesses are leaving time<br>and money on the table</h2>
+    <p class="sub" style="max-width:520px;margin-top:0.75rem;">The opportunity is real. But most business owners either don't know where to start or get pointed toward the wrong tools.</p>
+    <div class="ps-grid">
+      <div class="ps-card problem">
+        <div class="ps-label">What usually happens</div>
+        <ul class="ps-list">
+          <li>Overwhelmed by the sheer number of AI tools</li>
+          <li>Expensive subscriptions with unclear ROI</li>
+          <li>Generic advice that doesn't fit your actual workflow</li>
+          <li>Consultants who haven't built anything themselves</li>
+          <li>Tools that don't connect to each other</li>
+          <li>Staff time still eaten by automatable tasks</li>
+        </ul>
+      </div>
+      <div class="ps-card solution">
+        <div class="ps-label">What you actually need</div>
+        <ul class="ps-list">
+          <li>A clear map of your highest-leverage opportunities</li>
+          <li>Honest assessment of what AI can and can't do for you</li>
+          <li>Specific tools and workflows — not vague recommendations</li>
+          <li>Someone who has built and run these systems before</li>
+          <li>A prioritized roadmap you can actually execute</li>
+          <li>Implementation support if you want it</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="offerings">
+  <div class="container">
+    <span class="label">What I Offer</span>
+    <h2>Three ways to engage</h2>
+    <p class="sub" style="max-width:500px;margin-top:0.75rem;">Start with an audit. Add ongoing strategy. Build it out if you want. Or take the roadmap and run with it yourself.</p>
+    <div class="offerings">
+      <div class="offering">
+        <div>
+          <div class="offering-num">01</div>
+          <h3>AI Business Audit</h3>
+          <p>A focused deep dive into your business — workflows, team time, tools in use, and current processes. I identify your top automation opportunities, rank them by effort vs impact, and deliver a prioritized written action plan. You walk away knowing exactly what to build and in what order — without having to figure any of it out yourself.</p>
+          <div class="offering-includes">
+            <span class="inc-pill">2-hr strategy session</span><span class="inc-pill">Workflow mapping</span><span class="inc-pill">Tool audit</span><span class="inc-pill">Effort vs impact scoring</span><span class="inc-pill">Written roadmap</span>
+          </div>
+        </div>
+        <div class="offering-tag">One-time</div>
+      </div>
+      <div class="offering">
+        <div>
+          <div class="offering-num">02</div>
+          <h3>AI Strategy & Advisory</h3>
+          <p>Ongoing strategic guidance as you implement AI across your business. Regular calls, tool evaluation, implementation QA, and a second brain as you navigate a space that's changing fast. Best for owners who are executing the builds themselves but want expert input along the way.</p>
+          <div class="offering-includes">
+            <span class="inc-pill">Monthly strategy calls</span><span class="inc-pill">Tool evaluation</span><span class="inc-pill">Implementation QA</span><span class="inc-pill">Async support</span>
+          </div>
+        </div>
+        <div class="offering-tag">Monthly</div>
+      </div>
+      <div class="offering">
+        <div>
+          <div class="offering-num">03</div>
+          <h3>Audit + Build</h3>
+          <p>We audit first, then I build the systems. Full service — from identifying the opportunity to handing you a working automation that runs without ongoing input. Starts with the AI audit and flows into the Custom Tools service for implementation.</p>
+          <div class="offering-includes">
+            <span class="inc-pill">Full AI audit</span><span class="inc-pill">System design</span><span class="inc-pill">Build & deploy</span><span class="inc-pill">Documentation</span><span class="inc-pill">Handoff or retainer</span>
+          </div>
+        </div>
+        <div class="offering-tag">Project</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg2);">
+  <div class="container">
+    <span class="label">Who This Is For</span>
+    <h2>Small businesses ready to run leaner</h2>
+    <p class="sub" style="max-width:500px;margin-top:0.75rem;">I work best with owners and operators who are serious about building real systems — not just experimenting with ChatGPT for a week.</p>
+    <div class="audience-grid">
+      <div class="aud-card">
+        <h3>Service Businesses</h3>
+        <p>Agencies, consultancies, and service providers spending too much time on repeatable work — reporting, client communication, research, scheduling. These processes automate well and the time savings are immediate.</p>
+      </div>
+      <div class="aud-card">
+        <h3>E-commerce Operators</h3>
+        <p>Store owners buried in manual tasks — product descriptions, customer service responses, inventory monitoring, social content. AI typically cuts several hours per week out of operations like these.</p>
+      </div>
+      <div class="aud-card">
+        <h3>Content & Media Businesses</h3>
+        <p>Newsletters, blogs, YouTube channels, podcasts — content businesses that need systems for research, drafting, repurposing, and distribution without burning out the team or the owner.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="label">The Process</span>
+    <h2>How an AI audit works</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div class="step-body"><h3>Discovery call (free)</h3><p>30 minutes to understand your business, your team, and where you feel the most friction. No charge, no obligation — I want to make sure an audit is the right fit before we proceed.</p></div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-body"><h3>Workflow deep dive</h3><p>A structured 2-hour session walking through your processes, tools, team time, and pain points. I ask a lot of questions. The goal is to map what actually happens day-to-day — not what's on paper.</p></div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-body"><h3>Analysis & roadmap</h3><p>I analyze the gaps, match them to realistic AI solutions, and rank them by effort vs impact. You get a written report with a prioritized action plan — not a list of tools to go figure out on your own.</p></div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-body"><h3>Readout & next steps</h3><p>A walkthrough of the findings together. We discuss what to tackle first, what to defer, and whether it makes sense for me to build any of it or hand it off to your team.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:var(--bg2);">
+  <div class="container">
+    <div class="cta-box">
+      <span class="label">Book an AI Audit</span>
+      <h2>Find out where AI can give<br>your business real leverage.</h2>
+      <p class="sub">Start with a free 30-minute call. I'll tell you honestly whether an audit makes sense for your situation — and exactly what you'd walk away with.</p>
+      <div class="cta-actions">
+        <a href="mailto:contact@richnashawaty.com" class="btn btn-p">Book a Free Call</a>
+        <a href="mailto:contact@richnashawaty.com" class="btn btn-s">Send a Message</a>
+      </div>
+      <p class="cta-note">No pitch. No obligation. Just an honest conversation.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-top">
+      <div class="footer-logo">Rich Nashawaty<span>.</span></div>
+      <nav class="footer-nav"><a href="seo-web.html">SEO & Web</a><a href="ai-consulting.html">AI Consulting</a><a href="custom-tools.html">Custom Tools</a><a href="index.html#contact">Contact</a></nav>
+    </div>
+    <p class="footer-copy">© 2026 Rich Nashawaty · richnashawaty.com</p>
+  </div>
+</footer>
+</body>
+</html>

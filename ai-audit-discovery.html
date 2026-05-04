@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Audit Discovery — Rich Nashawaty</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #181816;
+    --bg2: #201f1c;
+    --bg3: #272521;
+    --border: rgba(255,255,255,0.10);
+    --border-h: rgba(255,255,255,0.13);
+    --text: #f4f1ea;
+    --text2: #b8b4ac;
+    --text3: #7a7672;
+    --accent: #c8f060;
+    --accent2: #a8d040;
+    --adim: rgba(200,240,96,0.08);
+    --adim2: rgba(200,240,96,0.14);
+    --serif: 'Instrument Serif', serif;
+    --sans: 'DM Sans', sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 3rem 2rem;
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-h);
+    margin-bottom: 2.5rem;
+  }
+  .header-left {}
+  .header-tag {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .header-tag::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .header-title {
+    font-family: var(--serif);
+    font-size: 2.25rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .header-title em { font-style: italic; color: var(--accent); }
+  .header-sub {
+    font-size: 0.9rem;
+    color: var(--text2);
+    margin-top: 0.5rem;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+  .header-right {
+    text-align: right;
+  }
+  .header-meta {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text3);
+    letter-spacing: 0.06em;
+    line-height: 1.9;
+  }
+  .header-meta strong {
+    color: var(--text2);
+    font-weight: 500;
+  }
+
+  /* CLIENT INFO */
+  .client-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+  }
+  .client-field {
+    background: var(--bg2);
+    padding: 1rem 1.25rem;
+  }
+  .field-label {
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    color: var(--text3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .field-line {
+    border: none;
+    border-bottom: 1px solid var(--border-h);
+    width: 100%;
+    background: transparent;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 0.875rem;
+    padding: 0.25rem 0;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .field-line:focus { border-color: var(--accent); }
+  .field-line::placeholder { color: var(--text3); }
+
+  /* MAIN GRID */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .full-width { grid-column: 1 / -1; }
+
+  /* SECTION CARDS */
+  .section-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .section-card.accent-border { border-color: rgba(200,240,96,0.2); }
+
+  .section-header {
+    padding: 1rem 1.25rem 0.875rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--accent);
+    background: var(--adim);
+    border: 1px solid rgba(200,240,96,0.2);
+    border-radius: 4px;
+    padding: 0.15rem 0.45rem;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+  .section-body { padding: 1.125rem 1.25rem; }
+
+  /* QUESTIONS */
+  .q-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+  .q-item {}
+  .q-text {
+    font-size: 0.8375rem;
+    color: var(--text2);
+    margin-bottom: 0.35rem;
+    line-height: 1.5;
+    display: flex;
+    gap: 0.5rem;
+  }
+  .q-text::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 0.72rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .q-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    padding: 0.3rem 0;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+  .q-input:focus { border-color: rgba(200,240,96,0.4); }
+  .q-input::placeholder { color: var(--text3); font-size: 0.775rem; }
+
+  /* TAGS / CHECKBOXES */
+  .tag-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+  .tag-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+  }
+  .tag-item input[type="checkbox"] { display: none; }
+  .tag-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    padding: 0.25rem 0.65rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text3);
+    cursor: pointer;
+    transition: all 0.18s;
+    user-select: none;
+    letter-spacing: 0.03em;
+  }
+  .tag-item input:checked + .tag-label {
+    background: var(--adim2);
+    border-color: rgba(200,240,96,0.35);
+    color: var(--accent);
+  }
+
+  /* SCORE GRID */
+  .score-grid { display: grid; grid-template-columns: 1fr auto; gap: 0.6rem 1rem; align-items: center; }
+  .score-label { font-size: 0.8125rem; color: var(--text2); }
+  .score-dots { display: flex; gap: 0.3rem; }
+  .score-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid var(--border-h);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+  }
+  .score-dot:hover { border-color: var(--accent); }
+  .score-dot.filled { background: var(--accent); border-color: var(--accent); }
+  .score-dot.filled::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: #181816;
+  }
+
+  /* OPPORTUNITY MATRIX */
+  .matrix-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 0.75rem;
+  }
+  .matrix-cell {
+    background: var(--bg3);
+    padding: 0.875rem 1rem;
+  }
+  .matrix-cell-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--text3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .matrix-cell-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    padding: 0.2rem 0;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .matrix-cell-input:focus { border-color: rgba(200,240,96,0.4); }
+  .matrix-cell-input::placeholder { color: var(--text3); font-size: 0.75rem; }
+
+  /* PRIORITY RANKING */
+  .priority-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .priority-item {
+    display: grid;
+    grid-template-columns: 24px 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 0.6rem 0.875rem;
+    transition: border-color 0.2s;
+  }
+  .priority-item:focus-within { border-color: rgba(200,240,96,0.3); }
+  .priority-rank {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .priority-input {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    outline: none;
+    width: 100%;
+  }
+  .priority-input::placeholder { color: var(--text3); }
+  .priority-impact {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    color: var(--text3);
+    background: transparent;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+  .priority-impact:hover { border-color: var(--accent); color: var(--accent); }
+  .priority-impact.high { background: var(--adim); border-color: rgba(200,240,96,0.3); color: var(--accent); }
+  .priority-impact.med { background: rgba(255,180,50,0.08); border-color: rgba(255,180,50,0.25); color: #ffb432; }
+  .priority-impact.low { background: rgba(255,255,255,0.03); border-color: var(--border); color: var(--text3); }
+
+  /* NOTES */
+  .notes-area {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 0.8375rem;
+    line-height: 1.7;
+    outline: none;
+    resize: none;
+    padding: 0.25rem 0;
+    transition: border-color 0.2s;
+  }
+  .notes-area:focus { border-color: rgba(200,240,96,0.35); }
+  .notes-area::placeholder { color: var(--text3); }
+
+  /* BOTTOM BAR */
+  .bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .bottom-brand {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--text2);
+  }
+  .bottom-brand span { color: var(--accent); }
+  .bottom-actions { display: flex; gap: 0.75rem; }
+  .btn-action {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    padding: 0.5rem 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.18s;
+    border: none;
+    text-transform: uppercase;
+  }
+  .btn-print {
+    background: var(--bg3);
+    border: 1px solid var(--border-h);
+    color: var(--text2);
+  }
+  .btn-print:hover { color: var(--text); border-color: var(--text3); }
+  .btn-clear {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text3);
+  }
+  .btn-clear:hover { color: var(--text2); border-color: var(--border-h); }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a18; padding: 1.5rem; }
+    :root {
+      --bg: white; --bg2: #f5f5f3; --bg3: #eeede9;
+      --border: rgba(0,0,0,0.1); --border-h: rgba(0,0,0,0.18);
+      --text: #1a1a18; --text2: #4a4a45; --text3: #9a9a92;
+      --accent: #5a8a00; --adim: rgba(90,138,0,0.08); --adim2: rgba(90,138,0,0.14);
+    }
+    .bottom-actions { display: none; }
+    .section-card { break-inside: avoid; }
+  }
+
+  @media (max-width: 720px) {
+    .header { grid-template-columns: 1fr; }
+    .header-right { text-align: left; }
+    .client-row { grid-template-columns: 1fr 1fr; }
+    .main-grid { grid-template-columns: 1fr; }
+    .full-width { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="header-tag">AI Business Audit</div>
+      <h1 class="header-title">Discovery <em>Intake</em></h1>
+      <p class="header-sub">Use this before or during your first client call. Fill it out as you talk — or send it ahead as a pre-call questionnaire.</p>
+    </div>
+    <div class="header-right">
+      <div class="header-meta">
+        <strong>Rich Nashawaty</strong><br>
+        richnashawaty.com<br>
+        contact@richnashawaty.com<br>
+        <br>
+        Date: <input class="field-line" style="width:110px;display:inline-block;" placeholder="__ / __ / ____">
+      </div>
+    </div>
+  </div>
+
+  <!-- CLIENT INFO -->
+  <div class="client-row">
+    <div class="client-field">
+      <div class="field-label">Company</div>
+      <input class="field-line" placeholder="Acme Co.">
+    </div>
+    <div class="client-field">
+      <div class="field-label">Contact Name</div>
+      <input class="field-line" placeholder="Jane Smith">
+    </div>
+    <div class="client-field">
+      <div class="field-label">Role / Title</div>
+      <input class="field-line" placeholder="Founder, CEO, Ops…">
+    </div>
+    <div class="client-field">
+      <div class="field-label">Industry</div>
+      <input class="field-line" placeholder="E-commerce, Agency…">
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main-grid">
+
+    <!-- 01: BUSINESS OVERVIEW -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <span class="section-title">Business Overview</span>
+      </div>
+      <div class="section-body">
+        <ul class="q-list">
+          <li class="q-item">
+            <div class="q-text">What does the business do and who are your customers?</div>
+            <textarea class="q-input" rows="2" placeholder="Core offering, target customer, business model…"></textarea>
+          </li>
+          <li class="q-item">
+            <div class="q-text">How many people are on the team? Any dedicated ops, marketing, or admin staff?</div>
+            <input class="q-input" placeholder="e.g. 5 total — 2 ops, 1 sales, 2 founders">
+          </li>
+          <li class="q-item">
+            <div class="q-text">What's your current annual revenue range?</div>
+            <div class="tag-grid">
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">&lt; $250k</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">$250k–$1M</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">$1M–$5M</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">$5M+</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Prefer not to say</span></label>
+            </div>
+          </li>
+          <li class="q-item">
+            <div class="q-text">What are you trying to grow, fix, or protect right now?</div>
+            <textarea class="q-input" rows="2" placeholder="Growth goals, current problems, things at risk…"></textarea>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 02: CURRENT TOOLS -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <span class="section-title">Current Tools & Stack</span>
+      </div>
+      <div class="section-body">
+        <ul class="q-list">
+          <li class="q-item">
+            <div class="q-text">What tools does the team use daily? (CRM, PM, comms, analytics, etc.)</div>
+            <textarea class="q-input" rows="2" placeholder="e.g. HubSpot, Slack, Notion, Google Analytics, Shopify…"></textarea>
+          </li>
+          <li class="q-item">
+            <div class="q-text">Are you using any AI tools already?</div>
+            <div class="tag-grid">
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">ChatGPT</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Claude</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Copilot</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Gemini</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Zapier/Make</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">n8n</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">None yet</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Other</span></label>
+            </div>
+          </li>
+          <li class="q-item">
+            <div class="q-text">How technical is the team? Can anyone manage code or integrations?</div>
+            <div class="tag-grid">
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Non-technical</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Some comfort</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">In-house dev</span></label>
+            </div>
+          </li>
+          <li class="q-item">
+            <div class="q-text">Any tools you've tried and abandoned? Why?</div>
+            <textarea class="q-input" rows="2" placeholder="Important for avoiding wasted effort…"></textarea>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 03: TIME DRAINS -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <span class="section-title">Where Time Gets Wasted</span>
+      </div>
+      <div class="section-body">
+        <ul class="q-list">
+          <li class="q-item">
+            <div class="q-text">What tasks eat the most time each week that feel repetitive or manual?</div>
+            <textarea class="q-input" rows="2" placeholder="e.g. reporting, data entry, email responses, content creation…"></textarea>
+          </li>
+          <li class="q-item">
+            <div class="q-text">Which of these categories apply? (check all that apply)</div>
+            <div class="tag-grid">
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Reporting / analytics</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Customer comms</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Content creation</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Data entry / cleanup</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Research</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Scheduling</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Social media</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Invoicing / admin</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Hiring / HR</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Inventory mgmt</span></label>
+            </div>
+          </li>
+          <li class="q-item">
+            <div class="q-text">If you could eliminate one task from your week, what would it be?</div>
+            <input class="q-input" placeholder="The one thing that immediately comes to mind…">
+          </li>
+          <li class="q-item">
+            <div class="q-text">Roughly how many hours/week does the team spend on manual/repetitive work?</div>
+            <div class="tag-grid">
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">1–5 hrs</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">5–15 hrs</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">15–30 hrs</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">30+ hrs</span></label>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 04: GOALS & CONSTRAINTS -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <span class="section-title">Goals & Constraints</span>
+      </div>
+      <div class="section-body">
+        <ul class="q-list">
+          <li class="q-item">
+            <div class="q-text">What's the primary outcome you want from AI? (pick the closest)</div>
+            <div class="tag-grid">
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Save time</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Cut costs</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Grow revenue</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Scale without hiring</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Improve quality</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">All of the above</span></label>
+            </div>
+          </li>
+          <li class="q-item">
+            <div class="q-text">What's your rough budget for AI tools and implementation?</div>
+            <div class="tag-grid">
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">&lt; $500/mo</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">$500–$2k/mo</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">$2k–$5k/mo</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Flexible</span></label>
+            </div>
+          </li>
+          <li class="q-item">
+            <div class="q-text">Any hard constraints? (data privacy, regulated industry, no-cloud rules, etc.)</div>
+            <textarea class="q-input" rows="2" placeholder="HIPAA, GDPR, financial regulations, client NDAs…"></textarea>
+          </li>
+          <li class="q-item">
+            <div class="q-text">How quickly do you want to see results?</div>
+            <div class="tag-grid">
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Weeks</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">1–3 months</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">3–6 months</span></label>
+              <label class="tag-item"><input type="checkbox"><span class="tag-label">Long-term only</span></label>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 05: READINESS -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <span class="section-title">AI Readiness Check</span>
+      </div>
+      <div class="section-body">
+        <p style="font-size:0.8rem;color:var(--text3);margin-bottom:1rem;font-family:var(--mono);letter-spacing:0.04em;">Rate 1–5 by clicking the dots</p>
+        <div class="score-grid" id="scoreGrid">
+          <div class="score-label">Data is organized and accessible</div>
+          <div class="score-dots" data-key="data"></div>
+          <div class="score-label">Processes are documented</div>
+          <div class="score-dots" data-key="process"></div>
+          <div class="score-label">Team is open to change</div>
+          <div class="score-dots" data-key="team"></div>
+          <div class="score-label">Leadership is bought in</div>
+          <div class="score-dots" data-key="leadership"></div>
+          <div class="score-label">Budget has been allocated</div>
+          <div class="score-dots" data-key="budget"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06: OPPORTUNITY NOTES -->
+    <div class="section-card accent-border">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <span class="section-title">Opportunity Notes (for Rich)</span>
+      </div>
+      <div class="section-body">
+        <div class="matrix-grid">
+          <div class="matrix-cell">
+            <div class="matrix-cell-label">Quick wins (low effort, high impact)</div>
+            <textarea class="matrix-cell-input" rows="3" placeholder="What can we build fast…"></textarea>
+          </div>
+          <div class="matrix-cell">
+            <div class="matrix-cell-label">High value (more complex, worth it)</div>
+            <textarea class="matrix-cell-input" rows="3" placeholder="Bigger builds with strong ROI…"></textarea>
+          </div>
+          <div class="matrix-cell">
+            <div class="matrix-cell-label">Defer (not ready or low ROI)</div>
+            <textarea class="matrix-cell-input" rows="3" placeholder="Things to park for now…"></textarea>
+          </div>
+          <div class="matrix-cell">
+            <div class="matrix-cell-label">Red flags / blockers</div>
+            <textarea class="matrix-cell-input" rows="3" placeholder="Data issues, team resistance, budget gaps…"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07: TOP PRIORITIES -->
+    <div class="section-card full-width">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <span class="section-title">Top Automation Priorities — Ranked</span>
+      </div>
+      <div class="section-body">
+        <p style="font-size:0.8rem;color:var(--text3);margin-bottom:1rem;">Fill in after the call. Click the impact badge to cycle between High / Med / Low.</p>
+        <ul class="priority-list" id="priorityList">
+          <li class="priority-item"><span class="priority-rank">#1</span><input class="priority-input" placeholder="e.g. Automate weekly client reporting via n8n + Google Sheets…"><span class="priority-impact" onclick="cycleImpact(this)">Impact</span></li>
+          <li class="priority-item"><span class="priority-rank">#2</span><input class="priority-input" placeholder="e.g. AI first-draft for all outbound email sequences…"><span class="priority-impact" onclick="cycleImpact(this)">Impact</span></li>
+          <li class="priority-item"><span class="priority-rank">#3</span><input class="priority-input" placeholder="e.g. Automated social content pipeline from blog posts…"><span class="priority-impact" onclick="cycleImpact(this)">Impact</span></li>
+          <li class="priority-item"><span class="priority-rank">#4</span><input class="priority-input" placeholder="e.g. Customer support FAQ bot trained on docs…"><span class="priority-impact" onclick="cycleImpact(this)">Impact</span></li>
+          <li class="priority-item"><span class="priority-rank">#5</span><input class="priority-input" placeholder="e.g. Inventory alert system with daily email digest…"><span class="priority-impact" onclick="cycleImpact(this)">Impact</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 08: NEXT STEPS -->
+    <div class="section-card full-width">
+      <div class="section-header">
+        <span class="section-num">08</span>
+        <span class="section-title">Next Steps & Notes</span>
+      </div>
+      <div class="section-body" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+        <div>
+          <p style="font-size:0.75rem;color:var(--text3);font-family:var(--mono);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.75rem;">Agreed next steps</p>
+          <ul class="q-list">
+            <li class="q-item"><div class="q-text">Send audit proposal by</div><input class="q-input" placeholder="Date…"></li>
+            <li class="q-item"><div class="q-text">Client to share access to</div><input class="q-input" placeholder="Tools, data, docs…"></li>
+            <li class="q-item"><div class="q-text">Follow-up call scheduled</div><input class="q-input" placeholder="Date / time…"></li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-size:0.75rem;color:var(--text3);font-family:var(--mono);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.75rem;">Raw notes from call</p>
+          <textarea class="notes-area" rows="6" placeholder="Anything else worth capturing — tone, urgency, political dynamics, key stakeholders, things they said that stood out…"></textarea>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end main-grid -->
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <div class="bottom-brand">Rich Nashawaty<span>.</span> · AI Business Audit</div>
+    <div class="bottom-actions">
+      <button class="btn-action btn-clear" onclick="clearForm()">Clear Form</button>
+      <button class="btn-action btn-print" onclick="window.print()">Print / Save PDF</button>
+    </div>
+  </div>
+
+</div><!-- end page -->
+
+<script>
+  // Build score dots
+  document.querySelectorAll('.score-dots').forEach(container => {
+    for (let i = 1; i <= 5; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'score-dot';
+      dot.dataset.val = i;
+      dot.addEventListener('click', () => {
+        const val = parseInt(dot.dataset.val);
+        container.querySelectorAll('.score-dot').forEach((d, idx) => {
+          d.classList.toggle('filled', idx < val);
+        });
+      });
+      container.appendChild(dot);
+    }
+  });
+
+  // Cycle impact badges
+  const impactStates = ['Impact', 'High', 'Med', 'Low'];
+  const impactClasses = ['', 'high', 'med', 'low'];
+  function cycleImpact(el) {
+    const current = impactStates.indexOf(el.textContent);
+    const next = (current + 1) % impactStates.length;
+    el.textContent = impactStates[next];
+    el.className = 'priority-impact ' + impactClasses[next];
+  }
+
+  // Clear form
+  function clearForm() {
+    if (!confirm('Clear all fields? This cannot be undone.')) return;
+    document.querySelectorAll('input[type="text"], input:not([type]), textarea').forEach(el => el.value = '');
+    document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+    document.querySelectorAll('.score-dot').forEach(el => el.classList.remove('filled'));
+    document.querySelectorAll('.priority-impact').forEach(el => {
+      el.textContent = 'Impact';
+      el.className = 'priority-impact';
+    });
+  }
+</script>
+</body>
+</html>
