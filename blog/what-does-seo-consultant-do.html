@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Does an SEO Consultant Actually Do? | Rich Nashawaty — Boston, MA</title>
+  <meta name="description" content="After 20 years in SEO — at agencies, enterprise companies, and as a freelancer — here's what an SEO consultant actually does, and how to know if you need one.">
+  <meta name="author" content="Rich Nashawaty">
+  <link rel="canonical" href="https://richnashawaty.com/blog/what-does-an-seo-consultant-do.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="What Does an SEO Consultant Actually Do?">
+  <meta property="og:description" content="After 20 years in SEO — at agencies, enterprise companies, and as a freelancer — here's what an SEO consultant actually does, and how to know if you need one.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://richnashawaty.com/blog/what-does-an-seo-consultant-do.html">
+
+  <!-- Article schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Does an SEO Consultant Actually Do?",
+    "description": "After 20 years in SEO — at agencies, enterprise companies, and as a freelancer — here's what an SEO consultant actually does, and how to know if you need one.",
+    "author": {
+      "@type": "Person",
+      "name": "Rich Nashawaty",
+      "url": "https://richnashawaty.com",
+      "jobTitle": "SEO Consultant",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Boston",
+        "addressRegion": "MA"
+      }
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Rich Nashawaty"
+    },
+    "datePublished": "2026-05-11",
+    "dateModified": "2026-05-11"
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #181816;
+      --bg2: #201f1c;
+      --bg3: #272521;
+      --text: #f4f1ea;
+      --text2: #b8b4ac;
+      --text3: #7a7672;
+      --accent: #c8f060;
+      --accent2: #a8d040;
+      --adim: rgba(200,240,96,0.08);
+      --adim2: rgba(200,240,96,0.14);
+      --border: rgba(255,255,255,0.10);
+      --border-h: rgba(255,255,255,0.18);
+      --serif: 'Instrument Serif', serif;
+      --sans: 'DM Sans', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(24,24,22,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #181816 !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      font-size: 0.85rem !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--accent2) !important; }
+
+    /* ── BLOG LAYOUT ── */
+    .blog-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text3);
+    }
+
+    .breadcrumb a {
+      color: var(--text3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: var(--accent); }
+
+    .breadcrumb-sep { color: var(--border-h); }
+
+    /* ── ARTICLE HEADER ── */
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--adim);
+      border: 1px solid rgba(200,240,96,0.2);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+    }
+
+    .meta-date {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text3);
+    }
+
+    .meta-read {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text3);
+    }
+
+    h1.article-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+
+    .article-intro {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--text2);
+      border-left: 3px solid var(--accent);
+      padding-left: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── AUTHOR STRIP ── */
+    .author-strip {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 3rem;
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--adim2);
+      border: 2px solid rgba(200,240,96,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .author-info { display: flex; flex-direction: column; gap: 0.1rem; }
+
+    .author-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .author-bio {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text3);
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body h2 {
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      line-height: 1.3;
+      color: var(--text);
+      margin: 2.75rem 0 0.9rem;
+      letter-spacing: -0.01em;
+    }
+
+    .article-body h3 {
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 2rem 0 0.65rem;
+    }
+
+    .article-body p {
+      color: var(--text2);
+      margin-bottom: 1.35rem;
+      line-height: 1.8;
+    }
+
+    .article-body strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .article-body a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: rgba(200,240,96,0.3);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .article-body a:hover {
+      text-decoration-color: var(--accent);
+    }
+
+    /* ── CALLOUT BOXES ── */
+    .callout {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .callout-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .callout p {
+      margin-bottom: 0 !important;
+      font-size: 0.95rem;
+    }
+
+    /* ── NUMBERED LIST ── */
+    .article-body ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.35rem;
+      color: var(--text2);
+    }
+
+    .article-body ol li {
+      margin-bottom: 0.65rem;
+      line-height: 1.75;
+      padding-left: 0.25rem;
+    }
+
+    .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.35rem;
+      color: var(--text2);
+      list-style: none;
+    }
+
+    .article-body ul li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.55rem;
+      line-height: 1.75;
+    }
+
+    .article-body ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    /* ── TOOL GRID ── */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.65rem;
+      margin: 1.25rem 0 2rem;
+    }
+
+    .tool-chip {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.55rem 0.85rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text2);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .tool-chip:hover {
+      border-color: var(--border-h);
+      color: var(--text);
+    }
+
+    /* ── BOTTOM CTA ── */
+    .article-cta {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-top: 3.5rem;
+      text-align: center;
+    }
+
+    .article-cta h3 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .article-cta p {
+      color: var(--text2);
+      max-width: 440px;
+      margin: 0 auto 1.75rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #181816;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 7px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--accent2); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--text2);
+      text-decoration: none;
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--text3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text2); }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--text3);
+      font-family: var(--mono);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      .nav-links li:not(:last-child) { display: none; }
+      .blog-wrap { padding: 2.5rem 1.25rem 5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Rich Nashawaty<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="seo-web.html">SEO &amp; Web</a></li>
+      <li><a href="ai-consulting.html">AI Consulting</a></li>
+      <li><a href="custom-tools.html">Custom Tools</a></li>
+      <li><a href="mailto:contact@richnashawaty.com" class="nav-cta">Let's Talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- ARTICLE -->
+  <main class="blog-wrap">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="index.html#blog">Blog</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>What Does an SEO Consultant Actually Do?</span>
+    </div>
+
+    <!-- Header -->
+    <div class="article-meta">
+      <span class="meta-tag">SEO</span>
+      <span class="meta-date">May 11, 2026</span>
+      <span class="meta-read">8 min read</span>
+    </div>
+
+    <h1 class="article-title">What Does an SEO Consultant Actually Do?</h1>
+
+    <p class="article-intro">Most people have a rough idea what SEO is — getting a website to show up on Google. But what does an SEO consultant actually do for you, day to day? After 20 years in this field, here's my honest answer.</p>
+
+    <!-- Author -->
+    <div class="author-strip">
+      <div class="author-avatar">R</div>
+      <div class="author-info">
+        <span class="author-name">Rich Nashawaty</span>
+        <span class="author-bio">SEO Consultant · 20 years experience · Greater Boston, MA</span>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <article class="article-body">
+
+      <p>I've worked in SEO since 2006 — freelancing under my own agency, White Mountain Process, then moving into roles at agencies like Catalyst and 451 Marketing, then enterprise in-house at companies like Kayak, Monster, Ziff Davis, and Care.com. I've run SEO for sites in 19 languages across 11 global domains. I've been a Director of SEO. I've built $750k in revenue from zero using search as the primary channel.</p>
+
+      <p>All of which is to say: I've seen what SEO consulting looks like at every scale and in every context. And I still get the question: <strong>what do you actually do?</strong></p>
+
+      <p>Fair question. Let me answer it properly.</p>
+
+      <h2>First, what SEO consulting is not</h2>
+
+      <p>SEO consulting is not a magic button. It's not paying someone to "get you to number one on Google." Anyone who promises you a specific ranking within a specific timeframe is either lying to you or doesn't understand how search works — probably both.</p>
+
+      <p>It's also not a one-time fix. SEO is a living system. Search engines update their algorithms constantly, competitors evolve, your own site changes. Good SEO consulting is ongoing, iterative work — not a one-and-done deliverable.</p>
+
+      <div class="callout">
+        <div class="callout-label">Real talk</div>
+        <p>If an SEO agency is pitching you a package with a guaranteed number of backlinks per month and a top-3 ranking promise, walk away. Those tactics either don't work or actively get sites penalized. I've spent years cleaning up the damage those agencies leave behind.</p>
+      </div>
+
+      <h2>What SEO consulting actually is</h2>
+
+      <p>At its core, SEO consulting is about understanding <em>why</em> your site ranks where it does — and building a clear, sustainable path to rank better for the searches that actually bring you customers.</p>
+
+      <p>That work falls into a few main categories:</p>
+
+      <h3>1. Technical SEO — fixing what's broken under the hood</h3>
+
+      <p>Before you can rank well, Google needs to be able to find, crawl, and understand your site. A surprising number of websites have technical issues that quietly suppress rankings — sometimes for years without the owner knowing.</p>
+
+      <p>This is the work you don't see, but it matters enormously: fixing crawl errors, resolving duplicate content issues, improving page speed, making sure your site renders correctly for both mobile and desktop, cleaning up redirect chains, ensuring your XML sitemap is accurate, getting your structured data right. At Monster, I ran technical audits across sites in 19 languages — the same principles apply to a 10-page small business site as to a global platform with millions of URLs.</p>
+
+      <p>Tools I use for this work include Screaming Frog, Botify, Sitebulb, Lumar (formerly Deepcrawl), and Google Search Console. The tools surface the problems. Understanding which ones to prioritize — and why — is where the experience comes in.</p>
+
+      <h3>2. Keyword strategy — figuring out what to rank for</h3>
+
+      <p>Not all traffic is equal. Ranking on page one for a phrase that nobody searches, or that attracts window-shoppers rather than buyers, is a waste of everyone's time.</p>
+
+      <p>Good keyword strategy starts with understanding your business: who your customers are, how they actually describe the problems you solve, and where they are in the buying process when they search. From there, I build a keyword map — a prioritized list of the searches worth going after, matched to the pages (existing or new) that should rank for them.</p>
+
+      <p>The tools — SEMrush, Ahrefs, Google Search Console — tell you search volumes and competition levels. The strategy is deciding what to actually do with that data given your site's current authority, your budget, and your timeline.</p>
+
+      <h3>3. Content strategy — giving Google something worth ranking</h3>
+
+      <p>Google's guidelines have been clear for years and got even clearer after the 2024 core algorithm updates: they want to rank content that genuinely helps people, written by someone with real knowledge of the subject, not content churned out to chase keywords.</p>
+
+      <p>This means every page on your site needs a reason to exist — a real question it answers, a real need it serves. An SEO consultant helps you figure out what content you actually need, what's missing, what's thin and needs to be expanded, and what's duplicating effort across multiple pages.</p>
+
+      <p>For small businesses, this often means starting with your service pages — making sure they actually describe what you do, for whom, and why a customer should choose you over the next result. For larger sites, it might mean auditing hundreds of pages and building a consolidation plan.</p>
+
+      <h3>4. Authority building — earning links that matter</h3>
+
+      <p>Links from other websites are still one of Google's most important ranking signals. A link from a reputable industry publication or a well-regarded local business directory tells Google that your site is trustworthy and worth ranking.</p>
+
+      <p>The legitimate version of this work — which is the only version I recommend — is earning links through genuinely good content, strategic outreach, and building real relationships with other publishers in your space. It's slower than buying link packages. It also doesn't risk getting your site penalized or deindexed.</p>
+
+      <p>For local businesses, this also means citations: making sure your business name, address, and phone number appear consistently across directories like Google Business Profile, Yelp, BBB, and industry-specific sites. Inconsistent citations suppress local rankings more than most people realize.</p>
+
+      <h3>5. Measurement and reporting — tracking what's actually working</h3>
+
+      <p>SEO without measurement is just guessing. Good consulting always includes setting up proper tracking — Google Analytics 4, Google Search Console, rank tracking — and translating the data into decisions.</p>
+
+      <p>This is where I see a lot of in-house teams and agencies fall short: they produce reports full of metrics that look impressive but don't connect to business outcomes. Impressions went up. Great — did revenue go up? Organic traffic grew 20% — but is it the right traffic? A good SEO consultant helps you ask the right questions of your data, not just generate more of it.</p>
+
+      <hr class="section-divider">
+
+      <h2>How do I know if I need an SEO consultant?</h2>
+
+      <p>Here's the honest version of this answer:</p>
+
+      <ul>
+        <li>Your competitors consistently outrank you for searches you know your customers are making</li>
+        <li>Your organic traffic has dropped or plateaued with no obvious explanation</li>
+        <li>You've invested in content or a new website but aren't seeing it reflected in rankings</li>
+        <li>You're entering a new market or launching a new product and need a search strategy from day one</li>
+        <li>You have an in-house marketing team but no one with deep SEO experience</li>
+        <li>You've been burned by an agency that promised results and delivered reports</li>
+      </ul>
+
+      <p>The last one is more common than you'd think. A lot of businesses come to me after spending 12–18 months and real money with an agency, only to see no meaningful movement in traffic or revenue. Usually the problem is one of three things: the agency focused on vanity metrics instead of business outcomes, they used tactics that stopped working years ago, or they never really understood the client's business in the first place.</p>
+
+      <h2>What good SEO consulting looks like in practice</h2>
+
+      <p>Every engagement looks different, but here's what a typical first phase looks like for a small or mid-sized business:</p>
+
+      <ol>
+        <li><strong>Technical audit</strong> — Crawl the site, identify critical issues, prioritize fixes by impact</li>
+        <li><strong>Keyword research</strong> — Map your target customers to the searches they make, identify gaps and opportunities</li>
+        <li><strong>Competitive analysis</strong> — Understand who's outranking you and why</li>
+        <li><strong>Content audit</strong> — Evaluate what's already on the site against the keyword strategy</li>
+        <li><strong>Action plan</strong> — A prioritized roadmap with clear owners, timelines, and expected outcomes</li>
+      </ol>
+
+      <p>From there, ongoing work typically includes implementing technical fixes, creating or improving content, building links, monitoring performance, and adjusting strategy as you gather data. The right cadence depends on your goals, your budget, and whether you have internal resources to help execute.</p>
+
+      <div class="callout">
+        <div class="callout-label">On AI and SEO</div>
+        <p>A lot of people ask me whether AI is going to make SEO irrelevant. My honest answer: AI is changing how people search, and that means SEO strategy needs to evolve — but the fundamentals of earning trust and authority from search engines haven't changed. In some ways, AI search rewards genuine expertise even more than traditional search did. The businesses that will struggle are the ones who thought they could game their way to visibility. The ones who built real authority will be fine.</p>
+      </div>
+
+      <h2>The bottom line</h2>
+
+      <p>An SEO consultant is not a vendor you hire to flip a switch. The good ones are closer to a strategist or a fractional head of search — someone who understands your business, diagnoses why you're not getting the visibility you should be getting, and builds a plan to fix it sustainably.</p>
+
+      <p>If you're based in Greater Boston or anywhere in New England and want a straight conversation about your site's SEO — no pitch, no package, just an honest look at where you stand — I'm happy to talk. I've been doing this for 20 years. I'll tell you what I actually think.</p>
+
+    </article>
+
+    <!-- CTA -->
+    <div class="article-cta">
+      <h3>Want a straight answer about your SEO?</h3>
+      <p>Book a free 30-minute strategy call. No pitch, no package — just an honest look at where your site stands and what's worth doing about it.</p>
+      <a href="mailto:contact@richnashawaty.com" class="btn-primary">Book a Free Strategy Call</a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">Rich Nashawaty<span>.</span></a>
+      <ul class="footer-links">
+        <li><a href="seo-web.html">SEO &amp; Web</a></li>
+        <li><a href="ai-consulting.html">AI Consulting</a></li>
+        <li><a href="custom-tools.html">Custom Tools</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+      <span class="footer-copy">© 2026 Rich Nashawaty · Boston, MA</span>
+    </div>
+  </footer>
+
+</body>
+</html>
