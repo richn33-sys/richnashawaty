@@ -17,15 +17,15 @@
   }
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 2.5rem; display: flex; align-items: center; justify-content: space-between; background: rgba(24,24,22,0.90); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
-  .logo { font-family: var(--serif); font-size: 1.15rem; color: var(--text); text-decoration: none; }
-  .logo span { color: var(--accent); }
-  .nav-links { display: flex; gap: 0.25rem; list-style: none; }
-  .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.875rem; font-weight: 500; padding: 0.4rem 0.85rem; border-radius: 6px; transition: all 0.18s; }
-  .nav-links a:hover { color: var(--text); background: var(--bg3); }
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 64px; border-bottom: 1px solid var(--border); background: rgba(24,24,22,0.82); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+  .nav-logo { font-family: var(--serif); font-size: 1.15rem; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
   .nav-links a.active { color: var(--accent); }
-  .nav-cta { background: var(--accent); color: #0e0e0c; padding: 0.55rem 1.3rem; border-radius: 6px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.18s; }
-  .nav-cta:hover { background: var(--accent2); }
+  .nav-cta { background: var(--accent); color: #181816 !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600 !important; font-size: 0.85rem !important; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--accent2) !important; }
   section { padding: 6rem 2.5rem; }
   .container { max-width: 1080px; margin: 0 auto; }
   .label { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; display: block; }
@@ -129,15 +129,15 @@
 <body>
 
 <nav>
-  <a href="index.html" class="logo">Rich Nashawaty<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="seo-web.html">SEO & Web</a></li>
-    <li><a href="ai-consulting.html" class="active">AI Consulting</a></li>
-    <li><a href="custom-tools.html">Custom Tools</a></li>
-    <li><a href="blog/">Blog</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">Let's Talk</a>
-</nav>
+    <a href="index.html" class="nav-logo">Rich Nashawaty<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="seo-web.html">SEO &amp; Web</a></li>
+      <li><a href="ai-consulting.html" class="active">AI Consulting</a></li>
+      <li><a href="custom-tools.html">Custom Tools</a></li>
+      <li><a href="blog/">Blog</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta">Let's Talk</a>
+  </nav>
 
 <section class="page-hero">
   <div class="container">
