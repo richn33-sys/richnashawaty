@@ -1,0 +1,262 @@
+{
+  "keyword": "SEO consultant Boston",
+  "titles": [
+    {
+      "rank": 1,
+      "domain": "natefishmandigital.com",
+      "title": "Boston-Based SEO Consultant: SEO Made Easy - Nate Fishman",
+      "char_count": 56,
+      "keywords": [
+        "SEO",
+        "consultant",
+        "Boston"
+      ],
+      "modifiers": [
+        "based",
+        "made easy"
+      ],
+      "rating": "strong"
+    },
+    {
+      "rank": 2,
+      "domain": "bostonseoconsultants.com",
+      "title": "The Best Boston SEO Consultant (for 2025)",
+      "char_count": 41,
+      "keywords": [
+        "SEO",
+        "consultant",
+        "Boston"
+      ],
+      "modifiers": [
+        "best",
+        "2025"
+      ],
+      "rating": "strong"
+    },
+    {
+      "rank": 3,
+      "domain": "bostonseoservices.org",
+      "title": "Boston SEO Services | AI-First SEO, GEO, AEO, and AI Search Visibility",
+      "char_count": 71,
+      "keywords": [
+        "SEO",
+        "services",
+        "Boston"
+      ],
+      "modifiers": [
+        "AI-first",
+        "GEO",
+        "AEO",
+        "AI search visibility"
+      ],
+      "rating": "average"
+    },
+    {
+      "rank": 4,
+      "domain": "richsanger.com",
+      "title": "SEO Consultant Boston | Rich Sanger SEO",
+      "char_count": 40,
+      "keywords": [
+        "SEO",
+        "consultant",
+        "Boston"
+      ],
+      "modifiers": [
+        "personal name"
+      ],
+      "rating": "strong"
+    },
+    {
+      "rank": 5,
+      "domain": "jhseoagency.com",
+      "title": "Boston SEO Company | Jimmy Huh - SEO Consultant",
+      "char_count": 47,
+      "keywords": [
+        "SEO",
+        "company",
+        "consultant",
+        "Boston"
+      ],
+      "modifiers": [
+        "personal name"
+      ],
+      "rating": "strong"
+    },
+    {
+      "rank": 6,
+      "domain": "design.chrismuzilla.com",
+      "title": "SEO Expert in Boston with 17 Years of Experience",
+      "char_count": 49,
+      "keywords": [
+        "SEO",
+        "expert",
+        "Boston"
+      ],
+      "modifiers": [
+        "17 years",
+        "experience"
+      ],
+      "rating": "strong"
+    },
+    {
+      "rank": 7,
+      "domain": "bostonwebpartners.com",
+      "title": "SEO Consulting Services | Boston Web Partners",
+      "char_count": 46,
+      "keywords": [
+        "SEO",
+        "consulting",
+        "services",
+        "Boston"
+      ],
+      "modifiers": [
+        "partners"
+      ],
+      "rating": "average"
+    },
+    {
+      "rank": 8,
+      "domain": "builtinboston.com",
+      "title": "12 SEO Agencies in Boston To Know | Built In",
+      "char_count": 45,
+      "keywords": [
+        "SEO",
+        "agencies",
+        "Boston"
+      ],
+      "modifiers": [
+        "12",
+        "to know"
+      ],
+      "rating": "average"
+    },
+    {
+      "rank": 9,
+      "domain": "brickmarketing.com",
+      "title": "Boston SEO Services Agency | Brick Marketing",
+      "char_count": 45,
+      "keywords": [
+        "SEO",
+        "services",
+        "agency",
+        "Boston"
+      ],
+      "modifiers": [
+        "marketing"
+      ],
+      "rating": "average"
+    },
+    {
+      "rank": 10,
+      "domain": "coalitiontechnologies.com",
+      "title": "Boston, MA SEO - Coalition Technologies",
+      "char_count": 40,
+      "keywords": [
+        "SEO",
+        "Boston",
+        "MA"
+      ],
+      "modifiers": [
+        "technologies"
+      ],
+      "rating": "average"
+    }
+  ],
+  "avg_char_count": 48,
+  "common_keywords": [
+    "SEO",
+    "Boston",
+    "consultant",
+    "services",
+    "agency",
+    "expert",
+    "company"
+  ],
+  "missing_opportunities": [
+    "affordable",
+    "top-rated",
+    "local",
+    "results-driven",
+    "certified",
+    "small business",
+    "free consultation",
+    "proven"
+  ],
+  "insights": [
+    "Primary keyword placement varies - some lead with 'Boston' while others lead with 'SEO' - both approaches appear to rank well",
+    "Personal branding (consultant name in title) is common among individual consultants and creates differentiation",
+    "Year modifiers (2025) signal freshness and can improve CTR for time-sensitive searches",
+    "Character counts cluster between 40-56 characters, staying well under the 60-character display limit",
+    "Experience quantifiers (17 years) build immediate credibility in title tags",
+    "Emerging trend: AI-related terms (AI-first, GEO, AEO) appearing in titles targeting future-focused searchers",
+    "Most titles use pipe (|) or hyphen (-) separators to structure brand and service keywords"
+  ],
+  "recommended_title_formulas": [
+    "Formula 1: [Location] SEO Consultant | [Unique Benefit] \u2014 [Brand Name]",
+    "Formula 2: [Credibility Hook: Years/Results] + SEO Consultant in [Location] | [Brand]",
+    "Formula 3: Top [Location] SEO Consultant \u2014 [Promise/Specialty] | [Brand Name]",
+    "Formula 4: [Location] SEO Consultant for [Target Audience] | [Year] | [Brand]"
+  ],
+  "blog_topics": [
+    {
+      "title": "How to Choose an SEO Consultant in Boston: 7 Questions to Ask Before Hiring",
+      "type": "how-to",
+      "target_kw": "how to choose SEO consultant Boston",
+      "rationale": "Captures high-intent prospects actively evaluating consultants; positions you as the transparent expert"
+    },
+    {
+      "title": "10 Best SEO Consultants in Boston for Small Businesses (2026 Rankings)",
+      "type": "listicle",
+      "target_kw": "best SEO consultants Boston",
+      "rationale": "Listicle format ranks well for comparison queries; include yourself strategically with credibility markers"
+    },
+    {
+      "title": "Boston SEO Consultant vs SEO Agency: Which Is Right for Your Business?",
+      "type": "comparison",
+      "target_kw": "SEO consultant vs agency Boston",
+      "rationale": "Addresses common decision point; differentiates solo consultants from agencies for prospects weighing options"
+    },
+    {
+      "title": "The Complete Guide to Local SEO for Boston Businesses",
+      "type": "guide",
+      "target_kw": "local SEO Boston",
+      "rationale": "Comprehensive guide targets businesses seeking local visibility; establishes topical authority in Boston market"
+    },
+    {
+      "title": "How Much Does an SEO Consultant Cost in Boston?",
+      "type": "question",
+      "target_kw": "SEO consultant cost Boston",
+      "rationale": "Directly answers pricing questions prospects search; builds trust through transparency and captures bottom-funnel traffic"
+    },
+    {
+      "title": "How to Rank Your Boston Business on Google Maps: Step-by-Step",
+      "type": "how-to",
+      "target_kw": "rank on Google Maps Boston",
+      "rationale": "Tactical content for local businesses; demonstrates expertise while generating leads from DIY searchers who realize they need help"
+    },
+    {
+      "title": "15 SEO Mistakes Boston Businesses Make (And How to Fix Them)",
+      "type": "listicle",
+      "target_kw": "SEO mistakes Boston businesses",
+      "rationale": "Problem-aware content attracts businesses struggling with SEO; positions consultant as solution provider"
+    },
+    {
+      "title": "Boston SEO Trends for 2026: What Local Businesses Need to Know",
+      "type": "guide",
+      "target_kw": "Boston SEO trends 2026",
+      "rationale": "Time-sensitive content signals expertise in current landscape; attracts forward-thinking business owners"
+    },
+    {
+      "title": "Why Isn't My Boston Business Ranking on Google?",
+      "type": "question",
+      "target_kw": "why my business not ranking Google Boston",
+      "rationale": "Addresses pain point of frustrated business owners; captures problem-aware searchers ready to hire"
+    },
+    {
+      "title": "SEO Consultant vs In-House SEO: What Works Best for Boston Startups?",
+      "type": "comparison",
+      "target_kw": "SEO consultant vs in-house Boston startups",
+      "rationale": "Targets growing startup market in Boston; addresses hiring decision with consultant-favorable perspective"
+    }
+  ]
+}
