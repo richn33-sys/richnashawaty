@@ -185,6 +185,44 @@
   .form-success { display: none; background: var(--adim); border: 1px solid rgba(200,240,96,0.25); border-radius: 10px; padding: 1.5rem; text-align: center; margin-top: 1rem; }
   .form-success p { font-size: 0.9375rem; color: var(--accent); font-weight: 500; }
   @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+
+  /* PROCESS STEPS */
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 3.5rem; position: relative; }
+  .process-steps::before { content: ''; position: absolute; top: 28px; left: calc(12.5% + 14px); right: calc(12.5% + 14px); height: 1px; background: linear-gradient(90deg, var(--accent) 0%, rgba(200,240,96,0.2) 100%); z-index: 0; }
+  .process-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 1rem; position: relative; z-index: 1; }
+  .process-dot { width: 56px; height: 56px; background: var(--bg2); border: 1.5px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; flex-shrink: 0; }
+  .process-dot svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+  .process-step-num { font-family: var(--mono); font-size: 0.65rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.3rem; }
+  .process-step-title { font-weight: 600; font-size: 0.9rem; color: var(--text); margin-bottom: 0.3rem; }
+  .process-step-desc { font-size: 0.8rem; color: var(--text3); line-height: 1.5; }
+
+  /* TOOL STRIP */
+  .tool-strip { margin-top: 3.5rem; padding: 1.75rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; position: relative; }
+  .tool-strip-label { font-family: var(--mono); font-size: 0.65rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; margin-bottom: 1.25rem; }
+  .tool-strip-items { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .tool-chip { font-family: var(--mono); font-size: 0.72rem; color: var(--text3); padding: 0.35rem 0.85rem; border: 1px solid var(--border); border-radius: 20px; white-space: nowrap; transition: all 0.2s; letter-spacing: 0.04em; }
+  .tool-chip:hover { color: var(--accent); border-color: rgba(200,240,96,0.3); }
+
+  /* CAREER TIMELINE */
+  .career-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border-radius: 14px; overflow: hidden; margin-top: 2rem; margin-bottom: 2rem; }
+  .career-stage { background: var(--bg2); padding: 1.5rem 1.75rem; position: relative; }
+  .career-stage::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--border); }
+  .career-stage.active::before { background: var(--accent); }
+  .career-stage-era { font-family: var(--mono); font-size: 0.65rem; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .career-stage-role { font-family: var(--serif); font-size: 1.2rem; color: var(--text); margin-bottom: 0.4rem; }
+  .career-stage-detail { font-size: 0.82rem; color: var(--text2); line-height: 1.55; }
+  .career-stage-companies { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+  .career-company { font-family: var(--mono); font-size: 0.65rem; padding: 0.2rem 0.55rem; border: 1px solid var(--border); border-radius: 20px; color: var(--text3); }
+
+  /* PROOF CARD ICONS */
+  .proof-icon { width: 44px; height: 44px; background: var(--adim); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+  .proof-icon svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+
+  @media (max-width: 900px) {
+    .process-steps { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .process-steps::before { display: none; }
+    .career-timeline { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -254,40 +292,103 @@
     <p class="sub" style="max-width:540px;margin-top:0.75rem;">AI automation isn't one-size-fits-all. These are the types of systems I design and build — starting with what actually moves the needle for your business.</p>
     <div class="proof-grid">
       <div class="proof-card">
+        <div class="proof-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><path d="M7 15h2M7 18h4"/></svg></div>
         <div class="proof-tag">Reporting & Visibility</div>
         <h3>Automated Reporting</h3>
         <p>Custom dashboards and scheduled reports that pull data from your tools automatically — no more manual exports, copy-pasting, or chasing numbers. The right information, in front of the right people, on a schedule.</p>
         <div class="proof-pills"><span class="pill">Daily/weekly digests</span><span class="pill">Multi-source data</span><span class="pill">Email delivery</span></div>
       </div>
       <div class="proof-card">
+        <div class="proof-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h8M8 14h5"/></svg></div>
         <div class="proof-tag">Customer Communication</div>
         <h3>Follow-up & Outreach Sequences</h3>
         <p>Automated follow-up systems that keep leads warm, onboard new customers, and handle routine communication — without anyone on your team manually sending emails or dropping the ball.</p>
         <div class="proof-pills"><span class="pill">Lead nurturing</span><span class="pill">Onboarding flows</span><span class="pill">Re-engagement</span></div>
       </div>
       <div class="proof-card">
+        <div class="proof-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
         <div class="proof-tag">Content & Marketing</div>
         <h3>Content Pipelines</h3>
         <p>End-to-end content systems that take a topic and produce a finished asset — blog post, social content, video script, email newsletter. Set the schedule, feed it inputs, and let it run.</p>
         <div class="proof-pills"><span class="pill">AI writing</span><span class="pill">Multi-channel</span><span class="pill">Scheduled publishing</span></div>
       </div>
       <div class="proof-card">
+        <div class="proof-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
         <div class="proof-tag">Monitoring & Alerts</div>
         <h3>Monitoring Systems</h3>
         <p>Bots that watch what matters — competitor pricing, inventory levels, keyword rankings, social mentions, or any data source — and alert you or take action when conditions are met.</p>
         <div class="proof-pills"><span class="pill">Real-time alerts</span><span class="pill">Threshold triggers</span><span class="pill">Any data source</span></div>
       </div>
       <div class="proof-card">
+        <div class="proof-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></svg></div>
         <div class="proof-tag">Operations</div>
         <h3>Workflow Automation</h3>
         <p>Connect the tools your team already uses and automate the manual steps between them. Eliminate the copy-paste work, the missed handoffs, and the tasks that fall through the cracks.</p>
         <div class="proof-pills"><span class="pill">Tool integrations</span><span class="pill">Trigger-based</span><span class="pill">No-code & custom</span></div>
       </div>
       <div class="proof-card">
+        <div class="proof-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
         <div class="proof-tag">Web & E-commerce</div>
         <h3>Sites & Stores Built to Run</h3>
         <p>Websites and Shopify stores designed for search and built for minimal ongoing management — SEO baked in from the start, automation configured at launch, and structured to grow without constant attention.</p>
         <div class="proof-pills"><span class="pill">SEO-first design</span><span class="pill">Shopify</span><span class="pill">WordPress</span></div>
+      </div>
+    </div>
+
+    <!-- TOOL STRIP -->
+    <div class="tool-strip">
+      <div class="tool-strip-label">Tools I work with</div>
+      <div class="tool-strip-items">
+        <span class="tool-chip">Screaming Frog</span>
+        <span class="tool-chip">SEMrush</span>
+        <span class="tool-chip">Ahrefs</span>
+        <span class="tool-chip">Botify</span>
+        <span class="tool-chip">Sitebulb</span>
+        <span class="tool-chip">Lumar</span>
+        <span class="tool-chip">Google Search Console</span>
+        <span class="tool-chip">GA4</span>
+        <span class="tool-chip">n8n</span>
+        <span class="tool-chip">Claude API</span>
+        <span class="tool-chip">Python</span>
+        <span class="tool-chip">Shopify</span>
+      </div>
+    </div>
+
+    <!-- PROCESS STEPS -->
+    <h2 style="margin-top:4.5rem;">How it works</h2>
+    <p class="sub" style="max-width:520px;margin-top:0.75rem;">Every engagement follows the same four-step process — structured enough to stay on track, flexible enough to fit your business.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-dot">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="process-step-num">01</div>
+        <div class="process-step-title">Discovery Call</div>
+        <div class="process-step-desc">Free 30-min strategy call. You talk, I listen. We figure out where the real leverage is.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-dot">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <div class="process-step-num">02</div>
+        <div class="process-step-title">Audit & Plan</div>
+        <div class="process-step-desc">Deep analysis of your current state. A clear, prioritized roadmap — no fluff.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-dot">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="process-step-num">03</div>
+        <div class="process-step-title">Build & Execute</div>
+        <div class="process-step-desc">I do the work — whether that's SEO strategy, site builds, or automation systems.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-dot">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="process-step-num">04</div>
+        <div class="process-step-title">Measure & Iterate</div>
+        <div class="process-step-desc">Track what's working, cut what isn't. Results over reports.</div>
       </div>
     </div>
   </div>
@@ -330,6 +431,29 @@
       <div>
         <span class="label">About Rich</span>
         <div class="about-quote">"I've done SEO at every level — freelance, agency, and enterprise Director. Now I work directly with businesses that deserve that experience."</div>
+
+        <!-- CAREER TIMELINE -->
+        <div class="career-timeline">
+          <div class="career-stage active">
+            <div class="career-stage-era">2006 – 2010</div>
+            <div class="career-stage-role">Freelance</div>
+            <div class="career-stage-detail">Built a manufacturing company's online presence from zero to $750k annual revenue using SEO and paid search.</div>
+            <div class="career-stage-companies"><span class="career-company">White Mountain Process</span></div>
+          </div>
+          <div class="career-stage">
+            <div class="career-stage-era">2010 – 2016</div>
+            <div class="career-stage-role">Agency</div>
+            <div class="career-stage-detail">Managed SEO across dozens of client accounts across industries at leading Boston-area agencies.</div>
+            <div class="career-stage-companies"><span class="career-company">Catalyst</span><span class="career-company">451 Marketing</span><span class="career-company">Charles River Interactive</span></div>
+          </div>
+          <div class="career-stage">
+            <div class="career-stage-era">2016 – Present</div>
+            <div class="career-stage-role">Enterprise</div>
+            <div class="career-stage-detail">Director-level SEO at major global organizations — 19 languages, 11 domains, multi-brand media portfolios.</div>
+            <div class="career-stage-companies"><span class="career-company">Kayak</span><span class="career-company">Monster</span><span class="career-company">Ziff Davis</span><span class="career-company">Care.com</span></div>
+          </div>
+        </div>
+
         <div class="about-body">
           <p>I started doing SEO independently around 2006 — before most companies even had a dedicated SEO strategy. I built an online presence from nothing for a manufacturing company and grew it to $750k in annual revenue using SEO, paid search, and content. That early grounding in what actually drives business results shaped everything that came after.</p>
           <p>From there I moved into agencies across the Boston area — working across dozens of client accounts and learning what scales across industries. Then in-house at increasingly complex organizations: travel, media, recruiting — eventually leading SEO strategy across global properties with millions of pages, 19 languages, and 11 international domains.</p>
