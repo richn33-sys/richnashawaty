@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  macOS launchd scheduler — runs research_agent_rich.py every Monday at 8am
+
+  SETUP:
+  1. Copy this file to ~/Library/LaunchAgents/
+  2. Run: launchctl load ~/Library/LaunchAgents/com.richnashawaty.research.plist
+
+  TO CHECK IT'S LOADED:
+  launchctl list | grep richnashawaty.research
+
+  TO RUN MANUALLY:
+  launchctl start com.richnashawaty.research
+
+  TO CHECK LOGS:
+  cat /tmp/richnashawaty.research.log
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.richnashawaty.research</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/richardnashawaty/Desktop/ClaudeWork/Rich/research_agent_rich.py</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/richardnashawaty/Desktop/ClaudeWork/Rich</string>
+
+  <!-- Runs every Monday at 8:00am -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Weekday</key>
+    <integer>1</integer>
+    <key>Hour</key>
+    <integer>8</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/richnashawaty.research.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/tmp/richnashawaty.research.log</string>
+
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>
