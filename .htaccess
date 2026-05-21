@@ -1,0 +1,10 @@
+# Redirect index.html to canonical root
+RedirectMatch 301 ^/index\.html$ https://richnashawaty.com/
+
+# Redirect blog/index.html to canonical blog URL
+RedirectMatch 301 ^/blog/index\.html$ https://richnashawaty.com/blog/
+
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
