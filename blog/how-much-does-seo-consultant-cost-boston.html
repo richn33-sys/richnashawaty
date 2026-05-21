@@ -615,6 +615,9 @@
     /* ── MOBILE ── */
     @media (max-width: 640px) {
       nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
       .nav-links { gap: 1.25rem; }
       
       .blog-wrap { padding: 2.5rem 1.25rem 5rem; }
@@ -660,15 +663,7 @@
     }
 
     .toc ol li a:hover { color: var(--accent); }
-      .nav-cta { display: none; }
     }
-  
-  
-  @media (max-width: 640px) {
-    .nav-hamburger { display: flex; }
-    .nav-links { display: none; }
-    .nav-cta { display: none; }
-  }
 
   /* HAMBURGER NAV */
   .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; z-index: 200; }
@@ -682,11 +677,6 @@
   .nav-mobile-menu a:last-child { border-bottom: none; }
   .nav-mobile-menu a:hover { color: var(--accent); }
   .nav-mobile-menu .mobile-cta { color: var(--accent) !important; font-weight: 600; margin-top: 0.5rem; }
-  @media (max-width: 640px) {
-    .nav-hamburger { display: flex; }
-    .nav-links { display: none; }
-    .nav-cta { display: none; }
-  }
 </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RDDSKTZ46"></script>
