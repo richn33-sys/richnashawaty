@@ -198,9 +198,8 @@
       <div class="form-card-label">Free download</div>
       <h2>Get the checklist</h2>
       <p>Enter your email and I'll send you the full checklist — no pitch, no drip sequence. Just the checklist.</p>
-      <form action="https://formspree.io/f/mrejawnb" method="POST">
+      <form id="checklist-form">
         <input type="hidden" name="_subject" value="SEO Audit Checklist Download">
-        <input type="hidden" name="_next" value="https://richnashawaty.com/seo-audit-checklist-full.html">
         <div class="form-group">
           <label for="name">Your name</label>
           <input type="text" id="name" name="name" placeholder="Jane Smith" required>
@@ -213,7 +212,7 @@
           <label for="website">Your website (optional)</label>
           <input type="url" id="website" name="website" placeholder="https://yourbusiness.com">
         </div>
-        <button type="submit" class="form-submit">Send me the checklist →</button>
+        <button type="submit" class="form-submit" id="submit-btn">Send me the checklist →</button>
         <p class="form-note">No spam. Unsubscribe anytime. Your email goes to Rich, not a marketing platform.</p>
       </form>
     </div>
@@ -336,5 +335,34 @@
     })();
   </script>
 
+
+<script>
+  document.getElementById('checklist-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('submit-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    var data = new FormData(this);
+
+    fetch('https://formspree.io/f/mrejawnb', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(res) {
+      if (res.ok) {
+        window.location.href = 'seo-audit-checklist-full.html';
+      } else {
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+      }
+    })
+    .catch(function() {
+      btn.textContent = 'Something went wrong — try again';
+      btn.disabled = false;
+    });
+  });
+</script>
 </body>
 </html>
