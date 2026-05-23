@@ -3,7 +3,7 @@
 
   <url>
     <loc>https://richnashawaty.com/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -66,7 +66,7 @@
 
   <url>
     <loc>https://richnashawaty.com/blog/</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -95,6 +95,13 @@
   <url>
     <loc>https://richnashawaty.com/blog/what-is-geo-generative-engine-optimization-boston.html</loc>
     <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://richnashawaty.com/blog/how-much-does-ai-automation-cost-small-business.html</loc>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
