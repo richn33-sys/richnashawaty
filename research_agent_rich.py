@@ -35,6 +35,9 @@ CURRENT_GUIDES = [
     "What Does an SEO Consultant Actually Do?",
     "How Much Does an SEO Consultant Cost in Boston?",
     "Why Isn't My Boston Business Ranking on Google?",
+    "What Is GEO (Generative Engine Optimization)? A Plain-English Guide for Boston Business Owners",
+    "How Much Does AI Automation Cost for Small Business?",
+    "Questions to Ask Before Hiring an SEO Consultant in Boston",
 ]
 
 # Tools and resources already live
