@@ -142,13 +142,15 @@ Using web search, research the following and produce a structured weekly brief:
    - Note any questions about hiring SEO consultants, AI automation costs, or local Boston business marketing
 
 Format your response as clean HTML for an email brief. Use clear section headers, bullet points, and priority labels (HIGH/MEDIUM/LOW).
-Be specific and actionable — every item should tell Rich exactly what to write next, with the target keyword, why it matters, and enough context to act on it immediately.
+Be specific and actionable.
+
+Be concise — use bullet points only, no paragraphs. Max 2 sentences per item. Keep total response under 500 words. — every item should tell Rich exactly what to write next, with the target keyword, why it matters, and enough context to act on it immediately.
 Write in a direct, professional tone — no fluff.
 """
 
     message = client.messages.create(
         model="claude-opus-4-5",
-        max_tokens=4000,
+        max_tokens=1500,
         tools=[{"type": "web_search_20250305", "name": "web_search"}],
         messages=[{"role": "user", "content": prompt}]
     )
