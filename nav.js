@@ -4,31 +4,28 @@
   var base = isBlog ? '../' : '';
 
   var links = [
-    { href: 'seo-web.html',              label: 'SEO &amp; Web' },
-    { href: 'local-seo-audit.html',      label: 'Local SEO Audit' },
-    { href: 'ai-consulting.html',        label: 'AI Consulting' },
-    { href: 'custom-tools.html',         label: 'Custom Tools' },
-    { href: 'seo-ai-visibility.html',    label: 'AI Visibility' },
-    { href: 'blog/',                     label: 'Blog' },
-    { href: 'about.html',               label: 'About' },
+    { href: 'seo-web.html',           label: 'SEO &amp; Web' },
+    { href: 'local-seo-audit.html',   label: 'Local SEO Audit' },
+    { href: 'ai-consulting.html',     label: 'AI Consulting' },
+    { href: 'custom-tools.html',      label: 'Custom Tools' },
+    { href: 'seo-ai-visibility.html', label: 'AI Visibility' },
+    { href: 'blog/',                  label: 'Blog' },
+    { href: 'about.html',            label: 'About' },
   ];
 
   function isActive(href) {
-    var full = base + href;
-    if (href === 'blog/') {
-      return loc.indexOf('/blog') !== -1;
-    }
+    if (href === 'blog/') return loc.indexOf('/blog') !== -1;
     return loc.indexOf(href) !== -1;
   }
 
   var desktopItems = links.map(function (l) {
     var active = isActive(l.href) ? ' style="color:var(--accent);"' : '';
     return '<li><a href="' + base + l.href + '"' + active + '>' + l.label + '</a></li>';
-  }).join('\n      ');
+  }).join('');
 
   var mobileItems = links.map(function (l) {
     return '<a href="' + base + l.href + '">' + l.label + '</a>';
-  }).join('\n    ');
+  }).join('');
 
   var logoHref = isBlog ? '../' : '/';
   var ctaHref = 'mailto:contact@richnashawaty.com';
@@ -36,9 +33,7 @@
   var navHTML =
     '<nav>' +
     '<a href="' + logoHref + '" class="nav-logo">Rich Nashawaty<span>.</span></a>' +
-    '<ul class="nav-links">' +
-    desktopItems +
-    '</ul>' +
+    '<ul class="nav-links">' + desktopItems + '</ul>' +
     '<a href="' + ctaHref + '" class="nav-cta">Let\'s Talk</a>' +
     '<button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">' +
     '<span></span><span></span><span></span>' +
@@ -51,21 +46,27 @@
 
   document.write(navHTML);
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function initNav() {
     var btn = document.getElementById('nav-hamburger');
     var menu = document.getElementById('nav-mobile-menu');
     if (!btn || !menu) return;
     btn.addEventListener('click', function () {
       var open = menu.classList.toggle('open');
       btn.classList.toggle('open', open);
-      btn.setAttribute('aria-expanded', open);
+      btn.setAttribute('aria-expanded', String(open));
     });
     menu.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
         menu.classList.remove('open');
         btn.classList.remove('open');
-        btn.setAttribute('aria-expanded', false);
+        btn.setAttribute('aria-expanded', 'false');
       });
     });
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNav);
+  } else {
+    initNav();
+  }
 })();
