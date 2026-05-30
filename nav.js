@@ -35,7 +35,8 @@
     '<a href="' + logoHref + '" class="nav-logo">Rich Nashawaty<span>.</span></a>' +
     '<ul class="nav-links">' + desktopItems + '</ul>' +
     '<a href="' + ctaHref + '" class="nav-cta">Let\'s Talk</a>' +
-    '<button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">' +
+    '<button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false" ' +
+    'onclick="(function(b){var m=document.getElementById(\'nav-mobile-menu\');if(!m)return;var o=m.classList.toggle(\'open\');b.classList.toggle(\'open\',o);b.setAttribute(\'aria-expanded\',String(o));})(this)">' +
     '<span></span><span></span><span></span>' +
     '</button>' +
     '</nav>' +
@@ -49,29 +50,5 @@
     placeholder.outerHTML = navHTML;
   } else {
     document.write(navHTML);
-  }
-
-  function initNav() {
-    var btn = document.getElementById('nav-hamburger');
-    var menu = document.getElementById('nav-mobile-menu');
-    if (!btn || !menu) return;
-    btn.addEventListener('click', function () {
-      var open = menu.classList.toggle('open');
-      btn.classList.toggle('open', open);
-      btn.setAttribute('aria-expanded', String(open));
-    });
-    menu.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        menu.classList.remove('open');
-        btn.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initNav);
-  } else {
-    initNav();
   }
 })();
