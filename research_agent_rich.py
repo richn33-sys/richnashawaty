@@ -38,6 +38,13 @@ CURRENT_GUIDES = [
     "What Is GEO (Generative Engine Optimization)? A Plain-English Guide for Boston Business Owners",
     "How Much Does AI Automation Cost for Small Business?",
     "Questions to Ask Before Hiring an SEO Consultant in Boston",
+    "Boston Neighborhood SEO: How to Rank in Back Bay, Seaport & Beyond",
+    "How to Get Cited in AI Overviews: A Boston Business Owner's Guide",
+    "Best AI Tools for Small Business Marketing in 2026",
+    "How Much Does Local SEO Cost in Boston?",
+    "SEO vs. DIY: When to Hire an SEO Consultant vs. Do It Yourself",
+    "How to Measure SEO ROI for Your Small Business (2026 Guide)",
+    # add new posts here
 ]
 
 # Tools and resources already live
