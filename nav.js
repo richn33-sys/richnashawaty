@@ -10,7 +10,7 @@
     { href: 'custom-tools.html',      label: 'Custom Tools' },
     { href: 'seo-ai-visibility.html', label: 'AI Visibility' },
     { href: 'blog/',                  label: 'Blog' },
-    { href: 'about.html',            label: 'About' },
+    { href: 'about.html',             label: 'About' },
   ];
 
   function isActive(href) {
