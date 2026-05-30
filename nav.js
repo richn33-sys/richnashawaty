@@ -4,7 +4,7 @@
   var base = isBlog ? '../' : '';
 
   var links = [
-    { href: 'seo-web.html',           label: 'SEO &amp; Web' },
+    { href: 'seo-web.html',           label: 'SEO \u0026 Web' },
     { href: 'local-seo-audit.html',   label: 'Local SEO Audit' },
     { href: 'ai-consulting.html',     label: 'AI Consulting' },
     { href: 'custom-tools.html',      label: 'Custom Tools' },
@@ -44,7 +44,12 @@
     '<a href="' + ctaHref + '" class="mobile-cta">Let\'s Talk</a>' +
     '</div>';
 
-  document.write(navHTML);
+  var placeholder = document.getElementById('nav-root');
+  if (placeholder) {
+    placeholder.outerHTML = navHTML;
+  } else {
+    document.write(navHTML);
+  }
 
   function initNav() {
     var btn = document.getElementById('nav-hamburger');
