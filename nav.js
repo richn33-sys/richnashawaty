@@ -35,8 +35,7 @@
     '<a href="' + logoHref + '" class="nav-logo">Rich Nashawaty<span>.</span></a>' +
     '<ul class="nav-links">' + desktopItems + '</ul>' +
     '<a href="' + ctaHref + '" class="nav-cta">Let\'s Talk</a>' +
-    '<button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false" ' +
-    'onclick="(function(b){var m=document.getElementById(\'nav-mobile-menu\');if(!m)return;var o=m.classList.toggle(\'open\');b.classList.toggle(\'open\',o);b.setAttribute(\'aria-expanded\',String(o));})(this)">' +
+    '<button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">' +
     '<span></span><span></span><span></span>' +
     '</button>' +
     '</nav>' +
