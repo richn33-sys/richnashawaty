@@ -151,7 +151,16 @@ Using web search, research the following and produce a structured weekly brief:
 Format your response as clean HTML for an email brief. Use clear section headers, bullet points, and priority labels (HIGH/MEDIUM/LOW).
 Be specific and actionable.
 
-Be concise — use bullet points only, no paragraphs. Max 2 sentences per item. Keep total response under 500 words. — every item should tell Rich exactly what to write next, with the target keyword, why it matters, and enough context to act on it immediately.
+Be concise — use bullet points only, no paragraphs. Max 2 sentences per item.
+
+Focus on evergreen content only — topics relevant 12 months from now. Skip news-driven or time-sensitive items.
+
+Limit output to exactly 3 sections:
+1. BLOG POST IDEAS — 3 ideas maximum
+2. SERVICE/CONTENT OPPORTUNITIES — 2 ideas maximum
+3. COMPETITOR ACTIVITY — 3 items maximum
+
+Always finish each item completely. If approaching the limit, stop after the current item — never cut off mid-sentence. — every item should tell Rich exactly what to write next, with the target keyword, why it matters, and enough context to act on it immediately.
 Write in a direct, professional tone — no fluff.
 """
 
