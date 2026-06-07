@@ -52,4 +52,30 @@
   } else {
     document.write(navHTML);
   }
+
+  // Attach hamburger toggle — runs after nav is injected
+  function attachHamburger() {
+    var btn = document.getElementById('nav-hamburger');
+    var menu = document.getElementById('nav-mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function() {
+      var open = menu.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        menu.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Use DOMContentLoaded if document not ready, else run immediately
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachHamburger);
+  } else {
+    attachHamburger();
+  }
 })();
