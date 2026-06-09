@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Readiness Assessment for Small Business — Free Tool | Rich Nashawaty</title>
+  <meta name="description" content="Find out if your small business is ready for AI automation. Free 12-question assessment across 4 categories — get a score, a tier, and a specific action plan in under 3 minutes.">
+  <link rel="canonical" href="https://richnashawaty.com/ai-readiness-assessment.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Readiness Assessment for Small Business",
+    "description": "A free 12-question assessment that scores your business across processes, tools, team capacity, and goals to determine AI automation readiness.",
+    "url": "https://richnashawaty.com/ai-readiness-assessment.html",
+    "applicationCategory": "BusinessApplication",
+    "provider": { "@type": "Person", "name": "Rich Nashawaty", "url": "https://richnashawaty.com" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RDDSKTZ46"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6RDDSKTZ46');</script>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --bg:#181816;--bg2:#201f1c;--bg3:#272521;
+      --text:#f4f1ea;--text2:#b8b4ac;--text3:#7a7672;
+      --accent:#c8f060;--accent2:#a8d040;
+      --adim:rgba(200,240,96,0.08);--adim2:rgba(200,240,96,0.14);
+      --border:rgba(255,255,255,0.10);--border-h:rgba(255,255,255,0.18);
+      --serif:'Instrument Serif',serif;--sans:'DM Sans',sans-serif;--mono:'DM Mono',monospace;
+      --red:#ff6b6b;--yellow:#f5a623;--green:#c8f060;
+    }
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh;}
+
+    /* NAV */
+    .container{max-width:780px;margin:0 auto;padding:0 2rem;}
+
+    /* HERO */
+    .hero{padding:4rem 0 2rem;text-align:center;}
+    .hero-badge{display:inline-block;background:var(--adim2);border:1px solid rgba(200,240,96,0.3);color:var(--accent);font-family:var(--mono);font-size:0.72rem;letter-spacing:0.08em;padding:0.35rem 1rem;border-radius:20px;margin-bottom:1.5rem;}
+    .hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,2.8rem);line-height:1.2;letter-spacing:-0.02em;margin-bottom:1rem;}
+    .hero h1 em{color:var(--accent);font-style:italic;}
+    .hero-sub{color:var(--text2);max-width:520px;margin:0 auto 2rem;font-size:1rem;line-height:1.75;}
+    .hero-meta{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;}
+    .meta-item{font-family:var(--mono);font-size:0.72rem;color:var(--text3);display:flex;align-items:center;gap:0.4rem;}
+    .meta-item::before{content:'→';color:var(--accent);}
+
+    /* PROGRESS */
+    .progress-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2rem;}
+    .progress-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;}
+    .progress-label{font-family:var(--mono);font-size:0.72rem;color:var(--text3);letter-spacing:0.06em;}
+    .progress-count{font-family:var(--mono);font-size:0.72rem;color:var(--accent);}
+    .progress-bar{height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;}
+    .progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width 0.4s ease;}
+    .category-label{font-family:var(--mono);font-size:0.68rem;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.75rem;}
+
+    /* QUESTION CARD */
+    .question-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:2rem;margin-bottom:1.5rem;transition:border-color 0.2s;}
+    .question-num{font-family:var(--mono);font-size:0.68rem;color:var(--accent);letter-spacing:0.08em;margin-bottom:0.75rem;}
+    .question-text{font-family:var(--serif);font-size:1.2rem;color:var(--text);line-height:1.4;margin-bottom:1.5rem;}
+    .options{display:flex;flex-direction:column;gap:0.6rem;}
+    .option{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:0.9rem 1.25rem;cursor:pointer;transition:all 0.15s;display:flex;align-items:center;gap:0.75rem;font-size:0.92rem;color:var(--text2);}
+    .option:hover{border-color:var(--border-h);color:var(--text);background:rgba(255,255,255,0.04);}
+    .option.selected{border-color:var(--accent);background:var(--adim);color:var(--text);}
+    .option-dot{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--border-h);flex-shrink:0;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
+    .option.selected .option-dot{background:var(--accent);border-color:var(--accent);}
+    .option.selected .option-dot::after{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--bg);}
+
+    /* NAV BUTTONS */
+    .btn-row{display:flex;gap:1rem;justify-content:space-between;margin-top:1.5rem;}
+    .btn-back{background:none;border:1px solid var(--border);color:var(--text3);padding:0.75rem 1.5rem;border-radius:8px;font-family:var(--sans);font-size:0.88rem;cursor:pointer;transition:all 0.2s;}
+    .btn-back:hover{border-color:var(--border-h);color:var(--text2);}
+    .btn-next{background:var(--accent);color:#181816;padding:0.75rem 1.75rem;border-radius:8px;font-family:var(--sans);font-size:0.92rem;font-weight:600;cursor:pointer;border:none;transition:all 0.2s;margin-left:auto;}
+    .btn-next:hover{background:var(--accent2);}
+    .btn-next:disabled{background:var(--bg3);color:var(--text3);cursor:not-allowed;}
+
+    /* RESULTS */
+    .results{display:none;}
+    .score-ring-wrap{text-align:center;margin:2rem 0;}
+    .score-display{font-family:var(--serif);font-size:5rem;color:var(--accent);line-height:1;}
+    .score-label{font-family:var(--mono);font-size:0.75rem;color:var(--text3);letter-spacing:0.08em;margin-top:0.25rem;}
+    .tier-badge{display:inline-block;padding:0.5rem 1.5rem;border-radius:20px;font-family:var(--mono);font-size:0.8rem;font-weight:600;letter-spacing:0.06em;margin:1rem 0;}
+    .tier-not-ready{background:rgba(255,107,107,0.12);border:1px solid rgba(255,107,107,0.3);color:#ff6b6b;}
+    .tier-getting-ready{background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.3);color:#f5a623;}
+    .tier-ready{background:var(--adim2);border:1px solid rgba(200,240,96,0.3);color:var(--accent);}
+    .tier-title{font-family:var(--serif);font-size:1.75rem;color:var(--text);margin:0.75rem 0 0.5rem;text-align:center;}
+    .tier-desc{color:var(--text2);text-align:center;max-width:520px;margin:0 auto 2rem;line-height:1.75;}
+    .category-scores{display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem;margin:2rem 0;}
+    .cat-score-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+    .cat-score-name{font-family:var(--mono);font-size:0.68rem;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;}
+    .cat-score-bar{height:6px;background:var(--bg3);border-radius:3px;margin-bottom:0.4rem;overflow:hidden;}
+    .cat-score-fill{height:100%;border-radius:3px;transition:width 0.6s ease;}
+    .cat-score-val{font-family:var(--mono);font-size:0.78rem;color:var(--text2);}
+    .actions-section{margin-top:2rem;}
+    .actions-title{font-family:var(--serif);font-size:1.3rem;color:var(--text);margin-bottom:1rem;}
+    .action-item{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem;margin-bottom:0.6rem;display:flex;gap:0.75rem;align-items:flex-start;}
+    .action-priority{font-family:var(--mono);font-size:0.65rem;padding:0.2rem 0.5rem;border-radius:3px;flex-shrink:0;margin-top:2px;}
+    .priority-high{background:rgba(255,107,107,0.12);color:#ff6b6b;}
+    .priority-med{background:rgba(245,166,35,0.12);color:#f5a623;}
+    .priority-low{background:var(--adim);color:var(--accent);}
+    .action-text{font-size:0.88rem;color:var(--text2);line-height:1.6;}
+    .result-cta{background:var(--bg2);border:1px solid rgba(200,240,96,0.3);border-radius:12px;padding:2.5rem;text-align:center;margin-top:2.5rem;}
+    .result-cta h3{font-family:var(--serif);font-size:1.5rem;color:var(--text);margin-bottom:0.75rem;}
+    .result-cta p{color:var(--text2);max-width:420px;margin:0 auto 1.5rem;font-size:0.95rem;line-height:1.75;}
+    .btn-cta{display:inline-block;background:var(--accent);color:#181816;padding:0.85rem 2rem;border-radius:8px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;}
+    .btn-cta:hover{background:var(--accent2);}
+    .btn-restart{background:none;border:1px solid var(--border);color:var(--text3);padding:0.65rem 1.25rem;border-radius:8px;font-family:var(--sans);font-size:0.85rem;cursor:pointer;margin-top:1rem;transition:all 0.2s;}
+    .btn-restart:hover{border-color:var(--border-h);color:var(--text2);}
+
+    footer{border-top:1px solid var(--border);padding:2.5rem 2rem;margin-top:4rem;}
+    .footer-inner{max-width:780px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-logo{font-family:var(--serif);font-size:1rem;color:var(--text2);text-decoration:none;}
+    .footer-logo span{color:var(--accent);}
+    .footer-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap;}
+    .footer-links a{font-size:0.82rem;color:var(--text3);text-decoration:none;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--text2);}
+    .footer-copy{font-size:0.78rem;color:var(--text3);font-family:var(--mono);}
+
+    @media(max-width:640px){.container{padding:0 1.25rem;}.hero{padding:3rem 0 1.5rem;}.category-scores{grid-template-columns:1fr;}.btn-row{flex-wrap:wrap;}.result-cta{padding:2rem 1.25rem;}footer{padding:2rem 1.25rem;}.footer-inner{flex-direction:column;align-items:flex-start;}}
+  </style>
+</head>
+<body>
+
+  <div id="nav-root"></div>
+  <script src="nav.js"></script>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">Free Assessment · 3 Minutes · No Email Required</div>
+      <h1>Is your business <em>ready for AI?</em></h1>
+      <p class="hero-sub">12 questions across 4 categories. Get a score, a readiness tier, and a specific action plan — so you know exactly where to start.</p>
+      <div class="hero-meta">
+        <span class="meta-item">12 questions</span>
+        <span class="meta-item">4 categories</span>
+        <span class="meta-item">Instant results</span>
+        <span class="meta-item">No email required</span>
+      </div>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div id="assessment">
+      <div class="progress-wrap">
+        <div class="progress-header">
+          <span class="progress-label" id="progress-label">Getting started</span>
+          <span class="progress-count" id="progress-count">0 / 12</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+        <div class="category-label" id="category-label"></div>
+      </div>
+
+      <div id="question-wrap"></div>
+
+      <div class="btn-row">
+        <button class="btn-back" id="btn-back" onclick="prevQuestion()" style="display:none;">← Back</button>
+        <button class="btn-next" id="btn-next" onclick="nextQuestion()" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results" id="results">
+      <div class="score-ring-wrap">
+        <div class="score-display" id="score-display">0</div>
+        <div class="score-label">OUT OF 100</div>
+        <div id="tier-badge-wrap"></div>
+        <div class="tier-title" id="tier-title"></div>
+      </div>
+      <p class="tier-desc" id="tier-desc"></p>
+
+      <div class="category-scores" id="category-scores"></div>
+
+      <div class="actions-section">
+        <div class="actions-title">Your action plan</div>
+        <div id="actions-list"></div>
+      </div>
+
+      <div class="result-cta" id="result-cta"></div>
+
+      <div style="text-align:center;margin-top:1.5rem;">
+        <button class="btn-restart" onclick="restart()">Start over</button>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">Rich Nashawaty<span>.</span></a>
+      <ul class="footer-links">
+        <li><a href="ai-consulting.html">AI Consulting</a></li>
+        <li><a href="fractional-ai-consulting.html">Fractional AI</a></li>
+        <li><a href="custom-tools.html">Custom Tools</a></li>
+        <li><a href="blog/">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <span class="footer-copy">© 2026 Rich Nashawaty · Boston, MA</span>
+    </div>
+  </footer>
+
+  <script>
+  var QUESTIONS = [
+    // Category 1: Processes
+    {
+      cat: 'Processes',
+      catDesc: 'How much of your work is manual and repetitive?',
+      q: 'How much of your team\'s weekly work involves tasks done the same way every time — like data entry, follow-up emails, report generation, or scheduling?',
+      options: [
+        { text: 'Most of our work is unique and requires judgment each time', score: 1 },
+        { text: 'Some tasks repeat, but they\'re mixed with creative or complex work', score: 2 },
+        { text: 'A significant portion of our week is repetitive, rule-based tasks', score: 3 }
+      ]
+    },
+    {
+      cat: 'Processes',
+      catDesc: 'How much of your work is manual and repetitive?',
+      q: 'How would you describe your current approach to following up with leads or customers?',
+      options: [
+        { text: 'Manual — someone handles every follow-up personally', score: 1 },
+        { text: 'Partially systematized — we have some templates but still mostly manual', score: 2 },
+        { text: 'We have consistent processes, just not automated yet', score: 3 }
+      ]
+    },
+    {
+      cat: 'Processes',
+      catDesc: 'How much of your work is manual and repetitive?',
+      q: 'How does your team currently handle weekly reporting or status updates?',
+      options: [
+        { text: 'Someone compiles it manually from multiple sources each week', score: 1 },
+        { text: 'We pull from a few tools but still need to assemble it by hand', score: 2 },
+        { text: 'We have a system — it just takes too long to run', score: 3 }
+      ]
+    },
+
+    // Category 2: Data & Tools
+    {
+      cat: 'Data & Tools',
+      catDesc: 'What systems do you already have in place?',
+      q: 'What tools does your business currently use to manage customers or leads?',
+      options: [
+        { text: 'Mainly spreadsheets, email, or no formal system', score: 1 },
+        { text: 'A basic CRM (HubSpot free, Mailchimp, or similar)', score: 2 },
+        { text: 'A dedicated CRM with structured data and consistent usage', score: 3 }
+      ]
+    },
+    {
+      cat: 'Data & Tools',
+      catDesc: 'What systems do you already have in place?',
+      q: 'How would you describe your business\'s data quality?',
+      options: [
+        { text: 'Scattered — customer and operational data lives in multiple places with no clean source of truth', score: 1 },
+        { text: 'Okay — we have most data in one or two places but it\'s not always up to date', score: 2 },
+        { text: 'Solid — our key data is centralized, reasonably clean, and regularly updated', score: 3 }
+      ]
+    },
+    {
+      cat: 'Data & Tools',
+      catDesc: 'What systems do you already have in place?',
+      q: 'How comfortable is your team with adopting new software tools?',
+      options: [
+        { text: 'Low — new tools create friction and often get abandoned', score: 1 },
+        { text: 'Moderate — we can adopt tools if they\'re simple and well-explained', score: 2 },
+        { text: 'High — we regularly evaluate and adopt new tools', score: 3 }
+      ]
+    },
+
+    // Category 3: Team & Time
+    {
+      cat: 'Team & Time',
+      catDesc: 'Do you have the capacity to implement changes?',
+      q: 'How much time could your team realistically dedicate to an AI implementation project over the next 60 days?',
+      options: [
+        { text: 'Very little — everyone is at full capacity right now', score: 1 },
+        { text: 'A few hours per week if we prioritize it', score: 2 },
+        { text: 'We have meaningful capacity and leadership buy-in to make it happen', score: 3 }
+      ]
+    },
+    {
+      cat: 'Team & Time',
+      catDesc: 'Do you have the capacity to implement changes?',
+      q: 'Has your business attempted any AI or automation projects in the past?',
+      options: [
+        { text: 'No — this would be our first serious attempt', score: 1 },
+        { text: 'Yes, but they stalled or didn\'t deliver what we hoped', score: 2 },
+        { text: 'Yes — we\'ve successfully implemented at least one automation that\'s still running', score: 3 }
+      ]
+    },
+    {
+      cat: 'Team & Time',
+      catDesc: 'Do you have the capacity to implement changes?',
+      q: 'Who in your organization would own an AI automation initiative?',
+      options: [
+        { text: 'Nobody — we don\'t have a clear owner for this type of project', score: 1 },
+        { text: 'Probably me (the owner/founder), but I\'m already stretched thin', score: 2 },
+        { text: 'We have someone who could own it with the right support', score: 3 }
+      ]
+    },
+
+    // Category 4: Goals
+    {
+      cat: 'Goals',
+      catDesc: 'What are you trying to achieve?',
+      q: 'What is the primary driver behind your interest in AI automation?',
+      options: [
+        { text: 'Curiosity — I\'ve been hearing about AI and want to understand it better', score: 1 },
+        { text: 'Efficiency — I want to reduce time spent on specific repetitive tasks', score: 2 },
+        { text: 'Growth — I need automation to scale without proportional headcount increases', score: 3 }
+      ]
+    },
+    {
+      cat: 'Goals',
+      catDesc: 'What are you trying to achieve?',
+      q: 'How clearly can you identify the specific workflow you most want to automate?',
+      options: [
+        { text: 'Vaguely — I know AI could help but I\'m not sure exactly where', score: 1 },
+        { text: 'Somewhat — I have a few areas in mind but haven\'t defined them precisely', score: 2 },
+        { text: 'Clearly — I can name the exact process, the pain point, and the desired outcome', score: 3 }
+      ]
+    },
+    {
+      cat: 'Goals',
+      catDesc: 'What are you trying to achieve?',
+      q: 'How do you measure success for operational improvements in your business?',
+      options: [
+        { text: 'We don\'t track this formally — we know when things feel better', score: 1 },
+        { text: 'We track some metrics but not consistently', score: 2 },
+        { text: 'We have clear KPIs and would measure AI automation ROI the same way', score: 3 }
+      ]
+    }
+  ];
+
+  var answers = new Array(QUESTIONS.length).fill(null);
+  var current = 0;
+
+  function render() {
+    var q = QUESTIONS[current];
+    var wrap = document.getElementById('question-wrap');
+
+    wrap.innerHTML = '<div class="question-card">' +
+      '<div class="question-num">Question ' + (current + 1) + ' of ' + QUESTIONS.length + '</div>' +
+      '<div class="question-text">' + q.q + '</div>' +
+      '<div class="options">' +
+      q.options.map(function(opt, i) {
+        var sel = answers[current] === i ? ' selected' : '';
+        return '<div class="option' + sel + '" onclick="selectOption(' + i + ')">' +
+          '<div class="option-dot"></div>' + opt.text + '</div>';
+      }).join('') +
+      '</div></div>';
+
+    // Progress
+    var pct = Math.round((current / QUESTIONS.length) * 100);
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-count').textContent = current + ' / ' + QUESTIONS.length;
+    document.getElementById('progress-label').textContent = q.cat;
+    document.getElementById('category-label').textContent = q.catDesc;
+
+    // Buttons
+    document.getElementById('btn-back').style.display = current > 0 ? 'block' : 'none';
+    document.getElementById('btn-next').disabled = answers[current] === null;
+    document.getElementById('btn-next').textContent = current === QUESTIONS.length - 1 ? 'See My Results →' : 'Next →';
+  }
+
+  function selectOption(i) {
+    answers[current] = i;
+    document.querySelectorAll('.option').forEach(function(el, idx) {
+      el.classList.toggle('selected', idx === i);
+    });
+    document.getElementById('btn-next').disabled = false;
+  }
+
+  function nextQuestion() {
+    if (answers[current] === null) return;
+    if (current < QUESTIONS.length - 1) {
+      current++;
+      render();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    } else {
+      showResults();
+    }
+  }
+
+  function prevQuestion() {
+    if (current > 0) { current--; render(); window.scrollTo({top: 0, behavior: 'smooth'}); }
+  }
+
+  function getScore() {
+    var total = 0;
+    answers.forEach(function(a, i) {
+      if (a !== null) total += QUESTIONS[i].options[a].score;
+    });
+    return Math.round((total / (QUESTIONS.length * 3)) * 100);
+  }
+
+  function getCategoryScores() {
+    var cats = {};
+    QUESTIONS.forEach(function(q, i) {
+      if (!cats[q.cat]) cats[q.cat] = { total: 0, max: 0 };
+      cats[q.cat].max += 3;
+      if (answers[i] !== null) cats[q.cat].total += q.options[answers[i]].score;
+    });
+    return cats;
+  }
+
+  function showResults() {
+    document.getElementById('assessment').style.display = 'none';
+    var results = document.getElementById('results');
+    results.style.display = 'block';
+
+    var score = getScore();
+    var catScores = getCategoryScores();
+
+    // Animate score
+    var disp = document.getElementById('score-display');
+    var start = 0;
+    var interval = setInterval(function() {
+      start += 2;
+      if (start >= score) { start = score; clearInterval(interval); }
+      disp.textContent = start;
+    }, 20);
+
+    // Tier
+    var tier, tierClass, tierTitle, tierDesc, ctaHTML;
+    if (score < 45) {
+      tier = 'Not ready yet';
+      tierClass = 'tier-not-ready';
+      tierTitle = 'Build the foundation first.';
+      tierDesc = 'Your business has real automation potential, but jumping into AI tools right now would likely result in wasted budget and abandoned projects. The highest-ROI move is fixing the underlying process and data issues that would limit any AI system before they\'re addressed.';
+      ctaHTML = '<h3>Want a roadmap for getting ready?</h3><p>A free strategy call will identify the 2–3 specific things standing between your current state and AI-ready — with a clear sequence for addressing them.</p><a href="mailto:contact@richnashawaty.com?subject=AI Readiness" class="btn-cta">Book a Free Strategy Call</a>';
+    } else if (score < 75) {
+      tier = 'Getting ready';
+      tierClass = 'tier-getting-ready';
+      tierTitle = 'You\'re closer than you think.';
+      tierDesc = 'Your business has a solid foundation and clear automation opportunities. A few targeted improvements — in the categories where you scored lowest — would make your first AI build much more likely to succeed and deliver real ROI.';
+      ctaHTML = '<h3>Ready to identify the right first build?</h3><p>A free strategy call maps your highest-ROI automation opportunity and gives you a specific picture of what\'s buildable — before anyone commits to anything.</p><a href="mailto:contact@richnashawaty.com?subject=AI Readiness" class="btn-cta">Book a Free Strategy Call</a>';
+    } else {
+      tier = 'AI-ready';
+      tierClass = 'tier-ready';
+      tierTitle = 'You\'re ready to build.';
+      tierDesc = 'Your business has the processes, tools, capacity, and goals aligned for a successful AI automation build. The infrastructure is there — you need someone to build the right systems, in the right order, with the right handoff.';
+      ctaHTML = '<h3>You\'re ready. Let\'s build something.</h3><p>A free strategy call will identify your highest-ROI first build, scope it specifically, and give you a clear picture of what it would cost and what it would save.</p><a href="mailto:contact@richnashawaty.com?subject=AI Readiness" class="btn-cta">Book a Free Strategy Call</a>';
+    }
+
+    document.getElementById('tier-badge-wrap').innerHTML = '<div class="tier-badge ' + tierClass + '">' + tier + '</div>';
+    document.getElementById('tier-title').textContent = tierTitle;
+    document.getElementById('tier-desc').textContent = tierDesc;
+    document.getElementById('result-cta').innerHTML = ctaHTML;
+
+    // Category scores
+    var catColors = { 'Processes': '#c8f060', 'Data & Tools': '#4a9eff', 'Team & Time': '#f5a623', 'Goals': '#ff6b6b' };
+    var catHTML = '';
+    Object.keys(catScores).forEach(function(cat) {
+      var cs = catScores[cat];
+      var pct = Math.round((cs.total / cs.max) * 100);
+      catHTML += '<div class="cat-score-card">' +
+        '<div class="cat-score-name">' + cat + '</div>' +
+        '<div class="cat-score-bar"><div class="cat-score-fill" style="width:' + pct + '%;background:' + (catColors[cat] || 'var(--accent)') + '"></div></div>' +
+        '<div class="cat-score-val">' + pct + '% ready</div>' +
+        '</div>';
+    });
+    document.getElementById('category-scores').innerHTML = catHTML;
+
+    // Action plan based on weakest categories
+    var sorted = Object.keys(catScores).sort(function(a,b) {
+      return (catScores[a].total/catScores[a].max) - (catScores[b].total/catScores[b].max);
+    });
+
+    var actionMap = {
+      'Processes': [
+        { p: 'HIGH', t: 'Document your 3 most repetitive weekly tasks in writing — name the trigger, the steps, and the output. You can\'t automate what isn\'t defined.' },
+        { p: 'MED', t: 'Map one complete workflow end-to-end before building anything. The map reveals the edge cases that break automations.' }
+      ],
+      'Data & Tools': [
+        { p: 'HIGH', t: 'Consolidate customer data into a single source of truth — even a clean spreadsheet beats scattered notes and inboxes for automation purposes.' },
+        { p: 'MED', t: 'Audit your current tool stack for overlap. Redundant tools create data silos that make automation more complex and expensive.' }
+      ],
+      'Team & Time': [
+        { p: 'HIGH', t: 'Assign a single owner for your AI initiative before starting anything. Without an owner, nothing gets maintained after the initial build.' },
+        { p: 'MED', t: 'Block 2–3 hours per week for implementation work before the project starts — not during. Reactive time allocation kills automation projects.' }
+      ],
+      'Goals': [
+        { p: 'HIGH', t: 'Define one specific workflow to automate first — name the exact process, the current time cost, and what success looks like. Vague goals produce vague automation.' },
+        { p: 'MED', t: 'Set a baseline metric before building anything. If you don\'t measure the before, you can\'t prove the after — and can\'t justify the next build.' }
+      ]
+    };
+
+    var actHTML = '';
+    sorted.slice(0, 3).forEach(function(cat) {
+      var acts = actionMap[cat] || [];
+      acts.slice(0, 1).forEach(function(a) {
+        actHTML += '<div class="action-item"><span class="action-priority priority-' + a.p.toLowerCase() + '">' + a.p + '</span><div class="action-text"><strong style="color:var(--text);">' + cat + ':</strong> ' + a.t + '</div></div>';
+      });
+    });
+    // Always add one general action
+    if (score >= 75) {
+      actHTML += '<div class="action-item"><span class="action-priority priority-low">NEXT</span><div class="action-text"><strong style="color:var(--text);">Build:</strong> Your scores suggest lead follow-up automation or weekly reporting automation as high-ROI first builds — both have fast payback periods and low implementation risk.</div></div>';
+    }
+    document.getElementById('actions-list').innerHTML = actHTML;
+
+    window.scrollTo({top: 0, behavior: 'smooth'});
+
+    // GA4 event
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'assessment_complete', { score: score, tier: tier });
+    }
+  }
+
+  function restart() {
+    answers = new Array(QUESTIONS.length).fill(null);
+    current = 0;
+    document.getElementById('results').style.display = 'none';
+    document.getElementById('assessment').style.display = 'block';
+    render();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  // Init
+  render();
+  </script>
+
+  <script>
+  window.addEventListener('load',function(){var btn=document.getElementById('nav-hamburger');var menu=document.getElementById('nav-mobile-menu');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('open');btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});});});
+  </script>
+
+</body>
+</html>

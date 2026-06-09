@@ -32,6 +32,7 @@ SITE_NICHE = "SEO consulting, local SEO Boston, AI consulting small business, ma
 
 # Blog posts already published — agent won't re-suggest these
 CURRENT_GUIDES = [
+    # Blog posts (15 live)
     "What Does an SEO Consultant Actually Do?",
     "How Much Does an SEO Consultant Cost in Boston?",
     "Why Isn't My Boston Business Ranking on Google?",
@@ -44,7 +45,23 @@ CURRENT_GUIDES = [
     "How Much Does Local SEO Cost in Boston?",
     "SEO vs. DIY: When to Hire an SEO Consultant vs. Do It Yourself",
     "How to Measure SEO ROI for Your Small Business (2026 Guide)",
-    # add new posts here
+    "Technical SEO Audit Checklist for Small Businesses (2026)",
+    "SEO vs. GEO vs. AEO: What Boston Business Owners Actually Need to Know",
+    "Do You Need a Fractional AI Officer? A Guide for Small Businesses (2026)",
+    # Service pages
+    "Local SEO Audit ($497) — service page",
+    "SEO & Web — service page",
+    "AI Consulting — service page",
+    "Custom Tools — service page",
+    "GEO / AI Search Visibility — service page",
+    "Fractional AI Consulting — service page",
+    "Cambridge MA SEO — landing page",
+    "Route 128 Corridor SEO — landing page",
+    "Remote SEO Consultant — landing page",
+    "$500 Website Offer — landing page",
+    # Free tools
+    "AI Automation ROI Calculator — free tool",
+    "SEO Audit Checklist — free lead magnet",
 ]
 
 # Tools and resources already live
