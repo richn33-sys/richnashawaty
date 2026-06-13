@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO ROI Calculator for Small Business — Free Tool | Rich Nashawaty</title>
+  <meta name="description" content="Calculate the revenue impact of SEO for your small business. Enter your current traffic, lead value, and conversion rate to see what better rankings could mean in dollars.">
+  <link rel="canonical" href="https://richnashawaty.com/seo-roi-calculator.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SEO ROI Calculator for Small Business",
+    "description": "Free calculator to estimate the revenue impact of SEO improvements for small businesses. Enter your current organic traffic, lead value, and conversion rate.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": "https://richnashawaty.com/seo-roi-calculator.html",
+    "provider": { "@type": "Person", "name": "Rich Nashawaty", "url": "https://richnashawaty.com" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate SEO ROI for a small business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SEO ROI is calculated by estimating the revenue generated from organic traffic improvements minus the cost of SEO investment. The formula is: (Organic Sessions x Conversion Rate x Lead Value x Close Rate) - SEO Cost = Net Revenue. Divide net revenue by SEO cost and multiply by 100 to get ROI percentage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good SEO ROI for a small business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A well-executed SEO program for a small business typically produces 3x to 10x ROI over 12 months, with higher returns in months 6-12 as rankings compound. Service businesses with high average transaction values (HVAC, legal, dental, construction) often see the highest ROI because each lead is worth hundreds to thousands of dollars."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to see SEO ROI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most small businesses see measurable ranking improvements in 3-6 months, with meaningful traffic and lead increases in months 4-9. Full ROI realization typically happens in months 6-12. The compounding nature of SEO means returns accelerate over time — a page that ranks at position 8 in month 3 may reach position 3 by month 9, dramatically increasing click volume."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RDDSKTZ46"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6RDDSKTZ46');</script>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--bg:#181816;--bg2:#201f1c;--bg3:#272521;--text:#f4f1ea;--text2:#b8b4ac;--text3:#7a7672;--accent:#c8f060;--accent2:#a8d040;--adim:rgba(200,240,96,0.08);--adim2:rgba(200,240,96,0.14);--border:rgba(255,255,255,0.10);--border-h:rgba(255,255,255,0.18);--serif:'Instrument Serif',serif;--sans:'DM Sans',sans-serif;--mono:'DM Mono',monospace;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    .container{max-width:860px;margin:0 auto;padding:0 2rem;}
+    .label{font-family:var(--mono);font-size:0.7rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:1rem;}
+    .hero{padding:4rem 0 2rem;}
+    .hero-eyebrow{font-family:var(--mono);font-size:0.72rem;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
+    .hero-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--accent);}
+    .hero h1{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);line-height:1.2;letter-spacing:-0.02em;margin-bottom:0.75rem;}
+    .hero h1 em{color:var(--accent);font-style:italic;}
+    .hero-sub{font-size:1rem;color:var(--text2);line-height:1.75;max-width:580px;margin-bottom:2rem;}
+
+    /* CALCULATOR */
+    .calc-wrap{background:var(--bg2);border:1px solid rgba(200,240,96,0.2);border-radius:16px;padding:2rem;margin-bottom:2rem;}
+    .calc-section-label{font-family:var(--mono);font-size:0.68rem;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+    .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.75rem;}
+    .input-group{display:flex;flex-direction:column;gap:0.4rem;}
+    .input-label{font-size:0.85rem;font-weight:600;color:var(--text);}
+    .input-hint{font-family:var(--mono);font-size:0.7rem;color:var(--text3);margin-top:0.1rem;}
+    .input-wrap{position:relative;display:flex;align-items:center;}
+    .input-prefix,.input-suffix{position:absolute;font-family:var(--mono);font-size:0.85rem;color:var(--text3);pointer-events:none;}
+    .input-prefix{left:0.75rem;}
+    .input-suffix{right:0.75rem;}
+    input[type="number"]{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:0.65rem 0.9rem;color:var(--text);font-family:var(--sans);font-size:0.95rem;transition:border-color 0.2s;-moz-appearance:textfield;}
+    input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;}
+    input[type="number"]:focus{outline:none;border-color:var(--accent);}
+    input.has-prefix{padding-left:1.75rem;}
+    input.has-suffix{padding-right:2rem;}
+
+    .scenario-tabs{display:flex;gap:0.5rem;margin-bottom:1.5rem;}
+    .tab-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text3);font-size:0.82rem;padding:0.45rem 1rem;border-radius:6px;cursor:pointer;font-family:var(--sans);transition:all 0.2s;}
+    .tab-btn.active{background:var(--adim2);border-color:var(--accent);color:var(--accent);}
+
+    .results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem;}
+    .result-card{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center;}
+    .result-card.highlight{background:var(--adim2);border-color:rgba(200,240,96,0.3);}
+    .result-label{font-family:var(--mono);font-size:0.65rem;color:var(--text3);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.4rem;}
+    .result-val{font-family:var(--serif);font-size:1.6rem;color:var(--accent);line-height:1;}
+    .result-val.neutral{color:var(--text2);}
+    .result-sub{font-size:0.75rem;color:var(--text3);margin-top:0.25rem;}
+
+    .timeline-bar{background:var(--bg3);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;}
+    .tl-label{font-family:var(--mono);font-size:0.68rem;color:var(--text3);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1rem;}
+    .tl-months{display:flex;gap:0;align-items:flex-end;height:80px;}
+    .tl-month{flex:1;display:flex;flex-direction:column;align-items:center;gap:0.3rem;}
+    .tl-bar{width:100%;background:var(--accent);border-radius:3px 3px 0 0;opacity:0.3;transition:height 0.5s,opacity 0.3s;}
+    .tl-bar.active{opacity:1;}
+    .tl-mo{font-family:var(--mono);font-size:0.6rem;color:var(--text3);}
+
+    .assumptions{background:var(--bg3);border-radius:8px;padding:1rem 1.25rem;font-size:0.82rem;color:var(--text3);line-height:1.65;}
+    .assumptions strong{color:var(--text2);}
+
+    /* FAQ */
+    .faq-section{padding:3rem 0;}
+    .faq-list{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem;}
+    details{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;}
+    summary{font-weight:600;color:var(--text);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:1rem;}
+    summary::-webkit-details-marker{display:none;}
+    summary .fi{color:var(--accent);font-size:1.2rem;flex-shrink:0;margin-left:1rem;}
+    details p{color:var(--text2);margin-top:1rem;line-height:1.75;font-size:0.95rem;}
+
+    /* Related */
+    .related{padding:2rem 0 4rem;}
+    .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.25rem;}
+    .related-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;text-decoration:none;transition:border-color 0.2s;}
+    .related-card:hover{border-color:var(--accent);}
+    .related-tag{font-family:var(--mono);font-size:0.68rem;color:var(--accent);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.35rem;}
+    .related-title{font-weight:600;color:var(--text);font-size:0.92rem;line-height:1.4;margin-bottom:0.25rem;}
+    .related-desc{font-size:0.82rem;color:var(--text3);line-height:1.5;}
+
+    .cta-box{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:3rem;text-align:center;margin-bottom:4rem;}
+    .cta-box h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:0.75rem;}
+    .cta-box p{color:var(--text2);max-width:420px;margin:0 auto 1.75rem;font-size:0.95rem;line-height:1.75;}
+    .btn-p{display:inline-block;background:var(--accent);color:#0e0e0c;padding:0.8rem 1.75rem;border-radius:8px;font-weight:600;font-size:0.92rem;text-decoration:none;transition:all 0.2s;}
+    .btn-p:hover{background:var(--accent2);}
+
+    footer{border-top:1px solid var(--border);padding:2.5rem 2rem;}
+    .footer-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-logo{font-family:var(--serif);font-size:1rem;color:var(--text2);text-decoration:none;}
+    .footer-logo span{color:var(--accent);}
+    .footer-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap;}
+    .footer-links a{font-size:0.82rem;color:var(--text3);text-decoration:none;}.footer-links a:hover{color:var(--text2);}
+    .footer-copy{font-size:0.78rem;color:var(--text3);font-family:var(--mono);}
+
+    @media(max-width:640px){
+      .input-grid{grid-template-columns:1fr;}
+      .results-grid{grid-template-columns:1fr;}
+      .related-grid{grid-template-columns:1fr;}
+      .container{padding:0 1.25rem;}
+      .calc-wrap{padding:1.5rem 1.25rem;}
+      footer{padding:2rem 1.25rem;}
+      .footer-inner{flex-direction:column;align-items:flex-start;}
+    }
+  </style>
+</head>
+<body>
+  <div id="nav-root"></div>
+  <script src="nav.js"></script>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">Free Tool · SEO ROI Calculator</div>
+      <h1>What would better rankings be worth to <em>your business?</em></h1>
+      <p class="hero-sub">Enter your numbers below. The calculator estimates the revenue impact of SEO improvements across three scenarios — conservative, moderate, and aggressive — so you can see what the upside actually looks like before committing to anything.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="calc-wrap">
+      <div class="calc-section-label">Your business inputs</div>
+      <div class="input-grid">
+        <div class="input-group">
+          <label class="input-label" for="traffic">Monthly organic visitors (current)</label>
+          <div class="input-hint">From Google Analytics or GSC — use clicks, not impressions</div>
+          <div class="input-wrap">
+            <input type="number" id="traffic" value="200" min="0" oninput="calc()">
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="cvr">Organic conversion rate (%)</label>
+          <div class="input-hint">Leads or contacts from organic ÷ organic visitors × 100</div>
+          <div class="input-wrap">
+            <input type="number" id="cvr" value="2" min="0" max="100" step="0.1" class="has-suffix" oninput="calc()">
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="leadval">Average value per closed client ($)</label>
+          <div class="input-hint">Revenue per job, project, or sale — not per lead</div>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="leadval" value="1500" min="0" class="has-prefix" oninput="calc()">
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="closerate">Lead-to-client close rate (%)</label>
+          <div class="input-hint">How many leads you convert to paying clients</div>
+          <div class="input-wrap">
+            <input type="number" id="closerate" value="30" min="0" max="100" class="has-suffix" oninput="calc()">
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="seocost">Monthly SEO investment ($)</label>
+          <div class="input-hint">Your current or planned monthly spend on SEO</div>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="seocost" value="750" min="0" class="has-prefix" oninput="calc()">
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="months">Projection period (months)</label>
+          <div class="input-hint">12 months is the standard SEO ROI measurement window</div>
+          <div class="input-wrap">
+            <input type="number" id="months" value="12" min="3" max="36" oninput="calc()">
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-section-label">Traffic growth scenario</div>
+      <div class="scenario-tabs">
+        <button class="tab-btn" id="tab-con" onclick="setScenario('conservative')">Conservative (+30%)</button>
+        <button class="tab-btn active" id="tab-mod" onclick="setScenario('moderate')">Moderate (+75%)</button>
+        <button class="tab-btn" id="tab-agg" onclick="setScenario('aggressive')">Aggressive (+150%)</button>
+      </div>
+      <div class="assumptions" id="assumption-text"></div>
+
+      <div class="calc-section-label" style="margin-top:1.5rem;">Projected results</div>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-label">Current monthly revenue from organic</div>
+          <div class="result-val neutral" id="current-rev">$0</div>
+          <div class="result-sub">Based on your inputs today</div>
+        </div>
+        <div class="result-card highlight">
+          <div class="result-label">Projected monthly revenue</div>
+          <div class="result-val" id="proj-rev">$0</div>
+          <div class="result-sub" id="proj-sub">At selected growth scenario</div>
+        </div>
+        <div class="result-card">
+          <div class="result-label">Revenue increase per month</div>
+          <div class="result-val" id="rev-delta">$0</div>
+          <div class="result-sub">Additional monthly organic revenue</div>
+        </div>
+        <div class="result-card">
+          <div class="result-label">Total SEO investment</div>
+          <div class="result-val neutral" id="total-cost">$0</div>
+          <div class="result-sub" id="cost-sub">Over projection period</div>
+        </div>
+        <div class="result-card highlight">
+          <div class="result-label">Net revenue gain</div>
+          <div class="result-val" id="net-gain">$0</div>
+          <div class="result-sub">Total gain minus SEO cost</div>
+        </div>
+        <div class="result-card">
+          <div class="result-label">SEO ROI</div>
+          <div class="result-val" id="roi-pct">0%</div>
+          <div class="result-sub">Return on SEO investment</div>
+        </div>
+      </div>
+
+      <div class="calc-section-label">Traffic growth curve (months 1–12)</div>
+      <div class="timeline-bar">
+        <div class="tl-label">Estimated monthly organic traffic — SEO compounds over time</div>
+        <div class="tl-months" id="tl-bars"></div>
+      </div>
+
+      <div class="assumptions">
+        <strong>How this is calculated:</strong> Current monthly revenue = (visitors × conversion rate × close rate × lead value). Projected revenue applies the selected growth rate, compounded gradually over the projection period to reflect how SEO traffic builds. SEO traffic growth is front-loaded in months 3–9 as Google indexes new content and rankings move. The calculator assumes no change in your conversion rate or close rate — improvements to those would increase the actual ROI further.
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="faq-section">
+      <span class="label">Common questions</span>
+      <h2 style="font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-0.02em;">FAQ</h2>
+      <div class="faq-list">
+        <details><summary>How accurate is this calculator? <span class="fi">+</span></summary><p>It's directional, not precise. The actual revenue impact of SEO depends on dozens of factors this calculator doesn't know about — your competition, your current rankings, your site's technical health, your content quality, and how aggressively you pursue the program. Use the output to understand the order of magnitude of the opportunity, not as a budget forecast. A 75% traffic increase in 12 months is achievable for most small businesses starting from a low baseline — it's not a stretch goal.</p></details>
+        <details><summary>What conversion rate should I use? <span class="fi">+</span></summary><p>Use your actual conversion rate from organic traffic if you have it in GA4 — organic visitors who completed a contact form, called, or booked. If you don't track this yet, 1–3% is a reasonable assumption for a local service business. B2B businesses typically run 1–2%; local consumer services 2–5%; ecommerce varies widely. Don't inflate this number — the calculator is more useful with a conservative input.</p></details>
+        <details><summary>Why does the traffic growth curve start slow? <span class="fi">+</span></summary><p>Because that's how SEO actually works. Technical fixes and content optimizations start in month 1, but Google needs time to recrawl, re-evaluate, and re-rank the updated content. Most businesses see the first meaningful ranking movements in months 3–5, with significant traffic increases in months 6–9. Month 12 is typically when compounding really shows up — pages that ranked at position 8 in month 3 reach position 3 in month 9, which can triple click volume from the same query.</p></details>
+        <details><summary>What's a realistic traffic growth rate for a small business? <span class="fi">+</span></summary><p>For a small business starting from under 500 monthly organic visitors with a site that hasn't had dedicated SEO work, 75–150% growth in 12 months is achievable with consistent execution. The lower end (30–50%) is more typical if you're in a competitive market or starting from a larger baseline. Very low-traffic sites (under 100 visitors/month) sometimes see higher percentage growth simply because the baseline is low — but the absolute revenue impact is also smaller.</p></details>
+      </div>
+    </section>
+
+    <section class="related">
+      <span class="label">Related reading</span>
+      <h2 style="font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-0.02em;">Go deeper on SEO ROI</h2>
+      <div class="related-grid">
+        <a href="blog/how-to-measure-seo-roi-small-business.html" class="related-card">
+          <div class="related-tag">Guide</div>
+          <div class="related-title">How to Measure SEO ROI for Your Small Business</div>
+          <div class="related-desc">The metrics, the formulas, and how to tie organic search to actual revenue — not vanity traffic numbers.</div>
+        </a>
+        <a href="blog/how-to-vet-seo-consultant.html" class="related-card">
+          <div class="related-tag">Guide</div>
+          <div class="related-title">How to Vet an SEO Consultant</div>
+          <div class="related-desc">Red flags, green lights, and the questions that separate real expertise from polished pitches.</div>
+        </a>
+        <a href="local-seo-audit.html" class="related-card">
+          <div class="related-tag">Service</div>
+          <div class="related-title">$497 Local SEO Audit</div>
+          <div class="related-desc">A full audit of your local search presence benchmarked against your top 3 competitors. 5–7 business days.</div>
+        </a>
+        <a href="blog/how-much-does-seo-consultant-cost-boston.html" class="related-card">
+          <div class="related-tag">Guide</div>
+          <div class="related-title">How Much Does an SEO Consultant Cost?</div>
+          <div class="related-desc">What you should expect to pay, what that buys, and how to evaluate whether it's worth it.</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="cta-box">
+      <span class="label" style="display:flex;justify-content:center;">Free Strategy Call</span>
+      <h2>Want a real number, not an estimate?</h2>
+      <p>Book a free strategy call. I'll pull up your GSC data, look at your actual traffic and rankings, and give you a specific picture of what SEO could realistically do for your business.</p>
+      <a href="mailto:contact@richnashawaty.com?subject=SEO ROI Strategy Call" class="btn-p">Book a Free Call →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">Rich Nashawaty<span>.</span></a>
+      <ul class="footer-links">
+        <li><a href="seo-web.html">SEO &amp; Web</a></li>
+        <li><a href="local-seo-audit.html">Local SEO Audit</a></li>
+        <li><a href="ai-automation-roi-calculator.html">AI ROI Calculator</a></li>
+        <li><a href="blog/">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <span class="footer-copy">© 2026 Rich Nashawaty · Boston, MA</span>
+    </div>
+  </footer>
+
+  <script>
+  var scenario = 'moderate';
+  var growthRates = { conservative: 0.30, moderate: 0.75, aggressive: 1.50 };
+  var scenarioLabels = {
+    conservative: 'Conservative (+30% traffic over projection period) — appropriate for competitive markets or sites with a solid existing foundation.',
+    moderate: 'Moderate (+75% traffic over projection period) — typical for small businesses with 3–6 months of consistent SEO execution.',
+    aggressive: 'Aggressive (+150% traffic over projection period) — achievable for sites starting from a low baseline with strong execution and limited competition.'
+  };
+
+  function setScenario(s) {
+    scenario = s;
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.getElementById('tab-' + s.substring(0,3)).classList.add('active');
+    calc();
+  }
+
+  function fmt(n) {
+    return '$' + Math.round(n).toLocaleString();
+  }
+
+  function calc() {
+    var traffic   = parseFloat(document.getElementById('traffic').value) || 0;
+    var cvr       = (parseFloat(document.getElementById('cvr').value) || 0) / 100;
+    var leadval   = parseFloat(document.getElementById('leadval').value) || 0;
+    var closerate = (parseFloat(document.getElementById('closerate').value) || 0) / 100;
+    var seocost   = parseFloat(document.getElementById('seocost').value) || 0;
+    var months    = parseInt(document.getElementById('months').value) || 12;
+
+    var currentRev = traffic * cvr * closerate * leadval;
+    var growth     = growthRates[scenario];
+    var projTraffic = traffic * (1 + growth);
+    var projRev    = projTraffic * cvr * closerate * leadval;
+    var delta      = projRev - currentRev;
+    var totalCost  = seocost * months;
+
+    // Ramp: traffic grows gradually, front-loaded in months 3-9
+    // Month 1-2: 5% of growth, 3-5: 35%, 6-9: 40%, 10-12: 20%
+    var rampFactors = [0.03, 0.07, 0.15, 0.25, 0.35, 0.50, 0.65, 0.78, 0.88, 0.94, 0.97, 1.00];
+    var totalRevGain = 0;
+    var barData = [];
+    for (var i = 0; i < Math.min(months, 12); i++) {
+      var ramp = rampFactors[Math.min(i, 11)];
+      var moTraffic = traffic + (projTraffic - traffic) * ramp;
+      var moRev = moTraffic * cvr * closerate * leadval;
+      totalRevGain += moRev;
+      barData.push({ traffic: Math.round(moTraffic), rev: moRev });
+    }
+    if (months > 12) {
+      for (var j = 12; j < months; j++) {
+        totalRevGain += projRev;
+        barData.push({ traffic: Math.round(projTraffic), rev: projRev });
+      }
+    }
+
+    var netGain = totalRevGain - (currentRev * months) - totalCost;
+    var roi = totalCost > 0 ? ((netGain / totalCost) * 100) : 0;
+
+    document.getElementById('current-rev').textContent  = fmt(currentRev) + '/mo';
+    document.getElementById('proj-rev').textContent     = fmt(projRev) + '/mo';
+    document.getElementById('proj-sub').textContent     = Math.round(projTraffic).toLocaleString() + ' visitors/mo';
+    document.getElementById('rev-delta').textContent    = fmt(delta) + '/mo';
+    document.getElementById('total-cost').textContent   = fmt(totalCost);
+    document.getElementById('cost-sub').textContent     = months + ' months × ' + fmt(seocost) + '/mo';
+    document.getElementById('net-gain').textContent     = fmt(netGain);
+    document.getElementById('roi-pct').textContent      = Math.round(roi) + '%';
+    document.getElementById('assumption-text').innerHTML = '<strong>' + scenario.charAt(0).toUpperCase() + scenario.slice(1) + ':</strong> ' + scenarioLabels[scenario];
+
+    // Draw bars (show up to 12)
+    var display = barData.slice(0, 12);
+    var maxT = Math.max.apply(null, display.map(function(d){ return d.traffic; }));
+    var container = document.getElementById('tl-bars');
+    container.innerHTML = '';
+    display.forEach(function(d, i) {
+      var pct = maxT > 0 ? Math.round((d.traffic / maxT) * 100) : 0;
+      var isActive = d.traffic > traffic;
+      container.innerHTML += '<div class="tl-month"><div class="tl-bar ' + (isActive ? 'active' : '') + '" style="height:' + pct + '%;"></div><div class="tl-mo">M' + (i+1) + '</div></div>';
+    });
+  }
+
+  // Init
+  calc();
+  </script>
+</body>
+</html>
