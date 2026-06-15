@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The call still got answered — AI receptionist for tree services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bark:#13190F; --forest:#1E2A18; --moss:#3C5A30; --sawdust:#E0A33B;
+    --amber2:#F2BE5E; --cream:#ECE5D4; --slate:#94A189; --alert:#D2532E;
+    --bubble-them:#2A3A23; --bubble-ai:#3C5A30;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bark); color:var(--cream);
+    font-family:'Barlow',system-ui,sans-serif; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(circle at 50% -10%, #20301a 0%, var(--bark) 55%);
+  }
+  .wrap{max-width:560px; margin:0 auto; padding:0 22px}
+
+  /* eyebrow + hero */
+  .hero{padding:54px 0 22px; text-align:center}
+  .eyebrow{font-family:'Barlow Condensed',sans-serif; font-weight:700; letter-spacing:.16em;
+    text-transform:uppercase; font-size:.82rem; color:var(--sawdust)}
+  .eyebrow .dash{display:inline-block; width:26px; height:3px; background:var(--sawdust);
+    vertical-align:middle; margin-right:10px; border-radius:2px}
+  h1{font-family:'Barlow Condensed',sans-serif; font-weight:800; line-height:.98;
+    font-size:clamp(2.5rem,9vw,3.6rem); margin:.4em 0 .25em; letter-spacing:-.01em}
+  h1 .hl{color:var(--amber2)}
+  .sub{color:var(--slate); font-size:1.05rem; max-width:30ch; margin:0 auto}
+
+  /* phone */
+  .stage{display:flex; justify-content:center; padding:26px 0 8px}
+  .phone{width:300px; max-width:86vw; background:#0C110A; border:2px solid #2c3a24;
+    border-radius:34px; padding:12px; box-shadow:0 30px 60px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.03)}
+  .screen{background:var(--forest); border-radius:24px; overflow:hidden; height:520px; display:flex; flex-direction:column}
+  .topbar{background:#16210F; padding:14px 16px; display:flex; align-items:center; gap:10px; border-bottom:1px solid rgba(255,255,255,.06)}
+  .avatar{width:34px; height:34px; border-radius:50%; background:var(--moss); display:grid; place-items:center; font-size:1.1rem}
+  .topbar .who{font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.05rem; line-height:1}
+  .topbar .who small{display:block; font-family:'Barlow'; font-weight:500; font-size:.72rem; color:var(--slate); letter-spacing:.02em; margin-top:3px}
+  .thread{flex:1; padding:14px 14px 18px; overflow:hidden; display:flex; flex-direction:column; gap:9px}
+
+  .missed{background:rgba(210,83,46,.14); border:1px solid rgba(210,83,46,.4); color:#f0b9a6;
+    border-radius:12px; padding:9px 12px; font-size:.82rem; text-align:center; font-weight:500}
+  .missed b{color:var(--alert)}
+
+  .row{display:flex; opacity:0; transform:translateY(8px); transition:opacity .35s, transform .35s}
+  .row.show{opacity:1; transform:none}
+  .row.them{justify-content:flex-end}
+  .bubble{max-width:78%; padding:9px 13px; border-radius:16px; font-size:.92rem}
+  .row.ai .bubble{background:var(--bubble-ai); border-bottom-left-radius:5px}
+  .row.them .bubble{background:var(--bubble-them); border-bottom-right-radius:5px; color:#dfe8d6}
+  .tag{font-family:'Barlow Condensed',sans-serif; font-weight:700; letter-spacing:.08em; font-size:.62rem;
+    text-transform:uppercase; color:var(--amber2); margin:0 0 3px 4px}
+
+  .typing{display:inline-flex; gap:4px; padding:11px 14px; background:var(--bubble-ai); border-radius:16px; border-bottom-left-radius:5px}
+  .typing span{width:6px; height:6px; border-radius:50%; background:var(--slate); animation:blink 1.2s infinite}
+  .typing span:nth-child(2){animation-delay:.2s} .typing span:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,60%,100%{opacity:.25} 30%{opacity:1}}
+
+  .booked{margin-top:4px; background:#16210F; border:1px solid var(--moss); border-radius:14px; padding:12px 13px;
+    opacity:0; transform:translateY(8px); transition:opacity .4s,transform .4s}
+  .booked.show{opacity:1; transform:none}
+  .booked .lbl{font-family:'Barlow Condensed',sans-serif; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    font-size:.66rem; color:var(--sawdust); display:flex; align-items:center; gap:7px}
+  .booked .job{font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.18rem; margin:5px 0 2px}
+  .booked .meta{font-size:.82rem; color:var(--slate)}
+
+  .replay{display:flex; justify-content:center; padding:14px 0 2px}
+  .replay button{background:none; border:1px solid #3a4a30; color:var(--slate); font-family:'Barlow';
+    font-weight:600; font-size:.85rem; padding:8px 16px; border-radius:30px; cursor:pointer; transition:.2s}
+  .replay button:hover{border-color:var(--sawdust); color:var(--amber2)}
+  .replay button:focus-visible{outline:2px solid var(--sawdust); outline-offset:2px}
+
+  /* payoff */
+  .payoff{text-align:center; padding:34px 0 8px; border-top:1px solid rgba(255,255,255,.06); margin-top:34px}
+  .payoff p{font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:clamp(1.35rem,5.5vw,1.7rem); line-height:1.15; max-width:24ch; margin:0 auto}
+  .payoff .small{font-family:'Barlow'; font-weight:400; font-size:1rem; color:var(--slate); max-width:34ch; margin:14px auto 0}
+
+  /* cta */
+  .cta{margin:30px auto 16px; background:linear-gradient(160deg,#243318,#16210F); border:1px solid #34471f;
+    border-radius:20px; padding:28px 24px; text-align:center}
+  .cta h2{font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.7rem; line-height:1.05; margin-bottom:8px}
+  .cta h2 .hl{color:var(--amber2)}
+  .cta .price{color:var(--slate); font-size:.98rem; margin-bottom:18px}
+  .cta .price b{color:var(--cream)}
+  .btn{display:inline-block; background:var(--sawdust); color:#1a1206; font-family:'Barlow Condensed',sans-serif;
+    font-weight:800; letter-spacing:.02em; font-size:1.15rem; text-transform:uppercase; text-decoration:none;
+    padding:14px 30px; border-radius:30px; transition:.2s}
+  .btn:hover{background:var(--amber2); transform:translateY(-1px)}
+  .btn:focus-visible{outline:3px solid var(--cream); outline-offset:3px}
+  .cta .or{display:block; margin-top:14px; color:var(--slate); font-size:.9rem}
+  .cta .or a{color:var(--amber2); text-decoration:none; font-weight:600}
+
+  footer{text-align:center; color:var(--slate); font-size:.82rem; padding:26px 0 40px}
+  footer a{color:var(--slate)}
+
+  @media (prefers-reduced-motion: reduce){
+    .row,.booked{transition:none}
+    .typing span{animation:none; opacity:.5}
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow"><span class="dash"></span>For tree &amp; field crews</div>
+    <h1>You were on the saw.<br><span class="hl">The call still got answered.</span></h1>
+    <p class="sub">Watch a missed call turn into a booked job — while the crew never put down the chainsaw.</p>
+  </section>
+
+  <section class="stage">
+    <div class="phone">
+      <div class="screen">
+        <div class="topbar">
+          <div class="avatar">🌲</div>
+          <div class="who">Sawtooth Tree Co.<small>AI receptionist · always on</small></div>
+        </div>
+        <div class="thread" id="thread"></div>
+      </div>
+    </div>
+  </section>
+  <div class="replay"><button id="replay" type="button">↻ Replay the call</button></div>
+
+  <section class="payoff">
+    <p>That job would’ve gone to the next company in the search results.</p>
+    <p class="small">Instead it’s on your calendar — captured the second you couldn’t pick up, day or night.</p>
+  </section>
+
+  <section class="cta">
+    <h2>Want this <span class="hl">answering every call you miss?</span></h2>
+    <p class="price"><b>$497 setup + $197/mo.</b> One saved job pays for the year.</p>
+    <a class="btn" href="https://richnashawaty.com" id="ctaBtn">See if it fits your shop →</a>
+    <span class="or">or call Rich directly · <a href="tel:">your number here</a></span>
+  </section>
+
+  <footer>
+    Built by Rich Nashawaty · <a href="https://richnashawaty.com">richnashawaty.com</a>
+  </footer>
+
+</main>
+
+<script>
+const script = [
+  {type:'missed', text:'Missed call · 2:47 PM · <b>You were on a job</b>'},
+  {type:'ai', text:"Hi! This is Sawtooth Tree Co. — sorry we missed you, the crew's out on a job. I can help right here. What are you looking to get done?", tag:'Auto-reply · sent in 4 sec'},
+  {type:'them', text:"Big oak leaning over my garage after the storm. Need it down."},
+  {type:'ai', text:"Storm damage over a structure — that's a priority. What's the address?"},
+  {type:'them', text:"14 Maple St, Chelmsford"},
+  {type:'ai', text:"Got it. Is the tree touching the roof or any power lines right now?"},
+  {type:'them', text:"Close to the roof, not touching yet"},
+  {type:'ai', text:"Understood. I can send an estimator out. Does Saturday 9 AM work, or is tomorrow afternoon better?"},
+  {type:'them', text:"Saturday's good"},
+  {type:'ai', text:"Booked ✅ Saturday 9:00 AM at 14 Maple St. You'll get a text reminder the day before. Anything else?"},
+  {type:'them', text:"Nope — thank you!"},
+  {type:'booked', job:'Oak removal · storm priority', meta:'14 Maple St · Sat 9:00 AM · est. $2,800–4,200'}
+];
+
+const thread = document.getElementById('thread');
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let timers = [];
+function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+const wait = (ms,fn)=> timers.push(setTimeout(fn,ms));
+
+function addMissed(item){
+  const d=document.createElement('div'); d.className='missed'; d.innerHTML=item.text; thread.appendChild(d);
+}
+function addBooked(item){
+  const d=document.createElement('div'); d.className='booked';
+  d.innerHTML=`<div class="lbl">🌲 New job booked — texted to you</div><div class="job">${item.job}</div><div class="meta">${item.meta}</div>`;
+  thread.appendChild(d); requestAnimationFrame(()=> d.classList.add('show'));
+}
+function addBubble(item){
+  const row=document.createElement('div'); row.className='row '+item.type;
+  const b=document.createElement('div'); b.className='bubble';
+  if(item.tag){ const t=document.createElement('div'); t.className='tag'; t.textContent=item.tag; b.appendChild(t); }
+  const span=document.createElement('span'); span.innerHTML=item.text; b.appendChild(span);
+  row.appendChild(b); thread.appendChild(row); requestAnimationFrame(()=> row.classList.add('show'));
+}
+function showTyping(){
+  const t=document.createElement('div'); t.className='row ai'; t.id='typing';
+  t.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
+  thread.appendChild(t); return t;
+}
+
+function renderAll(){ // reduced-motion / fallback: show everything at once
+  script.forEach(item=>{
+    if(item.type==='missed') addMissed(item);
+    else if(item.type==='booked') addBooked(item);
+    else { addBubble(item); thread.lastChild.classList.add('show'); }
+  });
+}
+
+function play(){
+  clearTimers(); thread.innerHTML='';
+  if(reduce){ renderAll(); return; }
+  let delay=400;
+  script.forEach((item)=>{
+    if(item.type==='missed'){ wait(delay,()=>addMissed(item)); delay+=900; return; }
+    if(item.type==='booked'){ wait(delay,()=>addBooked(item)); return; }
+    if(item.type==='ai'){
+      wait(delay,()=>{ const t=showTyping(); });
+      delay+=1100;
+      wait(delay,()=>{ const t=document.getElementById('typing'); if(t) t.remove(); addBubble(item); });
+      delay += Math.min(2600, 700 + item.text.length*22);
+    } else { // them
+      delay+=600; wait(delay,()=>addBubble(item)); delay += Math.min(2000, 600 + item.text.length*20);
+    }
+  });
+}
+
+document.getElementById('replay').addEventListener('click', play);
+
+// autoplay when scrolled into view (once)
+let started=false;
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting && !started){ started=true; play(); } });
+},{threshold:.4});
+io.observe(document.querySelector('.stage'));
+</script>
+</body>
+</html>
