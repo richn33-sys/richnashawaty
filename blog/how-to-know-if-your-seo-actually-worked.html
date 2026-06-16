@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Know if Your SEO Actually Worked — Not Just What the Report Says | Rich Nashawaty</title>
+  <meta name="description" content="Your SEO report shows impressions going up. Your rankings improved. But did your SEO actually work? Here's how to separate real impact from coincidence — using the same holdout discipline quantitative analysts use.">
+  <meta name="author" content="Rich Nashawaty">
+  <link rel="canonical" href="https://richnashawaty.com/blog/how-to-know-if-your-seo-actually-worked.html">
+
+  <meta property="og:title" content="How to Know if Your SEO Actually Worked — Not Just What the Report Says">
+  <meta property="og:description" content="Impressions going up doesn't mean your SEO worked. Here's how to separate real impact from coincidence — with actual data from your own GSC.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://richnashawaty.com/blog/how-to-know-if-your-seo-actually-worked.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Know if Your SEO Actually Worked — Not Just What the Report Says",
+    "description": "Your SEO report shows impressions going up. But did your SEO actually work? Here's how to separate real impact from coincidence using holdout analysis and your own GSC data.",
+    "author": { "@type": "Person", "name": "Rich Nashawaty", "url": "https://richnashawaty.com/about.html", "jobTitle": "SEO Consultant" },
+    "publisher": { "@type": "Person", "name": "Rich Nashawaty" },
+    "datePublished": "2026-06-16",
+    "dateModified": "2026-06-16",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://richnashawaty.com/blog/how-to-know-if-your-seo-actually-worked.html" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://richnashawaty.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://richnashawaty.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Did Your SEO Actually Work?", "item": "https://richnashawaty.com/blog/how-to-know-if-your-seo-actually-worked.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I know if my SEO is actually working?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Look at clicks from organic search in Google Search Console — not impressions. Compare clicks from a specific period after SEO work began against the same period the prior year (to control for seasonality). Then check whether the pages that received SEO work improved more than untouched pages during the same period. If treated pages outperformed untouched pages, that's a signal the work caused the improvement rather than external factors."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do SEO reports show improvement even when SEO isn't working?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because most SEO reports measure impressions and rankings — metrics that can improve due to seasonal trends, algorithm updates, brand searches, or market growth — without controlling for those external factors. A business whose industry grows 20% year-over-year will see organic traffic increase even with no SEO work. Without a control to separate that baseline growth from the SEO contribution, the report looks good but proves nothing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a holdout group in SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A holdout group in SEO is a set of pages that don't receive optimization during a testing period, used as a control against pages that do. If treated pages gain rankings and traffic while holdout pages stay flat, that's evidence the SEO work caused the improvement. If both sets move together, the change was likely due to external factors like an algorithm update or seasonal trend."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What metrics actually prove SEO is working?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Clicks from organic search (not impressions), leads or form submissions attributed to organic traffic, and phone calls from organic visitors are the metrics that prove SEO impact. Impressions, average position, and domain authority scores can all move favorably without producing any business result. The test is whether organic traffic is producing contacts and revenue — not whether the dashboard looks better."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RDDSKTZ46"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6RDDSKTZ46');</script>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--bg:#181816;--bg2:#201f1c;--bg3:#272521;--text:#f4f1ea;--text2:#b8b4ac;--text3:#7a7672;--accent:#c8f060;--accent2:#a8d040;--adim:rgba(200,240,96,0.08);--adim2:rgba(200,240,96,0.14);--border:rgba(255,255,255,0.10);--border-h:rgba(255,255,255,0.18);--serif:'Instrument Serif',serif;--sans:'DM Sans',sans-serif;--mono:'DM Mono',monospace;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    .blog-wrap{max-width:720px;margin:0 auto;padding:4rem 2rem 6rem;}
+    .breadcrumb{display:flex;align-items:center;gap:0.5rem;margin-bottom:2.5rem;font-family:var(--mono);font-size:0.78rem;color:var(--text3);flex-wrap:wrap;}
+    .breadcrumb a{color:var(--text3);text-decoration:none;}.breadcrumb a:hover{color:var(--accent);}
+    .breadcrumb-sep{color:var(--border-h);}
+    .article-meta{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+    .meta-tag{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);background:var(--adim);border:1px solid rgba(200,240,96,0.2);padding:0.25rem 0.65rem;border-radius:4px;}
+    .meta-date,.meta-read{font-family:var(--mono);font-size:0.78rem;color:var(--text3);}
+    h1.article-title{font-family:var(--serif);font-size:clamp(2rem,5vw,2.8rem);line-height:1.2;letter-spacing:-0.02em;color:var(--text);margin-bottom:1.25rem;}
+    .article-intro{font-size:1.1rem;line-height:1.75;color:var(--text2);border-left:3px solid var(--accent);padding-left:1.25rem;margin-bottom:2.5rem;}
+    .author-strip{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;margin-bottom:3rem;}
+    .author-avatar{width:44px;height:44px;border-radius:50%;background:var(--adim2);border:2px solid rgba(200,240,96,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.1rem;color:var(--accent);flex-shrink:0;}
+    .author-name{font-size:0.9rem;font-weight:600;color:var(--text);display:block;}
+    .author-bio{font-family:var(--mono);font-size:0.72rem;color:var(--text3);display:block;}
+    .toc{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:1.5rem 1.75rem;margin-bottom:3rem;}
+    .toc-label{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
+    .toc ol{padding-left:1.25rem;list-style:decimal;color:var(--text2);}
+    .toc ol li{margin-bottom:0.5rem;font-size:0.92rem;}
+    .toc ol li a{color:var(--text2);text-decoration:none;}.toc ol li a:hover{color:var(--accent);}
+    .article-body h2{font-family:var(--serif);font-size:1.65rem;line-height:1.3;color:var(--text);margin:2.75rem 0 0.9rem;letter-spacing:-0.01em;}
+    .article-body h3{font-weight:600;font-size:1.05rem;color:var(--text);margin:1.75rem 0 0.5rem;}
+    .article-body p{color:var(--text2);margin-bottom:1.35rem;line-height:1.8;}
+    .article-body strong{color:var(--text);font-weight:600;}
+    .article-body a{color:var(--accent);text-decoration:underline;text-decoration-color:rgba(200,240,96,0.3);text-underline-offset:3px;}
+    .article-body a:hover{text-decoration-color:var(--accent);}
+    .article-body ul{padding-left:1.5rem;margin-bottom:1.35rem;color:var(--text2);list-style:none;}
+    .article-body ul li{position:relative;padding-left:1.25rem;margin-bottom:0.6rem;line-height:1.75;}
+    .article-body ul li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:0.85rem;}
+    .callout{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:2rem 0;}
+    .callout-label{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;}
+    .callout p{margin-bottom:0!important;font-size:0.95rem;}
+    .warning{background:rgba(255,180,60,0.05);border:1px solid rgba(255,180,60,0.2);border-left:3px solid #e0a020;border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:2rem 0;}
+    .warning-label{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:#e0a020;margin-bottom:0.5rem;}
+    .warning p{margin-bottom:0!important;font-size:0.95rem;}
+    .gsc-steps{display:flex;flex-direction:column;gap:0;margin:1.5rem 0 2rem;position:relative;}
+    .gsc-steps::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:1px;background:var(--border);}
+    .gsc-step{display:flex;gap:1.5rem;padding:1.25rem 0;}
+    .gsc-num{width:40px;height:40px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.75rem;color:var(--accent);flex-shrink:0;z-index:1;}
+    .gsc-title{font-weight:600;color:var(--text);font-size:0.95rem;margin-bottom:0.25rem;}
+    .gsc-desc{font-size:0.87rem;color:var(--text2);line-height:1.65;}
+    .verdict-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0 2rem;}
+    .verdict-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+    .verdict-label{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;}
+    .verdict-label.good{color:var(--accent);}
+    .verdict-label.bad{color:#e07070;}
+    .verdict-title{font-weight:600;color:var(--text);font-size:0.9rem;margin-bottom:0.3rem;}
+    .verdict-desc{font-size:0.83rem;color:var(--text2);line-height:1.6;}
+    .metric-table{width:100%;border-collapse:collapse;margin:1.5rem 0 2rem;font-size:0.88rem;}
+    .metric-table th{font-family:var(--mono);font-size:0.68rem;color:var(--accent);letter-spacing:0.06em;text-transform:uppercase;text-align:left;padding:0.6rem 1rem;border-bottom:1px solid var(--border);}
+    .metric-table td{padding:0.75rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text2);vertical-align:top;}
+    .metric-table tr:last-child td{border-bottom:none;}
+    .metric-table .good{color:var(--accent);}
+    .metric-table .bad{color:#e07070;}
+    .tool-cta{background:var(--bg2);border:1px solid rgba(200,240,96,0.2);border-radius:12px;padding:1.5rem 1.75rem;margin:2rem 0;}
+    .tool-cta-label{font-family:var(--mono);font-size:0.68rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;}
+    .tool-cta-title{font-family:var(--serif);font-size:1.2rem;color:var(--text);margin-bottom:0.4rem;}
+    .tool-cta-desc{font-size:0.88rem;color:var(--text2);margin-bottom:1rem;line-height:1.65;}
+    .btn-accent{display:inline-block;background:var(--accent);color:#181816;font-weight:600;font-size:0.88rem;padding:0.65rem 1.4rem;border-radius:7px;text-decoration:none;}
+    .btn-accent:hover{background:var(--accent2);}
+    .article-cta{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:2.5rem;margin-top:3.5rem;text-align:center;}
+    .article-cta h3{font-family:var(--serif);font-size:1.6rem;color:var(--text);margin-bottom:0.75rem;}
+    .article-cta p{color:var(--text2);max-width:440px;margin:0 auto 1.75rem;}
+    .btn-primary{display:inline-block;background:var(--accent);color:#181816;font-weight:600;font-size:0.92rem;padding:0.75rem 1.75rem;border-radius:7px;text-decoration:none;}
+    .btn-primary:hover{background:var(--accent2);}
+    footer{border-top:1px solid var(--border);padding:2.5rem 2rem;}
+    .footer-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-logo{font-family:var(--serif);font-size:1rem;color:var(--text2);text-decoration:none;}
+    .footer-logo span{color:var(--accent);}
+    .footer-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap;}
+    .footer-links a{font-size:0.82rem;color:var(--text3);text-decoration:none;}.footer-links a:hover{color:var(--text2);}
+    .footer-copy{font-size:0.78rem;color:var(--text3);font-family:var(--mono);}
+    @media(max-width:640px){.blog-wrap{padding:2.5rem 1.25rem 5rem;}.verdict-grid{grid-template-columns:1fr;}.footer-inner{flex-direction:column;align-items:flex-start;}}
+  </style>
+</head>
+<body>
+  <div id="nav-root"></div>
+  <script src="../nav.js"></script>
+
+  <main class="blog-wrap">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../blog/">Blog</a><span class="breadcrumb-sep">/</span>
+      <span>Did Your SEO Actually Work?</span>
+    </div>
+    <div class="article-meta">
+      <span class="meta-tag">SEO</span>
+      <span class="meta-date">June 16, 2026</span>
+      <span class="meta-read">10 min read</span>
+    </div>
+    <h1 class="article-title">How to Know if Your SEO Actually Worked — Not Just What the Report Says</h1>
+    <p class="article-intro">Your monthly SEO report shows impressions up 40%, rankings improved on 15 keywords, and your consultant is calling it a strong quarter. But your phone isn't ringing more than it was six months ago. Which one is telling the truth?</p>
+
+    <div class="author-strip">
+      <div class="author-avatar">R</div>
+      <div>
+        <span class="author-name">Rich Nashawaty</span>
+        <span class="author-bio">SEO Consultant · 20 years experience · Boston &amp; Nationwide</span>
+      </div>
+    </div>
+
+    <article class="article-body">
+      <div class="toc">
+        <div class="toc-label">Table of Contents</div>
+        <ol>
+          <li><a href="#the-problem">The problem with standard SEO reporting</a></li>
+          <li><a href="#metrics-that-prove">Metrics that actually prove SEO impact</a></li>
+          <li><a href="#the-holdout-method">The holdout method — separating SEO from everything else</a></li>
+          <li><a href="#gsc-analysis">How to run the analysis in GSC yourself</a></li>
+          <li><a href="#verdict-framework">The verdict framework — what the data is telling you</a></li>
+          <li><a href="#what-to-do">What to do with the answer</a></li>
+        </ol>
+      </div>
+
+      <h2 id="the-problem">The problem with standard SEO reporting</h2>
+
+      <p>Most SEO reports are built to look good, not to prove causation. Impressions go up because Google indexed more of your pages — not necessarily because rankings improved on queries that matter. Rankings improve on low-volume keywords that drive no traffic. Traffic goes up in Q4 because it always goes up in Q4 for your industry. The report attributes all of it to SEO work.</p>
+
+      <p>This isn't always dishonest. Most SEO consultants genuinely believe the metrics they're reporting. But belief isn't proof. A business that grew 15% year-over-year in a market that grew 20% actually underperformed — but without a benchmark, the growth looks like success.</p>
+
+      <p>The same problem exists in SEO. If your organic traffic grew 25% after six months of SEO work, that sounds good. But if the average business in your category grew 30% organically over the same period due to market growth and algorithm changes, your SEO underperformed — and nobody told you.</p>
+
+      <div class="warning">
+        <div class="warning-label">The metric most reports lead with</div>
+        <p>Impressions are the number of times your pages appeared in search results — including at positions 40–100 where nobody clicks. Impressions can double while your traffic stays flat. If your monthly report leads with impressions as the primary success metric, ask for clicks instead.</p>
+      </div>
+
+      <h2 id="metrics-that-prove">Metrics that actually prove SEO impact</h2>
+
+      <p>Not all metrics are equal. Here's how to think about which ones actually demonstrate that SEO work caused a business outcome:</p>
+
+      <table class="metric-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>What it actually measures</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Impressions</td>
+            <td>How often your pages appear — including at positions where nobody clicks</td>
+            <td class="bad">Weak</td>
+          </tr>
+          <tr>
+            <td>Average position</td>
+            <td>Average ranking across all queries, including low-volume ones that don't drive traffic</td>
+            <td class="bad">Weak</td>
+          </tr>
+          <tr>
+            <td>Domain Authority / DR</td>
+            <td>Third-party scores that correlate with link profiles — not Google ranking signals</td>
+            <td class="bad">Weak</td>
+          </tr>
+          <tr>
+            <td>Clicks (GSC)</td>
+            <td>Actual visits from organic search — people who saw your listing and clicked</td>
+            <td class="good">Meaningful</td>
+          </tr>
+          <tr>
+            <td>Clicks on target queries</td>
+            <td>Clicks specifically on the keywords your SEO work targeted</td>
+            <td class="good">Strong</td>
+          </tr>
+          <tr>
+            <td>Organic leads / form submissions</td>
+            <td>Contacts generated from organic traffic — tied directly to revenue potential</td>
+            <td class="good">Strong</td>
+          </tr>
+          <tr>
+            <td>Organic phone calls</td>
+            <td>Calls attributed to organic search visits — the hardest to fake</td>
+            <td class="good">Strongest</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The further down that table you can get your reporting, the more confidence you have that SEO is producing real business impact. This is the framework behind <a href="how-to-measure-seo-roi-small-business.html">measuring SEO ROI correctly</a> — connecting organic performance to revenue, not just to rankings.</p>
+
+      <h2 id="the-holdout-method">The holdout method — separating SEO from everything else</h2>
+
+      <p>Even clicks and leads don't prove causation on their own. If your organic leads doubled in the six months after you hired an SEO consultant, three things might explain it:</p>
+
+      <ul>
+        <li>The SEO work improved your rankings on queries that convert</li>
+        <li>Your market grew and more people were searching for your category</li>
+        <li>Google's algorithm updated in your favor regardless of your site changes</li>
+      </ul>
+
+      <p>Without controlling for the second and third explanations, you can't be sure the first is what caused the result. This is the problem quantitative analysts solve with holdout groups — a set of observations that don't receive the treatment, used as a control.</p>
+
+      <p>In SEO, a holdout works like this: when you start an optimization program, identify a set of pages that will receive work (the treated group) and a comparable set that won't (the holdout). After 60–90 days, compare how the two groups moved. If the treated pages improved significantly more than the holdout pages, that's evidence the SEO work caused the improvement rather than external factors.</p>
+
+      <div class="callout">
+        <div class="callout-label">A practical example</div>
+        <p>A plumbing company has 40 service area pages. An SEO consultant optimizes 20 of them — new title tags, improved content, schema markup added. The other 20 are left untouched as a holdout. After 90 days, the optimized pages show 35% click growth. The holdout pages show 8% click growth. The difference — 27 percentage points — is the estimated SEO contribution. The 8% the holdout pages gained tells you what would have happened anyway due to market growth or algorithm shifts.</p>
+      </div>
+
+      <p>Most consultants don't run holdouts because it creates accountability they'd rather avoid. If the holdout pages improve just as much as the treated pages, the SEO work didn't cause the results. That's an uncomfortable finding to deliver to a client paying a monthly retainer. But it's the honest answer — and it's the only way to know whether the budget is working.</p>
+
+      <h2 id="gsc-analysis">How to run the analysis in GSC yourself</h2>
+
+      <p>You don't need a data scientist to run a basic version of this analysis. Here's how to do it in Google Search Console with no external tools:</p>
+
+      <div class="gsc-steps">
+        <div class="gsc-step">
+          <div class="gsc-num">01</div>
+          <div>
+            <div class="gsc-title">Identify your before and after periods</div>
+            <div class="gsc-desc">Your "before" period should be the 90 days immediately before SEO work started. Your "after" period should be 90 days at least 60 days after work began — giving Google time to crawl and re-rank. Use GSC's date comparison feature to pull both periods simultaneously.</div>
+          </div>
+        </div>
+        <div class="gsc-step">
+          <div class="gsc-num">02</div>
+          <div>
+            <div class="gsc-title">Pull clicks by page — not by query</div>
+            <div class="gsc-desc">Go to Performance → Pages. Add the date comparison. Sort by click change. This shows you which pages gained and lost organic clicks between the two periods. Focus on clicks, not impressions — impressions can move without any business impact.</div>
+          </div>
+        </div>
+        <div class="gsc-step">
+          <div class="gsc-num">03</div>
+          <div>
+            <div class="gsc-title">Separate treated pages from untouched pages</div>
+            <div class="gsc-desc">Take the page list from GSC and tag each row: did this page receive SEO work (new content, title tag changes, technical fixes) or not? Calculate average click change for treated pages and average click change for untouched pages separately. The difference is your signal.</div>
+          </div>
+        </div>
+        <div class="gsc-step">
+          <div class="gsc-num">04</div>
+          <div>
+            <div class="gsc-title">Control for seasonality</div>
+            <div class="gsc-desc">If your business is seasonal, compare year-over-year rather than period-over-period. A landscaping company's organic traffic will always be higher in April than February — that's not SEO, that's spring. Use GSC's year-over-year comparison to strip out seasonal effects before attributing changes to optimization work.</div>
+          </div>
+        </div>
+        <div class="gsc-step">
+          <div class="gsc-num">05</div>
+          <div>
+            <div class="gsc-title">Check for confounders</div>
+            <div class="gsc-desc">Did a Google core update run during your analysis period? Did you launch new pages or change your site structure? Did a major competitor close or open? Any of these can move rankings independently of SEO work. Cross-reference your timeline with Google's update history before attributing all movement to optimization.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="verdict-framework">The verdict framework — what the data is telling you</h2>
+
+      <p>After running the analysis, you'll land in one of four situations:</p>
+
+      <div class="verdict-grid">
+        <div class="verdict-card">
+          <div class="verdict-label good">Strong positive signal</div>
+          <div class="verdict-title">Treated pages significantly outperformed holdout pages</div>
+          <div class="verdict-desc">Click growth on optimized pages exceeds holdout page growth by 15+ percentage points, and the gains are on queries that produce leads. The SEO work is likely causing the improvement. Continue.</div>
+        </div>
+        <div class="verdict-card">
+          <div class="verdict-label good">Weak positive signal</div>
+          <div class="verdict-title">Treated pages slightly outperformed, but gap is small</div>
+          <div class="verdict-desc">Treated pages gained more than holdout pages but the difference is less than 10 percentage points. The work may be contributing, but external factors are doing most of the work. Investigate which specific changes drove the largest gains and double down on those.</div>
+        </div>
+        <div class="verdict-card">
+          <div class="verdict-label bad">No signal</div>
+          <div class="verdict-title">Treated and holdout pages moved similarly</div>
+          <div class="verdict-desc">Both groups gained (or lost) clicks at roughly the same rate. The movement was caused by external factors — algorithm update, market growth, seasonality. The SEO work didn't cause the results. This doesn't mean the work was bad, but it means you can't credit it with the outcome.</div>
+        </div>
+        <div class="verdict-card">
+          <div class="verdict-label bad">Negative signal</div>
+          <div class="verdict-title">Treated pages underperformed holdout pages</div>
+          <div class="verdict-desc">The pages that received optimization lost more clicks (or gained fewer) than pages that were left alone. This is a serious finding. Either the optimization approach is wrong for these pages, the changes introduced technical problems, or the targeting was off. Investigate before continuing.</div>
+        </div>
+      </div>
+
+      <h2 id="what-to-do">What to do with the answer</h2>
+
+      <h3>If the SEO is working</h3>
+      <p>Document specifically what worked — which pages, which changes, which queries — so you can replicate the approach. Ask your consultant to apply the same methodology to the next set of pages and set expectations for what "working" looks like before they start, not after. This is how you build compounding SEO results instead of one-off wins.</p>
+
+      <h3>If the SEO isn't clearly working</h3>
+      <p>Don't immediately fire your consultant. First, check whether enough time has passed — meaningful SEO results typically take 4–6 months, and the holdout analysis is only reliable with at least 90 days of post-work data. If the timeline is right and the signal is flat, have a direct conversation: what specifically has been done, what was the expected outcome, and why does the data show treated pages moving similarly to untouched pages?</p>
+
+      <p>A consultant who has been doing genuine work will have specific answers. A consultant who has been sending reports without executing will struggle to answer that question concretely. The <a href="how-to-vet-seo-consultant.html">vetting framework</a> applies retroactively as well as prospectively.</p>
+
+      <h3>If you want someone to run this analysis for you</h3>
+      <p>The analysis above is doable in GSC with a spreadsheet. But separating signal from noise accurately — controlling for seasonality, identifying confounders, building the holdout comparison correctly — takes time and familiarity with the data. If you want an independent, honest verdict on whether your past SEO investment produced real results, that's exactly what the <a href="../seo-impact-audit.html">SEO Impact Audit</a> delivers.</p>
+
+      <tool-cta style="display:block;background:var(--bg2);border:1px solid rgba(200,240,96,0.2);border-radius:12px;padding:1.5rem 1.75rem;margin:2rem 0;">
+        <div style="font-family:var(--mono);font-size:0.68rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;">Related</div>
+        <div style="font-family:var(--serif);font-size:1.1rem;color:var(--text);margin-bottom:0.4rem;">Already know SEO is working? Calculate the revenue impact.</div>
+        <p style="font-size:0.88rem;color:var(--text2);margin-bottom:1rem;">The <a href="../seo-roi-calculator.html">SEO ROI Calculator</a> estimates what better rankings could mean in dollars — across three growth scenarios, based on your actual traffic and conversion numbers.</p>
+      </tool-cta>
+
+      <div class="callout">
+        <div class="callout-label">The honest bottom line</div>
+        <p>Most SEO reporting is not lying to you — it's just not designed to answer the question you actually care about. "Did this work?" is a causal question. Standard SEO reports answer a correlation question: "did things get better while we were working?" Those are different questions with different answers. The holdout method is how you get the honest one.</p>
+      </div>
+
+    </article>
+
+    <div class="article-cta">
+      <h3>Want an independent verdict on your past SEO investment?</h3>
+      <p>The SEO Impact Audit applies holdout analysis to your GSC and GA4 data — and tells you honestly what moved the needle and what didn't. Fixed price, written report, no obligation to continue.</p>
+      <a href="../seo-impact-audit.html" class="btn-primary">See the SEO Impact Audit →</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">Rich Nashawaty<span>.</span></a>
+      <ul class="footer-links">
+        <li><a href="../seo-web.html">SEO &amp; Web</a></li>
+        <li><a href="../local-seo-audit.html">Local SEO Audit</a></li>
+        <li><a href="../seo-roi-calculator.html">ROI Calculator</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+      <span class="footer-copy">© 2026 Rich Nashawaty · Boston, MA</span>
+    </div>
+  </footer>
+</body>
+</html>
