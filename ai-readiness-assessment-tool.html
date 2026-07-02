@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Readiness Assessment — Free Interactive Quiz for Small Business</title>
+  <meta name="description" content="Free AI readiness assessment for small business owners. Answer 8 plain-English questions and get an instant readiness score, a tailored explanation, and 2–3 concrete next steps. No jargon, no signup required.">
+  <link rel="canonical" href="https://richnashawaty.com/ai-readiness-assessment-tool.html">
+
+  <meta property="og:title" content="AI Readiness Assessment — Free Interactive Quiz for Small Business">
+  <meta property="og:description" content="Answer 8 plain-English questions and see instantly whether your business is ready to automate — plus concrete next steps for exactly where you stand. Free, no signup.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://richnashawaty.com/ai-readiness-assessment-tool.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Readiness Assessment",
+    "description": "A free interactive AI readiness assessment for small business owners. Answer 8 plain-English questions and get an instant readiness score, a tailored explanation, and concrete next steps.",
+    "url": "https://richnashawaty.com/ai-readiness-assessment-tool.html",
+    "applicationCategory": "BusinessApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": {
+      "@type": "Person",
+      "name": "Rich Nashawaty",
+      "url": "https://richnashawaty.com/about.html"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://richnashawaty.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Consulting", "item": "https://richnashawaty.com/ai-consulting.html" },
+      { "@type": "ListItem", "position": 3, "name": "AI Readiness Assessment", "item": "https://richnashawaty.com/ai-readiness-assessment-tool.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an AI readiness assessment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An AI readiness assessment is a quick diagnostic that tells you whether your business is set up to get real value from AI automation. It looks at practical factors — how consistent your processes are, where your data lives, who has time to own a project, how clear your goal is, and whether you have budget — and gives you a readiness score plus specific next steps. This free version takes about two minutes and gives an instant on-page result."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to know anything technical to take it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Every question is written in plain English for business owners, not for technical teams. You do not need to know what an API, an integration, or a large language model is. The questions are about how your business actually runs day to day — how you handle leads, reports, data entry, and repetitive admin work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the result gated behind an email signup?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Your score, readiness tier, and next steps appear instantly on the page as soon as you submit — nothing is hidden behind a form. After you see your result, you can optionally have the full assessment and a personalized action plan emailed to you, but that is entirely optional."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens after I get my score?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You get a readiness tier — Not Yet Ready, Getting There, or Ready to Automate — with a short explanation and two to three concrete next steps for exactly where you stand. From there you can read the full AI readiness guide, estimate your savings with the AI Automation ROI Calculator, or book a call if you want a hands-on plan."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RDDSKTZ46"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6RDDSKTZ46');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #181816; --bg2: #201f1c; --bg3: #272521;
+      --text: #f4f1ea; --text2: #b8b4ac; --text3: #7a7672;
+      --accent: #c8f060; --accent2: #a8d040;
+      --adim: rgba(200,240,96,0.08); --adim2: rgba(200,240,96,0.14);
+      --border: rgba(255,255,255,0.10); --border-h: rgba(255,255,255,0.18);
+      --serif: 'Instrument Serif', serif; --sans: 'DM Sans', sans-serif; --mono: 'DM Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+    .page-wrap { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+    .page-header { text-align: center; margin-bottom: 3rem; }
+    .page-eyebrow { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
+    .page-eyebrow::before, .page-eyebrow::after { content: ''; display: block; width: 2rem; height: 1px; background: var(--accent); opacity: 0.5; }
+    h1.page-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    h1.page-title em { color: var(--accent); font-style: italic; }
+    .page-sub { font-size: 1.05rem; color: var(--text2); max-width: 580px; margin: 0 auto; line-height: 1.75; }
+    .badge-row { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap; }
+    .badge { font-family: var(--mono); font-size: 0.7rem; color: var(--text3); background: var(--bg2); border: 1px solid var(--border); padding: 0.25rem 0.75rem; border-radius: 20px; }
+
+    .intro-copy { color: var(--text2); font-size: 0.95rem; line-height: 1.8; margin-bottom: 2.5rem; }
+    .intro-copy a { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(200,240,96,0.3); text-underline-offset: 3px; }
+
+    .section-label { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; display: block; }
+
+    /* progress */
+    .progress-wrap { margin-bottom: 2rem; }
+    .progress-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+    .progress-count { font-family: var(--mono); font-size: 0.72rem; color: var(--text3); }
+    .progress-bar { height: 4px; background: var(--bg3); border-radius: 3px; overflow: hidden; }
+    .progress-fill { height: 100%; width: 0%; background: var(--accent); border-radius: 3px; transition: width 0.3s ease; }
+
+    /* questions */
+    .quiz-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; margin-bottom: 2rem; }
+    .q-block { margin-bottom: 2.25rem; }
+    .q-block:last-of-type { margin-bottom: 1rem; }
+    .q-num { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .q-text { font-size: 1.02rem; font-weight: 600; color: var(--text); margin-bottom: 0.9rem; line-height: 1.45; }
+    .opt { display: flex; align-items: flex-start; gap: 0.75rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem 1rem; margin-bottom: 0.6rem; cursor: pointer; transition: all 0.15s; user-select: none; }
+    .opt:hover { border-color: var(--border-h); }
+    .opt.sel { background: var(--adim); border: 1.5px solid var(--accent); }
+    .opt-dot { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--text3); flex-shrink: 0; margin-top: 2px; transition: all 0.15s; position: relative; }
+    .opt.sel .opt-dot { border-color: var(--accent); }
+    .opt.sel .opt-dot::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--accent); }
+    .opt-text { font-size: 0.9rem; color: var(--text2); line-height: 1.5; }
+    .opt.sel .opt-text { color: var(--text); }
+
+    .submit-row { text-align: center; margin-top: 0.5rem; }
+    .btn-submit { display: inline-block; background: var(--accent); color: #181816; font-weight: 600; font-size: 0.95rem; padding: 0.9rem 2.25rem; border-radius: 8px; border: none; cursor: pointer; transition: background 0.2s; font-family: var(--sans); }
+    .btn-submit:hover { background: var(--accent2); }
+    .submit-hint { font-family: var(--mono); font-size: 0.72rem; color: var(--text3); margin-top: 0.75rem; min-height: 1rem; }
+    .submit-hint.warn { color: #f5a623; }
+
+    /* result */
+    .result-wrap { display: none; }
+    .result-wrap.show { display: block; }
+    .result-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; margin-bottom: 2rem; }
+    .result-top { text-align: center; border-bottom: 1px solid var(--border); padding-bottom: 1.75rem; margin-bottom: 1.75rem; }
+    .result-eyebrow { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); margin-bottom: 0.75rem; }
+    .result-tier { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.15; margin-bottom: 0.75rem; }
+    .result-tier.t-low { color: #f5a623; }
+    .result-tier.t-mid { color: var(--accent); }
+    .result-tier.t-high { color: var(--accent); }
+    .result-score { font-family: var(--mono); font-size: 0.82rem; color: var(--text2); }
+    .result-score strong { color: var(--text); }
+    .score-meter { height: 8px; background: var(--bg3); border-radius: 5px; overflow: hidden; margin: 1rem auto 0; max-width: 320px; }
+    .score-meter-fill { height: 100%; width: 0%; border-radius: 5px; transition: width 0.6s ease; }
+    .result-explain { color: var(--text2); font-size: 0.98rem; line-height: 1.8; margin-bottom: 1.5rem; }
+    .gap-callout { background: var(--bg3); border: 1px solid var(--border); border-left: 3px solid #f5a623; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.75rem; }
+    .gap-label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: #f5a623; margin-bottom: 0.35rem; }
+    .gap-text { font-size: 0.9rem; color: var(--text2); line-height: 1.6; }
+    .prereq-note { background: var(--adim); border: 1px solid rgba(200,240,96,0.25); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.75rem; }
+    .prereq-label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem; }
+    .prereq-text { font-size: 0.9rem; color: var(--text2); line-height: 1.6; }
+    .steps-label { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
+    .step { display: flex; gap: 0.85rem; align-items: flex-start; padding: 0.9rem 0; border-top: 1px solid var(--border); }
+    .step:first-of-type { border-top: none; padding-top: 0; }
+    .step-num { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    .step-text { font-size: 0.92rem; color: var(--text2); line-height: 1.6; }
+    .step-text strong { color: var(--text); font-weight: 600; }
+
+    .result-cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+    .btn-p { display: inline-block; background: var(--accent); color: #181816; font-weight: 600; font-size: 0.9rem; padding: 0.8rem 1.6rem; border-radius: 7px; text-decoration: none; transition: background 0.2s; }
+    .btn-p:hover { background: var(--accent2); }
+    .btn-s { display: inline-block; border: 1px solid var(--border-h); color: var(--text2); font-size: 0.88rem; padding: 0.8rem 1.4rem; border-radius: 7px; text-decoration: none; transition: all 0.2s; }
+    .btn-s:hover { border-color: var(--accent); color: var(--accent); }
+    .retake { background: none; border: none; color: var(--text3); font-family: var(--mono); font-size: 0.75rem; cursor: pointer; text-decoration: underline; margin-top: 1.5rem; display: inline-block; }
+    .retake:hover { color: var(--text2); }
+
+    /* soft email opt-in */
+    .optin-card { background: var(--bg2); border: 1px solid rgba(200,240,96,0.25); border-radius: 14px; padding: 2rem 2.25rem; margin-bottom: 2rem; }
+    .optin-card h3 { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .optin-card p { color: var(--text2); font-size: 0.92rem; margin-bottom: 1.25rem; line-height: 1.7; }
+    .optin-form { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .optin-form input[type="email"] { flex: 1; min-width: 200px; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem 1rem; color: var(--text); font-family: var(--sans); font-size: 0.92rem; }
+    .optin-form input[type="email"]:focus { outline: none; border-color: var(--accent); }
+    .optin-form button { background: var(--accent); color: #181816; font-weight: 600; font-size: 0.9rem; padding: 0.8rem 1.5rem; border-radius: 8px; border: none; cursor: pointer; transition: background 0.2s; font-family: var(--sans); }
+    .optin-form button:hover { background: var(--accent2); }
+    .optin-fine { font-family: var(--mono); font-size: 0.68rem; color: var(--text3); margin-top: 0.85rem; }
+    .optin-msg { font-size: 0.9rem; margin-top: 1rem; display: none; }
+    .optin-msg.show { display: block; }
+    .optin-msg.ok { color: var(--accent); }
+    .optin-msg.err { color: #f5a623; }
+
+    /* how it scores */
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
+    .how-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+    .how-num { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+    .how-title { font-weight: 600; color: var(--text); font-size: 0.9rem; margin-bottom: 0.3rem; }
+    .how-desc { font-size: 0.82rem; color: var(--text2); line-height: 1.6; }
+
+    /* FAQ */
+    .faq-section { margin: 3rem 0; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
+    .faq-q { font-weight: 600; color: var(--text); font-size: 0.98rem; margin-bottom: 0.5rem; }
+    .faq-a { color: var(--text2); font-size: 0.9rem; line-height: 1.7; }
+
+    .cta-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 2.5rem; text-align: center; }
+    .cta-box h2 { font-family: var(--serif); font-size: 1.7rem; margin-bottom: 0.75rem; }
+    .cta-box p { color: var(--text2); max-width: 480px; margin: 0 auto 1.75rem; font-size: 0.95rem; line-height: 1.75; }
+    .cta-box .btn-s { margin-left: 0.75rem; }
+
+    footer { border-top: 1px solid var(--border); padding: 2.5rem 2rem; }
+    .footer-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: var(--serif); font-size: 1rem; color: var(--text2); text-decoration: none; }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.82rem; color: var(--text3); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text2); }
+    .footer-copy { font-size: 0.78rem; color: var(--text3); font-family: var(--mono); }
+
+    @media (max-width: 640px) {
+      .page-wrap { padding: 2.5rem 1.25rem 5rem; }
+      .quiz-card, .result-card { padding: 1.5rem; }
+      .how-grid { grid-template-columns: 1fr; }
+      .optin-card { padding: 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .cta-box .btn-s { margin-left: 0; margin-top: 0.75rem; display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-root"></div><script src="nav.js"></script>
+
+  <main class="page-wrap">
+
+    <div class="page-header">
+      <div class="page-eyebrow">Free Tool · No Signup Required</div>
+      <h1 class="page-title">AI Readiness <em>Assessment</em></h1>
+      <p class="page-sub">Answer 8 plain-English questions and see instantly whether your small business is ready to automate — plus concrete next steps for exactly where you stand.</p>
+      <div class="badge-row">
+        <span class="badge">8 questions · ~2 minutes</span>
+        <span class="badge">Instant on-page result</span>
+        <span class="badge">No jargon</span>
+      </div>
+    </div>
+
+    <p class="intro-copy">This free <strong>AI readiness assessment</strong> is built for small business owners — not IT departments. Instead of asking whether AI <em>could</em> help (it almost always could, eventually), it checks whether your business is actually set up to get value from automation right now: how consistent your processes are, where your data lives, who has time to own a project, how clear your goal is, and whether you have budget. You'll get a readiness tier and a short action plan the moment you submit. Want the deeper version first? Read the full <a href="blog/ai-readiness-assessment-small-business.html">AI readiness guide for small business</a>.</p>
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap" id="progress-wrap">
+      <div class="progress-head">
+        <span class="section-label" style="margin-bottom:0;">Your assessment</span>
+        <span class="progress-count" id="progress-count">0 of 8 answered</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <!-- QUIZ -->
+    <form class="quiz-card" id="quiz" novalidate>
+
+      <div class="q-block" data-q="1" data-area="Process consistency">
+        <div class="q-num">Question 1 — Process consistency</div>
+        <div class="q-text">How consistent are the day-to-day tasks in your business?</div>
+        <div class="opt" data-score="0"><span class="opt-dot"></span><span class="opt-text">Every task gets done a little differently depending on who's doing it — not much is written down.</span></div>
+        <div class="opt" data-score="1"><span class="opt-dot"></span><span class="opt-text">Some things are consistent, a few are written down, but a lot lives in people's heads.</span></div>
+        <div class="opt" data-score="2"><span class="opt-dot"></span><span class="opt-text">Most of our core tasks are done the same way every time and are documented.</span></div>
+      </div>
+
+      <div class="q-block" data-q="2" data-area="Where your data lives">
+        <div class="q-num">Question 2 — Where your data lives</div>
+        <div class="q-text">Where does your customer and business information actually live?</div>
+        <div class="opt" data-score="0"><span class="opt-dot"></span><span class="opt-text">Spread across spreadsheets, email inboxes, notebooks, and memory.</span></div>
+        <div class="opt" data-score="1"><span class="opt-dot"></span><span class="opt-text">Mostly in a few tools, but they don't really talk to each other.</span></div>
+        <div class="opt" data-score="2"><span class="opt-dot"></span><span class="opt-text">Centralized in a CRM or system that we actually keep up to date.</span></div>
+      </div>
+
+      <div class="q-block" data-q="3" data-area="Current tool use">
+        <div class="q-num">Question 3 — Current tool use</div>
+        <div class="q-text">How does your team use software today?</div>
+        <div class="opt" data-score="0"><span class="opt-dot"></span><span class="opt-text">We mostly work manually — not much beyond email and documents.</span></div>
+        <div class="opt" data-score="1"><span class="opt-dot"></span><span class="opt-text">We use a handful of tools, but we haven't tried automation or AI.</span></div>
+        <div class="opt" data-score="2"><span class="opt-dot"></span><span class="opt-text">We already run several tools and have dabbled with AI or automation.</span></div>
+      </div>
+
+      <div class="q-block" data-q="4" data-area="Who owns it">
+        <div class="q-num">Question 4 — Who owns it</div>
+        <div class="q-text">If you started an automation project, who would own it and keep it running?</div>
+        <div class="opt" data-score="0"><span class="opt-dot"></span><span class="opt-text">Honestly, everyone's maxed out — nobody could take it on right now.</span></div>
+        <div class="opt" data-score="1"><span class="opt-dot"></span><span class="opt-text">Someone could probably carve out a few hours a week for it.</span></div>
+        <div class="opt" data-score="2"><span class="opt-dot"></span><span class="opt-text">We have a clear person with the time and interest to own it.</span></div>
+      </div>
+
+      <div class="q-block" data-q="5" data-area="Clarity of your goal">
+        <div class="q-num">Question 5 — Clarity of your goal</div>
+        <div class="q-text">How specific is the problem you'd want AI to solve?</div>
+        <div class="opt" data-score="0"><span class="opt-dot"></span><span class="opt-text">Not sure yet — I just know we should probably be using AI.</span></div>
+        <div class="opt" data-score="1"><span class="opt-dot"></span><span class="opt-text">I have a general area in mind, like marketing or admin work.</span></div>
+        <div class="opt" data-score="2"><span class="opt-dot"></span><span class="opt-text">I can name the exact task and describe what success would look like.</span></div>
+      </div>
+
+      <div class="q-block" data-q="6" data-area="How often the task happens">
+        <div class="q-num">Question 6 — How often the task happens</div>
+        <div class="q-text">The task you'd most want to hand off — how often does it happen?</div>
+        <div class="opt" data-score="0"><span class="opt-dot"></span><span class="opt-text">It's occasional, or it varies a lot from time to time.</span></div>
+        <div class="opt" data-score="1"><span class="opt-dot"></span><span class="opt-text">Roughly weekly — a steady, recurring chunk of work.</span></div>
+        <div class="opt" data-score="2"><span class="opt-dot"></span><span class="opt-text">Every day, often several times a day.</span></div>
+      </div>
+
+      <div class="q-block" data-q="7" data-area="Budget">
+        <div class="q-num">Question 7 — Budget</div>
+        <div class="q-text">Where are you on budget for tools or automation?</div>
+        <div class="opt" data-score="0"><span class="opt-dot"></span><span class="opt-text">No budget set aside, and I'm not sure it's worth it yet.</span></div>
+        <div class="opt" data-score="1"><span class="opt-dot"></span><span class="opt-text">Open to spending if the payback is clear.</span></div>
+        <div class="opt" data-score="2"><span class="opt-dot"></span><span class="opt-text">Yes — we have budget allocated to make this happen.</span></div>
+      </div>
+
+      <div class="q-block" data-q="8" data-area="Track record with change">
+        <div class="q-num">Question 8 — Track record with change</div>
+        <div class="q-text">When your team has adopted new tools or processes before, how did it go?</div>
+        <div class="opt" data-score="0"><span class="opt-dot"></span><span class="opt-text">We've struggled — new tools tend to get abandoned.</span></div>
+        <div class="opt" data-score="1"><span class="opt-dot"></span><span class="opt-text">Mixed — some changes stuck, others didn't.</span></div>
+        <div class="opt" data-score="2"><span class="opt-dot"></span><span class="opt-text">We adopt new tools well when there's a clear reason to.</span></div>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn-submit">See my readiness score →</button>
+        <div class="submit-hint" id="submit-hint">Your result shows instantly — no email required.</div>
+      </div>
+
+    </form>
+
+    <!-- RESULT (hidden until submit) -->
+    <div class="result-wrap" id="result-wrap">
+      <div class="result-card">
+        <div class="result-top">
+          <div class="result-eyebrow">Your result</div>
+          <div class="result-tier" id="result-tier">—</div>
+          <div class="result-score">Readiness score: <strong><span id="result-num">0</span>/16</strong></div>
+          <div class="score-meter"><div class="score-meter-fill" id="score-meter-fill"></div></div>
+        </div>
+
+        <p class="result-explain" id="result-explain"></p>
+
+        <div class="prereq-note" id="prereq-note" style="display:none;">
+          <div class="prereq-label">One prerequisite to clear first</div>
+          <div class="prereq-text" id="prereq-text"></div>
+        </div>
+
+        <div class="gap-callout" id="gap-callout">
+          <div class="gap-label">Your biggest gap to close first</div>
+          <div class="gap-text" id="gap-text"></div>
+        </div>
+
+        <div class="steps-label">Your next steps</div>
+        <div id="steps-list"></div>
+
+        <div class="result-cta-row" id="result-cta-row"></div>
+
+        <button type="button" class="retake" id="retake-btn">↻ Retake the assessment</button>
+      </div>
+
+      <!-- SOFT EMAIL OPT-IN (after the visible result) -->
+      <div class="optin-card">
+        <h3>Want this emailed to you?</h3>
+        <p>Get your assessment result plus a personalized action plan — the specific things to fix or build first for your readiness level — sent to your inbox. Optional, and I'll never spam you.</p>
+        <form class="optin-form" id="optin-form">
+          <input type="email" id="optin-email" name="email" placeholder="you@yourbusiness.com" required>
+          <input type="hidden" name="_subject" value="AI Readiness Assessment — action plan request">
+          <input type="hidden" name="readiness_tier" id="optin-tier-field" value="">
+          <input type="hidden" name="readiness_score" id="optin-score-field" value="">
+          <input type="hidden" name="source" value="ai-readiness-assessment-tool">
+          <button type="submit">Email my action plan</button>
+        </form>
+        <div class="optin-fine">No signup needed to see your result above — this is optional.</div>
+        <div class="optin-msg" id="optin-msg"></div>
+      </div>
+    </div>
+
+    <!-- HOW IT SCORES -->
+    <div style="margin: 3rem 0;">
+      <span class="section-label">How the score works</span>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-num">01 — Five factors</div>
+          <div class="how-title">Foundation, not hype</div>
+          <div class="how-desc">The 8 questions map to what actually predicts success: process consistency, your data, current tool use, ownership, goal clarity, task frequency, budget, and change track record.</div>
+        </div>
+        <div class="how-card">
+          <div class="how-num">02 — Instant tier</div>
+          <div class="how-title">Where you stand today</div>
+          <div class="how-desc">You land in one of three tiers — Not Yet Ready, Getting There, or Ready to Automate — with a plain-English explanation of what that means for you.</div>
+        </div>
+        <div class="how-card">
+          <div class="how-num">03 — Next steps</div>
+          <div class="how-title">What to do about it</div>
+          <div class="how-desc">Every result comes with 2–3 concrete next steps and your single biggest gap to close first — so you leave with a plan, not just a number.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <span class="section-label">Common questions</span>
+      <div class="faq-item">
+        <div class="faq-q">What is an AI readiness assessment?</div>
+        <div class="faq-a">It's a quick diagnostic that tells you whether your business is set up to get real value from AI automation — looking at practical factors like process consistency, your data, ownership, goal clarity, and budget, then giving you a score and specific next steps. This free version takes about two minutes and shows an instant on-page result.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need to know anything technical to take it?</div>
+        <div class="faq-a">No. Every question is written in plain English for business owners. You don't need to know what an API, an integration, or a large language model is — the questions are about how your business actually runs day to day.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is the result gated behind an email signup?</div>
+        <div class="faq-a">No. Your score, tier, and next steps appear instantly on the page — nothing is hidden behind a form. After you see your result, you can optionally have the assessment and a personalized action plan emailed to you.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens after I get my score?</div>
+        <div class="faq-a">You get a readiness tier with a short explanation and two to three concrete next steps. From there you can read the full <a href="blog/ai-readiness-assessment-small-business.html" style="color:var(--accent);">AI readiness guide</a>, estimate savings with the <a href="ai-automation-roi-calculator.html" style="color:var(--accent);">AI Automation ROI Calculator</a>, or book a call for a hands-on plan.</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h2>Want a plan tailored to your business?</h2>
+      <p>The quiz gives you a readiness signal. A conversation gives you a specific plan — which processes to tighten, what to automate first, and realistic timelines and costs for your stack.</p>
+      <a href="mailto:contact@richnashawaty.com?subject=AI Readiness — Let's Talk" class="btn-p">Book a Free Strategy Call</a>
+      <a href="ai-consulting.html" class="btn-s">Learn about AI consulting</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">Rich Nashawaty<span>.</span></a>
+      <ul class="footer-links">
+        <li><a href="ai-consulting.html">AI Consulting</a></li>
+        <li><a href="ai-automation-roi-calculator.html">ROI Calculator</a></li>
+        <li><a href="blog/ai-readiness-assessment-small-business.html">Readiness Guide</a></li>
+        <li><a href="blog/">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+      <span class="footer-copy">© 2026 Rich Nashawaty · Boston, MA</span>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger toggle — must run on load, after nav.js injects markup
+    window.addEventListener('load', function() {
+      var btn = document.getElementById('nav-hamburger');
+      var menu = document.getElementById('nav-mobile-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function() {
+        var open = menu.classList.toggle('open');
+        btn.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open);
+      });
+      menu.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          menu.classList.remove('open');
+          btn.classList.remove('open');
+          btn.setAttribute('aria-expanded', false);
+        });
+      });
+    });
+
+    (function() {
+      var TOTAL_Q = 8;
+      var MAX_SCORE = 16; // 8 questions x max 2 points
+      var quizStarted = false;
+      var blocks = Array.prototype.slice.call(document.querySelectorAll('.q-block'));
+
+      // --- option selection (radio behavior within each question) ---
+      blocks.forEach(function(block) {
+        block.querySelectorAll('.opt').forEach(function(opt) {
+          opt.addEventListener('click', function() {
+            block.querySelectorAll('.opt').forEach(function(o) { o.classList.remove('sel'); });
+            opt.classList.add('sel');
+            if (!quizStarted) {
+              quizStarted = true;
+              gtag('event', 'quiz_start', { quiz_name: 'ai_readiness_assessment' });
+            }
+            updateProgress();
+          });
+        });
+      });
+
+      function answeredCount() {
+        return blocks.filter(function(b) { return b.querySelector('.opt.sel'); }).length;
+      }
+
+      function updateProgress() {
+        var n = answeredCount();
+        document.getElementById('progress-count').textContent = n + ' of ' + TOTAL_Q + ' answered';
+        document.getElementById('progress-fill').style.width = (n / TOTAL_Q * 100) + '%';
+        var hint = document.getElementById('submit-hint');
+        if (n === TOTAL_Q) { hint.classList.remove('warn'); hint.textContent = 'All set — your result shows instantly, no email required.'; }
+      }
+
+      // --- tier definitions ---
+      // Thresholds on a 0–16 scale:
+      //   0–6   Not Yet Ready   (foundation stage)
+      //   7–12  Getting There   (one or two gaps)
+      //   13–16 Ready to Automate
+      // NOTE: a prerequisite guardrail (below) can cap a 13+ score at "Getting
+      // There" if Q4 (ownership), Q5 (goal clarity), or Q7 (budget) scored 0.
+      function tierFor(score) {
+        if (score <= 6) {
+          return {
+            key: 'not_yet_ready',
+            cls: 't-low',
+            name: 'Not Yet Ready',
+            explain: "You're at the foundation stage — and that's completely normal. Right now, AI would likely amplify inconsistency rather than remove it, because the underlying processes, data, or goals aren't quite settled yet. The good news: none of these gaps take long to close. Fix the foundation first and your first automation will actually stick. This isn't a “no” to AI — it's a “not yet, and here's exactly what to do first.”",
+            steps: [
+              "<strong>Pick one painful, repetitive task</strong> and write down every step exactly as it happens today. That single document is the foundation for everything else.",
+              "<strong>Get your data into one place.</strong> Even a basic, consistently-used CRM or shared sheet beats information scattered across inboxes and memory.",
+              "<strong>Read the full readiness guide</strong> to see which of the four foundations to tackle first for your situation."
+            ]
+          };
+        } else if (score <= 12) {
+          return {
+            key: 'getting_there',
+            cls: 't-mid',
+            name: 'Getting There',
+            explain: "You've got real momentum — the foundation is mostly there, with one or two specific gaps standing between you and a successful first automation. Businesses in this range don't need to overhaul anything; they need to close a targeted gap (usually process documentation, data cleanup, or naming a clear owner) and then start with a simple, high-frequency win. Address the gap below, pick your first workflow, and you're ready to move.",
+            steps: [
+              "<strong>Close your single biggest gap</strong> (shown above) before building anything — it's the thing most likely to stall a project.",
+              "<strong>Start with the highest-frequency, lowest-judgment task</strong> — usually lead follow-up or weekly reporting — for a fast, low-risk first win.",
+              "<strong>Run the numbers</strong> on the AI Automation ROI Calculator so you know the payback before you invest."
+            ]
+          };
+        }
+        return {
+          key: 'ready_to_automate',
+          cls: 't-high',
+          name: 'Ready to Automate',
+          explain: "You're in strong shape — consistent processes, data you can work with, a clear owner, and a specific goal. That combination is exactly what makes a first automation pay back fast, often within 30–90 days. The main risk at this stage isn't readiness; it's picking the wrong first project or over-scoping it. Start with one high-frequency workflow, prove the ROI, then compound from there.",
+          steps: [
+            "<strong>Commit to one first automation</strong> — for most businesses, automating lead follow-up or weekly reporting delivers the fastest, most visible return.",
+            "<strong>Estimate the payback</strong> on the AI Automation ROI Calculator so you can prioritize by dollars saved, not gut feel.",
+            "<strong>Book a call</strong> (or start with a full assessment) to turn this into a concrete build plan with timelines and costs."
+          ]
+        };
+      }
+
+      // Result CTAs vary by tier, but always include the guide + ROI calculator
+      function ctasFor(tier) {
+        var guide = '<a href="blog/ai-readiness-assessment-small-business.html" class="btn-s">Read the readiness guide</a>';
+        var roi = '<a href="ai-automation-roi-calculator.html" class="btn-s">Estimate your ROI</a>';
+        var consult = '<a href="ai-consulting.html" class="btn-s">AI consulting</a>';
+        var call = '<a href="mailto:contact@richnashawaty.com?subject=AI Readiness — Let\'s Talk" class="btn-p">Book a free strategy call</a>';
+        var fullAssess = '<a href="ai-readiness-assessment.html" class="btn-s">Full assessment ($497)</a>';
+        var fractional = '<a href="blog/do-you-need-fractional-ai-officer-small-business.html" class="btn-s">Do you need a fractional AI officer?</a>';
+        if (tier.key === 'not_yet_ready') {
+          return guide + consult + fractional;
+        } else if (tier.key === 'getting_there') {
+          return roi + guide + consult;
+        }
+        return call + roi + fullAssess;
+      }
+
+      // --- submit / scoring ---
+      document.getElementById('quiz').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var n = answeredCount();
+        if (n < TOTAL_Q) {
+          var hint = document.getElementById('submit-hint');
+          hint.classList.add('warn');
+          hint.textContent = 'Please answer all ' + TOTAL_Q + ' questions — ' + (TOTAL_Q - n) + ' left.';
+          var firstUnanswered = blocks.filter(function(b) { return !b.querySelector('.opt.sel'); })[0];
+          if (firstUnanswered) firstUnanswered.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+
+        var score = 0;
+        var lowest = { score: 3, area: '' };
+        var qScores = {};
+        blocks.forEach(function(b) {
+          var sel = b.querySelector('.opt.sel');
+          var s = parseInt(sel.getAttribute('data-score'), 10);
+          score += s;
+          qScores[b.getAttribute('data-q')] = s;
+          if (s < lowest.score) { lowest.score = s; lowest.area = b.getAttribute('data-area'); }
+        });
+
+        var tier = tierFor(score);
+
+        // Prerequisite guardrail: ownership (Q4), goal clarity (Q5), and budget
+        // (Q7) are non-negotiable prerequisites. A zero on any of them caps the
+        // result at "Getting There" — even a 13+ total shouldn't read as "ready"
+        // when a prerequisite is missing. Strong tooling scores don't override this.
+        var capNote = '';
+        if (tier.key === 'ready_to_automate') {
+          var prereqs = [
+            { q: '4', label: 'no clear owner to run the project' },
+            { q: '5', label: 'no specific use case defined yet' },
+            { q: '7', label: 'no budget set aside' }
+          ];
+          var failed = prereqs.filter(function(p) { return qScores[p.q] === 0; }).map(function(p) { return p.label; });
+          if (failed.length) {
+            tier = tierFor(12); // force "Getting There"
+            var joined = failed.length === 1 ? failed[0]
+              : failed.slice(0, -1).join(', ') + ' and ' + failed[failed.length - 1];
+            capNote = 'You scored well overall — but ' + joined + '. That’s a prerequisite before automating, not a nice-to-have, so this lands at “Getting There” until it’s in place. Shore it up first and you’re genuinely ready to move.';
+          }
+        }
+
+        // populate result
+        var tierEl = document.getElementById('result-tier');
+        tierEl.textContent = tier.name;
+        tierEl.className = 'result-tier ' + tier.cls;
+        document.getElementById('result-num').textContent = score;
+        document.getElementById('result-explain').textContent = tier.explain;
+
+        // prerequisite cap note (only shown when the guardrail downgraded the tier)
+        var prereqNote = document.getElementById('prereq-note');
+        if (capNote) {
+          document.getElementById('prereq-text').textContent = capNote;
+          prereqNote.style.display = 'block';
+        } else {
+          prereqNote.style.display = 'none';
+        }
+
+        var meter = document.getElementById('score-meter-fill');
+        meter.style.background = (tier.key === 'not_yet_ready') ? '#f5a623' : 'var(--accent)';
+
+        // biggest-gap callout (hide it if they aced everything)
+        var gap = document.getElementById('gap-callout');
+        if (lowest.score >= 2) {
+          gap.style.display = 'none';
+        } else {
+          gap.style.display = 'block';
+          document.getElementById('gap-text').textContent =
+            'Your lowest-scoring area is “' + lowest.area + '.” That’s the first thing to strengthen — it’s the factor most likely to hold back an automation project if you build before fixing it.';
+        }
+
+        var stepsHtml = tier.steps.map(function(s, i) {
+          return '<div class="step"><span class="step-num">' + (i + 1).toString().padStart(2, '0') + '</span><span class="step-text">' + s + '</span></div>';
+        }).join('');
+        document.getElementById('steps-list').innerHTML = stepsHtml;
+        document.getElementById('result-cta-row').innerHTML = ctasFor(tier);
+
+        // pass tier/score to the opt-in form
+        document.getElementById('optin-tier-field').value = tier.name;
+        document.getElementById('optin-score-field').value = score + '/' + MAX_SCORE;
+
+        // reveal + scroll
+        var rw = document.getElementById('result-wrap');
+        rw.classList.add('show');
+        document.getElementById('progress-wrap').style.display = 'none';
+        rw.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // GA4: quiz complete with resulting tier
+        gtag('event', 'quiz_complete', {
+          quiz_name: 'ai_readiness_assessment',
+          readiness_tier: tier.name,
+          readiness_score: score
+        });
+      });
+
+      // --- retake ---
+      document.getElementById('retake-btn').addEventListener('click', function() {
+        blocks.forEach(function(b) { b.querySelectorAll('.opt').forEach(function(o) { o.classList.remove('sel'); }); });
+        document.getElementById('result-wrap').classList.remove('show');
+        document.getElementById('progress-wrap').style.display = 'block';
+        var om = document.getElementById('optin-msg'); om.className = 'optin-msg'; om.textContent = '';
+        document.getElementById('optin-form').reset();
+        updateProgress();
+        document.getElementById('quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      // --- soft email opt-in (Formspree mrejawnb) ---
+      document.getElementById('optin-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = e.target;
+        var msg = document.getElementById('optin-msg');
+        var email = document.getElementById('optin-email').value.trim();
+        if (!email) return;
+
+        gtag('event', 'email_optin_submit', {
+          quiz_name: 'ai_readiness_assessment',
+          readiness_tier: document.getElementById('optin-tier-field').value
+        });
+
+        fetch('https://formspree.io/f/mrejawnb', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        }).then(function(res) {
+          if (res.ok) {
+            form.style.display = 'none';
+            msg.className = 'optin-msg ok show';
+            msg.textContent = '✓ Done — your action plan is on its way. Check your inbox shortly.';
+          } else {
+            msg.className = 'optin-msg err show';
+            msg.textContent = 'Something went wrong. Email contact@richnashawaty.com and I’ll send it over.';
+          }
+        }).catch(function() {
+          msg.className = 'optin-msg err show';
+          msg.textContent = 'Network hiccup. Email contact@richnashawaty.com and I’ll send it over.';
+        });
+      });
+
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>
