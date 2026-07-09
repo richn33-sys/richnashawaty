@@ -564,10 +564,11 @@
         var call = '<a href="mailto:contact@richnashawaty.com?subject=AI Readiness — Let\'s Talk" class="btn-p">Book a free strategy call</a>';
         var fullAssess = '<a href="ai-readiness-assessment.html" class="btn-s">Full assessment ($497)</a>';
         var fractional = '<a href="blog/do-you-need-fractional-ai-officer-small-business.html" class="btn-s">Do you need a fractional AI officer?</a>';
+        var hireGuide = '<a href="blog/when-to-hire-an-ai-consultant-small-business.html" class="btn-s">Hire an AI consultant, or DIY?</a>';
         if (tier.key === 'not_yet_ready') {
           return guide + consult + fractional;
         } else if (tier.key === 'getting_there') {
-          return roi + guide + consult;
+          return roi + guide + hireGuide;
         }
         return call + roi + fullAssess;
       }
