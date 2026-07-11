@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Google AI Overviews Actually Work (RAG Explained for Small Business Owners)</title>
+  <meta name="description" content="How do Google AI Overviews work? In plain English: a separate retrieval system scores individual passages of content, then the AI writes an answer and cites 3–8 sources. Here's why citation isn't the same as ranking — and what that means for your business.">
+  <meta name="author" content="Rich Nashawaty">
+  <link rel="canonical" href="https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How Google AI Overviews Actually Work (RAG Explained for Small Business Owners)">
+  <meta property="og:description" content="A plain-English explanation of the retrieval system behind Google's AI Overviews — and why a page ranking #15 can get cited when the #1 result gets skipped.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html">
+
+  <!-- Article schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Google AI Overviews Actually Work (RAG Explained for Small Business Owners)",
+    "description": "How do Google AI Overviews work? In plain English: a separate retrieval system scores individual passages of content, then the AI writes an answer and cites 3–8 sources. Here's why citation isn't the same as ranking.",
+    "author": {
+      "@type": "Person",
+      "name": "Rich Nashawaty",
+      "url": "https://richnashawaty.com/about.html",
+      "jobTitle": "SEO Consultant",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Boston",
+        "addressRegion": "MA"
+      }
+    },
+    "publisher": { "@type": "Person", "name": "Rich Nashawaty" },
+    "datePublished": "2026-07-11",
+    "dateModified": "2026-07-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html"
+    },
+    "hasPart": [
+      {
+        "@type": "WebPageElement",
+        "isPartOf": { "@id": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html" },
+        "name": "What an AI Overview actually is (and what RAG means)",
+        "url": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html#what-is-it"
+      },
+      {
+        "@type": "WebPageElement",
+        "isPartOf": { "@id": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html" },
+        "name": "How it actually works, step by step",
+        "url": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html#how-it-works"
+      },
+      {
+        "@type": "WebPageElement",
+        "isPartOf": { "@id": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html" },
+        "name": "The key insight: citation is not the same as ranking",
+        "url": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html#citation-not-ranking"
+      },
+      {
+        "@type": "WebPageElement",
+        "isPartOf": { "@id": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html" },
+        "name": "What actually helps a page get retrieved",
+        "url": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html#what-helps"
+      },
+      {
+        "@type": "WebPageElement",
+        "isPartOf": { "@id": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html" },
+        "name": "An honest caveat about what's confirmed and what isn't",
+        "url": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html#honest-caveat"
+      },
+      {
+        "@type": "WebPageElement",
+        "isPartOf": { "@id": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html" },
+        "name": "What this means for a small business owner",
+        "url": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html#what-it-means"
+      },
+      {
+        "@type": "WebPageElement",
+        "isPartOf": { "@id": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html" },
+        "name": "The bottom line",
+        "url": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html#bottom-line"
+      }
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://richnashawaty.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://richnashawaty.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "How Google AI Overviews Actually Work", "item": "https://richnashawaty.com/blog/how-google-ai-overviews-actually-work.html" }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is RAG in AI search?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "RAG stands for Retrieval-Augmented Generation. It means the AI system finds relevant content first, then uses that content to write its answer — rather than generating a response purely from memory. For Google AI Overviews, this is why answers cite real web pages: the system retrieves passages from actual sources and grounds its answer in them, instead of making things up."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do AI Overviews use my website content?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — if your content gets retrieved and cited. Google AI Overviews pull passages from live web pages, synthesize an answer, and link to 3–8 sources. If a section of your page is a clear, self-contained answer to the question being asked, it can be retrieved and cited, and your business name and link can appear directly inside the AI-generated answer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can a lower-ranking page get cited in an AI Overview?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Citation in an AI Overview is not the same as organic ranking. The retrieval system scores individual passages for how well they answer the specific question — not the page's overall ranking position. That means a page ranking #15 organically can be cited in the AI Overview while the #1 result is skipped, if the lower-ranked page contains a more directly relevant, self-contained answer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many sources does a Google AI Overview cite?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typically between 3 and 8 sources per answer. The system retrieves relevant passages from multiple pages and pulls the answer together from several of them, linking each contributing source. Because it draws from a handful of passages rather than one ranked list, more than one business can appear in the same AI Overview."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get my content into Google AI Overviews?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Structure your content so individual sections are self-contained answers to specific questions — roughly 200–400 words that make sense read on their own. Add structured data (FAQ schema, how-to schema) and answer real questions directly instead of burying the answer in long prose. You cannot trick the system, but content structured this way has a genuine shot at citation regardless of its traditional ranking position."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RDDSKTZ46"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6RDDSKTZ46');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #181816; --bg2: #201f1c; --bg3: #272521;
+      --text: #f4f1ea; --text2: #b8b4ac; --text3: #7a7672;
+      --accent: #c8f060; --accent2: #a8d040;
+      --adim: rgba(200,240,96,0.08); --adim2: rgba(200,240,96,0.14);
+      --border: rgba(255,255,255,0.10); --border-h: rgba(255,255,255,0.18);
+      --serif: 'Instrument Serif', serif;
+      --sans: 'DM Sans', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 64px; border-bottom: 1px solid var(--border); background: rgba(24,24,22,0.82); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .nav-logo { font-family: var(--serif); font-size: 1.15rem; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--accent); color: #181816 !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600 !important; font-size: 0.85rem !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--accent2) !important; }
+
+    /* HAMBURGER NAV */
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; z-index: 200; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text2); border-radius: 2px; transition: all 0.25s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(24,24,22,0.98); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; z-index: 99; flex-direction: column; gap: 0; }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a { color: var(--text2); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 0.85rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+    .nav-mobile-menu a:last-child { border-bottom: none; }
+    .nav-mobile-menu a:hover { color: var(--accent); }
+    .nav-mobile-menu .mobile-cta { color: var(--accent) !important; font-weight: 600; margin-top: 0.5rem; }
+    @media (max-width: 640px) {
+      .nav-hamburger { display: flex; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+    }
+
+    .blog-wrap { max-width: 720px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2.5rem; font-family: var(--mono); font-size: 0.78rem; color: var(--text3); flex-wrap: wrap; }
+    .breadcrumb a { color: var(--text3); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb-sep { color: var(--border-h); }
+
+    .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .meta-tag { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); background: var(--adim); border: 1px solid rgba(200,240,96,0.2); padding: 0.25rem 0.65rem; border-radius: 4px; }
+    .meta-date { font-family: var(--mono); font-size: 0.78rem; color: var(--text3); }
+    .meta-read { font-family: var(--mono); font-size: 0.78rem; color: var(--text3); }
+
+    h1.article-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.2; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1.25rem; }
+    .article-intro { font-size: 1.1rem; line-height: 1.75; color: var(--text2); border-left: 3px solid var(--accent); padding-left: 1.25rem; margin-bottom: 2.5rem; }
+
+    .author-strip { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 3rem; }
+    .author-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--adim2); border: 2px solid rgba(200,240,96,0.3); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.1rem; color: var(--accent); flex-shrink: 0; }
+    .author-info { display: flex; flex-direction: column; gap: 0.1rem; }
+    .author-name { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+    .author-bio { font-family: var(--mono); font-size: 0.72rem; color: var(--text3); }
+
+    .toc { background: var(--bg2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 1.5rem 1.75rem; margin-bottom: 3rem; }
+    .toc-label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .toc ol { padding-left: 1.25rem; list-style: decimal; color: var(--text2); }
+    .toc ol li { margin-bottom: 0.5rem; font-size: 0.92rem; line-height: 1.5; }
+    .toc ol li a { color: var(--text2); text-decoration: none; transition: color 0.2s; }
+    .toc ol li a:hover { color: var(--accent); }
+
+    .article-body h2 { font-family: var(--serif); font-size: 1.65rem; line-height: 1.3; color: var(--text); margin: 2.75rem 0 0.9rem; letter-spacing: -0.01em; }
+    .article-body h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 600; color: var(--text); margin: 2rem 0 0.65rem; }
+    .article-body p { color: var(--text2); margin-bottom: 1.35rem; line-height: 1.8; }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body a { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(200,240,96,0.3); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+    .article-body a:hover { text-decoration-color: var(--accent); }
+    .article-body ul { padding-left: 1.5rem; margin-bottom: 1.35rem; color: var(--text2); list-style: none; }
+    .article-body ul li { position: relative; padding-left: 1.25rem; margin-bottom: 0.6rem; line-height: 1.75; }
+    .article-body ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.85rem; }
+
+    .callout { background: var(--bg2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+    .callout-label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .callout p { margin-bottom: 0 !important; font-size: 0.95rem; }
+
+    .keybox { background: linear-gradient(180deg, rgba(200,240,96,0.06), rgba(200,240,96,0.02)); border: 1px solid rgba(200,240,96,0.28); border-radius: 12px; padding: 1.75rem 1.85rem; margin: 2.25rem 0; }
+    .keybox-label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.85rem; }
+    .keybox p { margin-bottom: 1rem !important; }
+    .keybox p:last-child { margin-bottom: 0 !important; }
+    .keybox .keybox-headline { font-family: var(--serif); font-size: 1.35rem; line-height: 1.35; color: var(--text); }
+
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; margin: 1.5rem 0 2rem; }
+    .compare-col { background: var(--bg2); padding: 1.5rem; }
+    .compare-col-label { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+    .compare-col ul { list-style: none; padding: 0; margin: 0; }
+    .compare-col ul li { font-size: 0.9rem; color: var(--text2); padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.5; }
+    .compare-col ul li:last-child { border-bottom: none; }
+    .compare-col ul li::before { content: none; }
+
+    .action-grid { display: flex; flex-direction: column; gap: 0.75rem; margin: 1.5rem 0 2rem; }
+    .action-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 1.25rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; }
+    .action-num { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); flex-shrink: 0; margin-top: 2px; min-width: 24px; }
+    .action-content { flex: 1; }
+    .action-title { font-weight: 600; color: var(--text); font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .action-desc { font-size: 0.88rem; color: var(--text2); line-height: 1.6; }
+    .action-note { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); margin-top: 0.4rem; opacity: 0.8; }
+
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+
+    .article-cta { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem; margin-top: 3.5rem; text-align: center; }
+    .article-cta h3 { font-family: var(--serif); font-size: 1.6rem; color: var(--text); margin-bottom: 0.75rem; }
+    .article-cta p { color: var(--text2); max-width: 440px; margin: 0 auto 1.75rem; }
+    .btn-primary { display: inline-block; background: var(--accent); color: #181816; font-weight: 600; font-size: 0.92rem; padding: 0.75rem 1.75rem; border-radius: 7px; text-decoration: none; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--accent2); }
+
+    footer { border-top: 1px solid var(--border); padding: 2.5rem 2rem; }
+    .footer-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: var(--serif); font-size: 1rem; color: var(--text2); text-decoration: none; }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.82rem; color: var(--text3); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text2); }
+    .footer-copy { font-size: 0.78rem; color: var(--text3); font-family: var(--mono); }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .blog-wrap { padding: 2.5rem 1.25rem 5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .compare-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-root"></div><script src="../nav.js"></script>
+
+  <main class="blog-wrap">
+
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="../blog/">Blog</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>How Google AI Overviews Actually Work</span>
+    </div>
+
+    <div class="article-meta">
+      <span class="meta-tag">SEO</span>
+      <span class="meta-date">July 11, 2026</span>
+      <span class="meta-read">9 min read</span>
+    </div>
+
+    <h1 class="article-title">How Google AI Overviews Actually Work (RAG Explained for Small Business Owners)</h1>
+
+    <p class="article-intro">You've seen the box. You Google a question and, above the usual list of blue links, there's a paragraph of AI-written answer with a few sources linked beside it. That box has a name — an AI Overview — and there's a specific, understandable mechanism behind it. Once you know how it works, one surprising fact falls out: getting cited in that box is not the same thing as ranking #1. Here's the whole system in plain English.</p>
+
+    <div class="author-strip">
+      <div class="author-avatar">R</div>
+      <div class="author-info">
+        <span class="author-name">Rich Nashawaty</span>
+        <span class="author-bio">SEO Consultant · 20 years experience · Greater Boston, MA</span>
+      </div>
+    </div>
+
+    <article class="article-body">
+
+      <div class="toc">
+        <div class="toc-label">Table of Contents</div>
+        <ol>
+          <li><a href="#what-is-it">What an AI Overview actually is (and what RAG means)</a></li>
+          <li><a href="#how-it-works">How it actually works, step by step</a></li>
+          <li><a href="#citation-not-ranking">The key insight: citation is not the same as ranking</a></li>
+          <li><a href="#what-helps">What actually helps a page get retrieved</a></li>
+          <li><a href="#honest-caveat">An honest caveat about what's confirmed and what isn't</a></li>
+          <li><a href="#what-it-means">What this means for a small business owner</a></li>
+          <li><a href="#bottom-line">The bottom line</a></li>
+        </ol>
+      </div>
+
+      <!-- Visual: the RAG pipeline behind an AI Overview -->
+      <figure style="margin:0 0 2.5rem;display:block;" aria-label="The four-step pipeline behind a Google AI Overview">
+        <svg viewBox="0 0 680 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;" role="img" aria-label="How an AI Overview is built: query, then passage retrieval, then synthesis, then citation of 3 to 8 sources">
+          <title>The RAG pipeline behind a Google AI Overview</title>
+          <rect width="680" height="210" rx="12" fill="#201f1c"/>
+
+          <!-- Step 1: Query -->
+          <g transform="translate(16,54)">
+            <rect x="0" y="0" width="140" height="100" rx="8" fill="#272521" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
+            <text x="70" y="26" text-anchor="middle" font-family="'DM Mono',monospace" font-size="10" fill="#7a7672">STEP 1</text>
+            <text x="70" y="52" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" fill="#f4f1ea" font-weight="600">Your question</text>
+            <text x="70" y="74" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9" fill="#b8b4ac">"how do AI</text>
+            <text x="70" y="86" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9" fill="#b8b4ac">overviews work?"</text>
+          </g>
+          <text x="164" y="108" text-anchor="middle" font-family="'DM Mono',monospace" font-size="16" fill="#c8f060" opacity="0.6">→</text>
+
+          <!-- Step 2: Retrieval -->
+          <g transform="translate(178,54)">
+            <rect x="0" y="0" width="150" height="100" rx="8" fill="#272521" stroke="rgba(200,240,96,0.35)" stroke-width="1"/>
+            <rect x="0" y="0" width="150" height="3" rx="2" fill="#c8f060"/>
+            <text x="75" y="26" text-anchor="middle" font-family="'DM Mono',monospace" font-size="10" fill="#c8f060">STEP 2 · RETRIEVAL</text>
+            <text x="75" y="50" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11.5" fill="#f4f1ea" font-weight="600">Scores individual</text>
+            <text x="75" y="65" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11.5" fill="#f4f1ea" font-weight="600">passages</text>
+            <text x="75" y="85" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9" fill="#7a7672">not whole pages ·</text>
+            <text x="75" y="96" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9" fill="#7a7672">separate from ranking</text>
+          </g>
+          <text x="336" y="108" text-anchor="middle" font-family="'DM Mono',monospace" font-size="16" fill="#c8f060" opacity="0.6">→</text>
+
+          <!-- Step 3: Synthesis -->
+          <g transform="translate(350,54)">
+            <rect x="0" y="0" width="150" height="100" rx="8" fill="#272521" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
+            <text x="75" y="26" text-anchor="middle" font-family="'DM Mono',monospace" font-size="10" fill="#7a7672">STEP 3 · SYNTHESIS</text>
+            <text x="75" y="52" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11.5" fill="#f4f1ea" font-weight="600">AI writes the</text>
+            <text x="75" y="67" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11.5" fill="#f4f1ea" font-weight="600">answer</text>
+            <text x="75" y="87" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9" fill="#7a7672">from what it retrieved</text>
+          </g>
+          <text x="508" y="108" text-anchor="middle" font-family="'DM Mono',monospace" font-size="16" fill="#c8f060" opacity="0.6">→</text>
+
+          <!-- Step 4: Citation -->
+          <g transform="translate(522,54)">
+            <rect x="0" y="0" width="142" height="100" rx="8" fill="#272521" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
+            <text x="71" y="26" text-anchor="middle" font-family="'DM Mono',monospace" font-size="10" fill="#7a7672">STEP 4 · CITE</text>
+            <text x="71" y="52" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11.5" fill="#f4f1ea" font-weight="600">3–8 sources</text>
+            <text x="71" y="67" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11.5" fill="#f4f1ea" font-weight="600">get linked</text>
+            <text x="71" y="87" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9" fill="#7a7672">your page could be one</text>
+          </g>
+
+          <text x="340" y="28" text-anchor="middle" font-family="'DM Mono',monospace" font-size="11" fill="#c8f060" letter-spacing="0.08em">RETRIEVAL-AUGMENTED GENERATION (RAG)</text>
+          <text x="340" y="190" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#7a7672">The answer is built from real retrieved sources — not generated from memory alone</text>
+        </svg>
+        <figcaption style="font-family:'DM Mono',monospace;font-size:0.72rem;color:#7a7672;text-align:center;margin-top:0.6rem;">Find relevant passages first, then write the answer from them — that's RAG, and it's what an AI Overview runs on</figcaption>
+      </figure>
+
+      <h2 id="what-is-it">What an AI Overview actually is (and what RAG means)</h2>
+
+      <p>Let's start with the box itself. An <strong>AI Overview</strong> is the AI-generated answer that Google now shows at the top of many search results — above the traditional list of blue links. Instead of just handing you ten pages to click through, Google writes a short summary answer to your question and shows a few source links next to it. That's it. That's the AI Overview.</p>
+
+      <p>Now, the natural worry when you hear "AI-generated answer" is: <em>is it just making this up?</em> This is where the mechanism matters, and where one piece of jargon is worth learning — because it's genuinely reassuring once you understand it.</p>
+
+      <p>The system runs on something called <strong>RAG</strong>, which stands for <strong>Retrieval-Augmented Generation</strong>. Here's the whole idea in one sentence: <strong>the system finds relevant content first, then uses that content to write its answer.</strong> It's not pulling the answer out of the model's memory and hoping it's right — it's going out, retrieving real passages from real web pages, and grounding its answer in what it found. That's why you see sources cited next to the answer at all: those are (mostly) the actual pages the answer was built from.</p>
+
+      <p>So when you read "RAG" anywhere in the context of AI search, mentally translate it to: <em>look things up first, then answer from what you found.</em> That's the entire concept, and it's the foundation for everything else on this page.</p>
+
+      <h2 id="how-it-works">How it actually works, step by step</h2>
+
+      <p>Here's the sequence, start to finish, with no acronyms hiding anything:</p>
+
+      <h3>1. You ask a question</h3>
+      <p>You type a query into Google — say, "how do I file quarterly taxes as a freelancer in Massachusetts." Nothing unusual yet; this is the same box you've always used.</p>
+
+      <h3>2. A separate retrieval system goes looking for passages</h3>
+      <p>This is the step most people miss, and it's the important one. A <strong>separate passage-retrieval system</strong> scores individual <em>chunks</em> of content — a few paragraphs here, a section there — for how well each one answers your specific question. It is not scoring whole pages. It is not re-using the organic ranking order you'd see in the blue links. It's a distinct scoring pass looking at pieces of content and asking, "which of these actually answers what was asked?"</p>
+
+      <h3>3. The AI synthesizes an answer from what it retrieved</h3>
+      <p>Once the system has a handful of strong passages, the AI writes the answer using them. It's stitching together and rephrasing what it retrieved into one clean summary — not composing freely from memory. The retrieved passages are the raw material; the AI is the editor.</p>
+
+      <h3>4. Three to eight sources get cited</h3>
+      <p>Finally, the Overview links the sources those passages came from — typically <strong>between 3 and 8</strong> of them. Because the answer is assembled from several passages rather than one top-ranked page, more than one business can appear in the same box. That's a meaningfully different game than the old "one winner at position #1" model.</p>
+
+      <div class="callout">
+        <div class="callout-label">The one thing to hold onto</div>
+        <p>There are two different scoring systems in play. The one that decides your blue-link ranking is <em>not</em> the same one that decides which passages get pulled into the AI Overview. Two systems, two scores. Almost everything surprising about AI Overviews comes from that single fact.</p>
+      </div>
+
+      <h2 id="citation-not-ranking">The key insight: citation is not the same as ranking</h2>
+
+      <p>This is the part worth the price of admission, so I'll say it plainly:</p>
+
+      <div class="keybox">
+        <div class="keybox-label">The insight most people miss</div>
+        <p class="keybox-headline">A page ranking #15 in the normal results can get cited in the AI Overview while the #1 result gets skipped entirely.</p>
+        <p>That's not a glitch. It's a direct consequence of how the system is built. Because the AI Overview runs a <strong>separate scoring pass on individual passages</strong> — not on the page as a whole, and not on its organic ranking position — a page that isn't winning the traditional ranking race can still contain the single best, most directly relevant passage for a specific question. When it does, that passage gets retrieved and cited, regardless of where the page sits in the blue links.</p>
+      </div>
+
+      <p>Think about what that means. In the old model, if you weren't on page one, you were invisible — full stop. The top few results took essentially all the attention, and everyone below fought over scraps. The AI Overview doesn't work that way. It's evaluating passages, and it's happy to pull the best passage from a page ranking tenth, fifteenth, or lower if that passage answers the question better than what the top-ranked pages offer.</p>
+
+      <p>For a smaller business that can't out-muscle established competitors on domain authority and backlinks, this is genuinely good news. You may not be able to win the #1 organic spot for a competitive query any time soon. But you <em>can</em> write a section of a page that answers one specific question more clearly and directly than anyone else — and that section has a real, independent shot at citation.</p>
+
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="compare-col-label">Organic ranking (blue links)</div>
+          <ul>
+            <li>Scores the whole page</li>
+            <li>Heavily weights domain authority &amp; links</li>
+            <li>One ordered list, top spots win</li>
+            <li>Below page one ≈ invisible</li>
+            <li>Rewards overall site strength</li>
+          </ul>
+        </div>
+        <div class="compare-col">
+          <div class="compare-col-label">AI Overview citation</div>
+          <ul>
+            <li>Scores individual passages</li>
+            <li>Weights how well a chunk answers the question</li>
+            <li>Pulls from 3–8 sources at once</li>
+            <li>A #15 page's passage can still be cited</li>
+            <li>Rewards the clearest specific answer</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>Same web page can behave completely differently in each column. That's the whole point.</p>
+
+      <h2 id="what-helps">What actually helps a page get retrieved</h2>
+
+      <p>If retrieval is about passages that cleanly answer specific questions, then the way you help a page get cited is by giving the system exactly that: clean, self-contained, extractable answers. Here's what that looks like in practice, grounded in what's actually confirmed about how these systems behave.</p>
+
+      <div class="action-grid">
+        <div class="action-item">
+          <span class="action-num">01</span>
+          <div class="action-content">
+            <div class="action-title">Write self-contained answer blocks</div>
+            <div class="action-desc">Structure your pages so each section — roughly 200 to 400 words — makes complete sense read on its own, without the rest of the page around it. That's the size and shape of a "passage" the retrieval system is looking for. A reader (or a machine) should be able to lift that block out and have it still answer the question.</div>
+            <div class="action-note">→ The single most useful structural habit</div>
+          </div>
+        </div>
+        <div class="action-item">
+          <span class="action-num">02</span>
+          <div class="action-content">
+            <div class="action-title">Answer specific questions directly</div>
+            <div class="action-desc">Lead with the answer, not five paragraphs of throat-clearing. Long, meandering prose that buries the point is hard to retrieve — there's no clean chunk to pull. A page that states "Yes, Massachusetts freelancers earning over $400 owe quarterly estimated taxes" up front beats one that circles the topic for 800 words before getting there.</div>
+            <div class="action-note">→ Direct beats comprehensive for citation</div>
+          </div>
+        </div>
+        <div class="action-item">
+          <span class="action-num">03</span>
+          <div class="action-content">
+            <div class="action-title">Add structured data</div>
+            <div class="action-desc">FAQ schema, how-to schema, and clear entity markup label your content so its structure is unambiguous — this is a question, this is its answer. It won't fabricate quality you don't have, but on a page that genuinely answers real questions, it makes the answers easier to identify and extract.</div>
+            <div class="action-note">→ Marks up the answers you've already written</div>
+          </div>
+        </div>
+        <div class="action-item">
+          <span class="action-num">04</span>
+          <div class="action-content">
+            <div class="action-title">Use real questions as your headings</div>
+            <div class="action-desc">The queries people actually type make excellent section headings, because they map directly onto what the retrieval system is scoring passages against. A heading that matches the question, followed immediately by a clean answer, is close to the ideal retrievable unit.</div>
+            <div class="action-note">→ Aligns your structure with real queries</div>
+          </div>
+        </div>
+      </div>
+
+      <p>None of this is exotic. If you've read the companion piece on <a href="what-is-geo-generative-engine-optimization-boston.html">what GEO (Generative Engine Optimization) is</a>, you'll notice the overlap — and that's expected. This post is the "how does the underlying tech work" explanation; that one is the "what's the discipline called and how do you practice it" explanation. It's also the same structural discipline behind a well-built <a href="google-business-profile-optimization-checklist-boston.html">Google Business Profile and FAQ-schema page</a>: clear questions, direct answers, marked up cleanly.</p>
+
+      <h2 id="honest-caveat">An honest caveat about what's confirmed and what isn't</h2>
+
+      <p>I want to be careful here, because this topic attracts a lot of confident-sounding nonsense, and I'd rather you trust me on the parts that are solid than oversell you on the parts that aren't.</p>
+
+      <p><strong>What's well-confirmed:</strong> The core mechanism — retrieval-augmented generation, a separate passage-retrieval pass, synthesis from retrieved sources, and citation of a handful of them — is documented and consistent across multiple technical sources. The fact that citation operates separately from organic ranking is a reliable, load-bearing conclusion. You can build on it.</p>
+
+      <p><strong>What's not officially confirmed:</strong> The <em>exact</em> scoring mechanics of the retrieval step — precisely how a passage is scored, weighted, and selected — are still being reverse-engineered by the SEO industry through observation and testing. Google has not published the internal details. So anyone telling you they know the exact formula, or selling you a "guaranteed AI Overview citation" method, is overstating what's actually known.</p>
+
+      <div class="callout">
+        <div class="callout-label">How to hold this</div>
+        <p>Be confident about the mechanism: retrieval is separate from ranking, passages get scored individually, clean self-contained answers get retrieved. Be appropriately humble about the precise scoring details: those are inferred, not published. Anyone who erases that distinction is selling certainty they don't have.</p>
+      </div>
+
+      <h2 id="what-it-means">What this means for a small business owner</h2>
+
+      <p>Here's the practical translation, and it's genuinely encouraging.</p>
+
+      <p>You cannot trick this system. There's no keyword-stuffing hack, no secret file to upload, no format trick that games your way into an AI Overview. The retrieval step is looking for content that actually, clearly answers a question — and there's no shortcut to being that.</p>
+
+      <p>But — and this is the part that matters — <strong>you don't need to trick it.</strong> Because citation is decoupled from ranking, structuring your content the way I described above gives you a real, legitimate shot at being cited <em>regardless of your traditional ranking position.</em> You don't have to beat a national competitor's twenty-year-old domain to get your answer into the box. You have to write the clearest, most direct, self-contained answer to a specific question your customers are actually asking. That's a fight a focused small business can win.</p>
+
+      <p>That is the entire premise of GEO as a discipline: not gaming a black box, but structuring genuinely useful content so that a retrieval system can find it, extract it, and cite it. The mechanism rewards clarity and directness — two things a small, expert business is usually better positioned to deliver than a bloated content mill is.</p>
+
+      <div class="callout">
+        <div class="callout-label">The reframe</div>
+        <p>Stop asking "how do I rank #1?" and start asking "for which specific questions can I write the single clearest answer on the internet?" The second question is winnable, and it's the one the AI Overview is actually scoring.</p>
+      </div>
+
+      <h2 id="bottom-line">The bottom line</h2>
+
+      <p>Google AI Overviews run on retrieval-augmented generation: a separate system retrieves individual passages that answer your question, the AI synthesizes an answer from them, and 3 to 8 sources get cited. The most important consequence is that <strong>citation is not the same as ranking</strong> — a page well outside the top results can still be cited if it holds the best passage for a specific question.</p>
+
+      <p>That separation is exactly why structuring your content into clear, self-contained, directly-answering sections is worth the effort. It's not a trick; it's giving the retrieval system what it's built to find. And it's the mechanism underneath the <a href="../seo-ai-visibility.html">AI Search Visibility / GEO service</a> — the work of structuring your content so it can be found and cited inside AI answers, not just ranked in blue links.</p>
+
+      <p>If you want the companion view — what this discipline is called, what's genuinely new about it, and what's just hype — read <a href="what-is-geo-generative-engine-optimization-boston.html">What Is GEO (Generative Engine Optimization)?</a>. This post explained how the underlying technology works; that one explains the practice built on top of it. Together they're the full picture.</p>
+
+    </article>
+
+    <div class="article-cta">
+      <h3>Want your content structured to get cited?</h3>
+      <p>That's what the AI Search Visibility service is for — structuring your pages so the retrieval behind AI Overviews can find and cite them. Book a free 30-minute call and I'll show you where you stand.</p>
+      <a href="mailto:contact@richnashawaty.com" class="btn-primary">Book a Free Strategy Call</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="../index.html" class="footer-logo">Rich Nashawaty<span>.</span></a>
+      <ul class="footer-links">
+        <li><a href="../seo-web.html">SEO &amp; Web</a></li>
+        <li><a href="../ai-consulting.html">AI Consulting</a></li>
+        <li><a href="../custom-tools.html">Custom Tools</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../privacy.html">Privacy</a></li>
+        <li><a href="../terms.html">Terms</a></li>
+      </ul>
+      <span class="footer-copy">© 2026 Rich Nashawaty · Boston, MA</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('load', function() {
+      var btn = document.getElementById('nav-hamburger');
+      var menu = document.getElementById('nav-mobile-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function() {
+        var open = menu.classList.toggle('open');
+        btn.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open);
+      });
+      menu.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          menu.classList.remove('open');
+          btn.classList.remove('open');
+          btn.setAttribute('aria-expanded', false);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
