@@ -18,7 +18,7 @@
     return loc.indexOf(href) !== -1;
   }
 
-  document.write('<style>nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;border-bottom:1px solid var(--border);background:rgba(24,24,22,0.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.nav-logo{font-family:var(--serif);font-size:1.15rem;color:var(--text);text-decoration:none;letter-spacing:-0.01em}.nav-logo span{color:var(--accent)}.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}.nav-links a{color:var(--text2);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--text)}.nav-cta{background:var(--accent);color:#181816!important;padding:.45rem 1.1rem;border-radius:6px;font-weight:600!important;font-size:.85rem!important;transition:background .2s!important}.nav-cta:hover{background:var(--accent2)!important}.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;z-index:200}.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text2);border-radius:2px;transition:all .25s}.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.nav-hamburger.open span:nth-child(2){opacity:0}.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.nav-mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(24,24,22,.98);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:0}.nav-mobile-menu.open{display:flex}.nav-mobile-menu a{color:var(--text2);text-decoration:none;font-size:1rem;font-weight:500;padding:.85rem 0;border-bottom:1px solid var(--border);transition:color .2s}.nav-mobile-menu a:last-child{border-bottom:none}.nav-mobile-menu a:hover{color:var(--accent)}.nav-mobile-menu .mobile-cta{color:var(--accent)!important;font-weight:600;margin-top:.5rem}@media(max-width:640px){.nav-hamburger{display:flex}.nav-links{display:none}.nav-cta{display:none}}</style>');
+  document.write('<style>nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;border-bottom:1px solid var(--border);background:rgba(24,24,22,0.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.nav-logo{font-family:var(--serif);font-size:1.15rem;color:var(--text);text-decoration:none;letter-spacing:-0.01em}.nav-logo span{color:var(--accent)}.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}.nav-links a{color:var(--text2);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--text)}.nav-cta{text-decoration:none;background:var(--accent);color:#181816!important;padding:.45rem 1.1rem;border-radius:6px;font-weight:600!important;font-size:.85rem!important;transition:background .2s!important}.nav-cta:hover{background:var(--accent2)!important}.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;z-index:200}.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text2);border-radius:2px;transition:all .25s}.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.nav-hamburger.open span:nth-child(2){opacity:0}.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.nav-mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(24,24,22,.98);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:0}.nav-mobile-menu.open{display:flex}.nav-mobile-menu a{color:var(--text2);text-decoration:none;font-size:1rem;font-weight:500;padding:.85rem 0;border-bottom:1px solid var(--border);transition:color .2s}.nav-mobile-menu a:last-child{border-bottom:none}.nav-mobile-menu a:hover{color:var(--accent)}.nav-mobile-menu .mobile-cta{text-decoration:none;color:var(--accent)!important;font-weight:600;margin-top:.5rem}@media(max-width:640px){.nav-hamburger{display:flex}.nav-links{display:none}.nav-cta{display:none}}</style>');
 
   var desktopItems = links.map(function (l) {
     var active = isActive(l.href) ? ' style="color:var(--accent);"' : '';
@@ -58,11 +58,16 @@
     var btn = document.getElementById('nav-hamburger');
     var menu = document.getElementById('nav-mobile-menu');
     if (!btn || !menu) return;
-    btn.addEventListener('click', function() {
+    // Capture-phase listener on document: toggles once, then stops the event
+    // before it reaches the button, so legacy per-page hamburger scripts
+    // (load listener / IIFE on ~40 pages) can't toggle a second time.
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest || !e.target.closest('#nav-hamburger')) return;
+      e.stopPropagation();
       var open = menu.classList.toggle('open');
       btn.classList.toggle('open', open);
       btn.setAttribute('aria-expanded', String(open));
-    });
+    }, true);
     menu.querySelectorAll('a').forEach(function(a) {
       a.addEventListener('click', function() {
         menu.classList.remove('open');
