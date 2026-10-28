@@ -30,7 +30,7 @@
   }).join('');
 
   var logoHref = isBlog ? '../' : '/';
-  var ctaHref = 'mailto:contact@richnashawaty.com';
+  var ctaHref = base + 'contact.html';
 
   var navHTML =
     '<nav>' +
